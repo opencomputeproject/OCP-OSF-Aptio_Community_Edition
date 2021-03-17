@@ -1,0 +1,84 @@
+### @file
+#
+# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SystemBoardPei
+  FILE_GUID                      = C0989520-2F0D-470a-9BE4-2969E0EC5641
+  MODULE_TYPE                    = PEIM
+  ENTRY_POINT                    = SystemBoardPeiEntry
+
+[Sources]
+  SystemBoardPei.c
+  SystemBoardCommon.c
+
+[Packages]
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  LewisburgPkg/PchRcPkg.dec
+  PurleyOpenBoardPkg/PlatPkg.dec
+  PurleySktPkg/SocketPkg.dec
+  PurleyRcPkg/RcPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  PeiServicesLib
+  PeimEntryPoint
+  DebugLib
+  HobLib
+  IoLib
+  PciLib
+  PcdLib
+  PeiServicesTablePointerLib
+  PciExpressLib
+  PchInfoLib
+  GpioLib
+  TimerLib
+  PchCycleDecodingLib
+  PchSbiAccessLib
+  PchInfoLib
+  PchP2sbLib
+  PchPcrLib
+  MmPciLib
+  PcdLib
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+  gOemSkuTokenSpaceGuid.PcdIioBifurcationTable
+  gOemSkuTokenSpaceGuid.PcdIioBifurcationTableEntries
+  gOemSkuTokenSpaceGuid.PcdIioSlotTable
+  gOemSkuTokenSpaceGuid.PcdIioSlotTableEntries
+  gOemSkuTokenSpaceGuid.PcdOemSkuUplinkPortIndex
+
+  gOemSkuTokenSpaceGuid.PcdSetupData
+  gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketCommonRcConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketMpLinkConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketMemoryConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketPowerManagementConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketProcessorCoreConfigData
+
+
+[Ppis]
+  gEfiPeiSystemBoardPpiGuid         ## PRODUCES
+  gEfiPeiSmbus2PpiGuid
+  gPchPlatformPolicyPpiGuid
+  
+[Depex]
+  gEfiPeiPcdPpiGuid AND
+  gEfiPeiReadOnlyVariable2PpiGuid
+

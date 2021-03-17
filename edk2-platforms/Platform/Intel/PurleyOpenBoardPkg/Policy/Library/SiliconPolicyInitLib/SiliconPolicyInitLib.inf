@@ -1,0 +1,47 @@
+### @file
+#
+# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION          = 0x00010005
+  BASE_NAME            = SiliconPolicyInitLib
+  FILE_GUID            = B494DF39-A5F8-48A1-B2D0-EF523AD91C55
+  MODULE_TYPE          = PEIM
+  VERSION_STRING       = 1.0
+  LIBRARY_CLASS        = SiliconPolicyInitLib
+
+[Sources]
+  SiliconPolicyInitLib.c
+
+################################################################################
+#
+# Package Dependency Section - list of Package files that are required for
+#                              this module.
+#
+################################################################################
+[Packages]
+  MdePkg/MdePkg.dec
+  LewisburgPkg/PchRcPkg.dec
+  PurleySktPkg/SocketPkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  BaseLib
+  DebugLib
+  DebugPrintErrorLevelLib
+  HobLib
+  IoLib
+  MemoryAllocationLib
+  PeiServicesLib
+  PchPolicyLib
+

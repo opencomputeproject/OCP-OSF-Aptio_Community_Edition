@@ -1,0 +1,48 @@
+## @file
+# DXE instance of TestPoint Library.
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php.
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DxeTestPointLib
+  FILE_GUID                      = 9FDFABCE-7931-462F-8EDF-8C43AD58169C
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = TestPointLib
+
+[Sources]
+  DxeTestPointAip.c
+  DxeTestPoint.c
+  DxeTestPoint.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  DebugLib
+  UefiBootServicesTableLib
+
+[Guids]
+## SOMETIMES_PRODUCES ## GUID
+## SOMETIMES_CONSUMES ## GUID
+  gAdapterInfoPlatformTestPointGuid
+
+[Protocols]
+## SOMETIMES_PRODUCES
+## SOMETIMES_CONSUMES
+  gEfiAdapterInformationProtocolGuid
+

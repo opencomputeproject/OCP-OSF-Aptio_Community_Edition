@@ -1,0 +1,32 @@
+## @file
+# Component Description File for OcWdt Support.
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+
+[Defines]
+INF_VERSION = 0x00010017
+BASE_NAME = PeiOcWdtLib
+FILE_GUID = DB65B36B-E276-4A2b-AB20-61764889E483
+VERSION_STRING = 1.0
+MODULE_TYPE = PEIM
+LIBRARY_CLASS = OcWdtLib
+
+
+[Packages]
+MdePkg/MdePkg.dec
+KabylakeSiliconPkg/SiPkg.dec
+
+
+[Sources]
+PeiOcWdtLibNull.c

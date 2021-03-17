@@ -1,0 +1,44 @@
+## @file
+# Component description file for SA Platform Lib
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+
+[Defines]
+INF_VERSION = 0x00010017
+BASE_NAME = PeiDxeSmmSaPlatformLib
+FILE_GUID = 9DB5ACB4-DB23-43AE-A283-2ABEF365CBE0
+VERSION_STRING = 1.0
+MODULE_TYPE = BASE
+LIBRARY_CLASS = SaPlatformLib
+
+
+[LibraryClasses]
+BaseLib
+BaseMemoryLib
+DebugLib
+IoLib
+
+
+[Packages]
+MdePkg/MdePkg.dec
+KabylakeSiliconPkg/SiPkg.dec
+
+
+[Pcd]
+gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+
+
+[Sources]
+SaPlatformLibrary.h
+SaPlatformLibrary.c

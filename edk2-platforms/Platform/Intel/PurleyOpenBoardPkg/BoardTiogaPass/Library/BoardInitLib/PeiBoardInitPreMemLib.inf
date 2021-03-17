@@ -1,0 +1,95 @@
+### @file
+#
+# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+#***********************************************************************
+#*                                                                     *
+#*   Copyright (c) 1985 - 2021, American Megatrends International LLC. *
+#*                                                                     *
+#*      All rights reserved.                                           *
+#*                                                                     *
+#*      This program and the accompanying materials are licensed and   *
+#*      made available under the terms and conditions of the BSD       *
+#*      License that accompanies this distribution.  The full text of  *
+#*      the license may be found at:                                   *
+#*      http://opensource.org/licenses/bsd-license.php.                *
+#*                                                                     *
+#*      THIS PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN        *
+#*      "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF        *
+#*      ANY KIND, EITHER EXPRESS OR IMPLIED.                           *
+#*                                                                     *
+#***********************************************************************
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PeiBoardInitPreMemLib
+  FILE_GUID                      = 73AA24AE-FB20-43F9-A3BA-448953A03A78
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BoardInitLib
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  PcdLib
+  GpioLib
+
+[Packages]
+  MinPlatformPkg/MinPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  PurleyRcPkg/RcPkg.dec
+  PurleySktPkg/SocketPkg.dec
+  LewisburgPkg/PchRcPkg.dec
+  PurleyOpenBoardPkg/PlatPkg.dec
+
+[Sources]
+  PeiTiogaPassDetect.c
+  PeiTiogaPassInitPreMemLib.c
+  PeiBoardInitPreMemLib.c
+  GpioTable.c
+  UsbOC.c
+  IioBifur.c
+  AllLanesEparam.c
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+  gEfiCpRcPkgTokenSpaceGuid.PcdMaxCpuSocketCount
+  gMinPlatformPkgTokenSpaceGuid.PcdPcIoApicEnable
+  gOemSkuTokenSpaceGuid.PcdMemTsegSize
+  gOemSkuTokenSpaceGuid.PcdMemIedSize
+
+  gOemSkuTokenSpaceGuid.PcdSetupData
+  gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketCommonRcConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketMpLinkConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketMemoryConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketPowerManagementConfigData
+  gOemSkuTokenSpaceGuid.PcdSocketProcessorCoreConfigData
+
+  gOemSkuTokenSpaceGuid.PcdUsb20OverCurrentMappings
+  gOemSkuTokenSpaceGuid.PcdUsb30OverCurrentMappings
+  gOemSkuTokenSpaceGuid.PcdIioBifurcationTable
+  gOemSkuTokenSpaceGuid.PcdIioBifurcationTableEntries
+  gOemSkuTokenSpaceGuid.PcdIioSlotTable
+  gOemSkuTokenSpaceGuid.PcdIioSlotTableEntries
+  gOemSkuTokenSpaceGuid.PcdAllLanesEparamTable
+  gOemSkuTokenSpaceGuid.PcdAllLanesEparamTableSize
+
+[FixedPcd]
+  gEfiPchTokenSpaceGuid.PcdPchAcpiIoPortBaseAddress
+  gEfiPchTokenSpaceGuid.PcdTcoBaseAddress
+

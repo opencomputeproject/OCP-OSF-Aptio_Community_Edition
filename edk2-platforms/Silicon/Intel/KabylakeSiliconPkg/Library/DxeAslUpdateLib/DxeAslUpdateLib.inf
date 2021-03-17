@@ -1,0 +1,47 @@
+## @file
+# Provides services to update ASL tables.
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+
+[Defines]
+INF_VERSION = 0x00010017
+BASE_NAME = DxeAslUpdateLib
+FILE_GUID = 8621697D-4E3A-4bf2-ADB0-3E2FF06559CA
+VERSION_STRING = 1.0
+MODULE_TYPE = BASE
+LIBRARY_CLASS = AslUpdateLib
+
+
+[LibraryClasses]
+BaseLib
+IoLib
+DebugLib
+PcdLib
+BaseMemoryLib
+UefiLib
+MemoryAllocationLib
+
+
+[Packages]
+MdePkg/MdePkg.dec
+KabylakeSiliconPkg/SiPkg.dec
+
+
+[Sources]
+DxeAslUpdateLib.c
+
+
+[Protocols]
+gEfiAcpiTableProtocolGuid ## CONSUMES
+gEfiAcpiSdtProtocolGuid ## CONSUMES

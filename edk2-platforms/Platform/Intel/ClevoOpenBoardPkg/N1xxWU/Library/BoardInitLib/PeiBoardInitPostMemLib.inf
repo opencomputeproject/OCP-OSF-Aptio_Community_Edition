@@ -1,0 +1,59 @@
+## @file
+# Component information file for N1xxWUInitLib in PEI post memory phase.
+#
+# Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PeiBoardPostMemInitLib
+  FILE_GUID                      = 7fcc3900-d38d-419f-826b-72481e8b5509
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BoardInitLib
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  GpioExpanderLib
+  PcdLib
+  SiliconInitLib
+
+[Packages]
+  MinPlatformPkg/MinPlatformPkg.dec
+  ClevoOpenBoardPkg/OpenBoardPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  KabylakeSiliconPkg/SiPkg.dec
+
+[Sources]
+  PeiN1xxWUInitPostMemLib.c
+  N1xxWUGpioTable.c
+  N1xxWUHdaVerbTables.c
+  PeiBoardInitPostMemLib.c
+
+[FixedPcd]
+
+[Pcd]
+  gBoardModuleTokenSpaceGuid.PcdBoardGpioTable
+  gBoardModuleTokenSpaceGuid.PcdBoardGpioTableSize
+  gBoardModuleTokenSpaceGuid.PcdBoardGpioTableTouchPanel
+
+  gBoardModuleTokenSpaceGuid.PcdGpioExpanderTable
+  gBoardModuleTokenSpaceGuid.PcdGpioExpanderTableSize
+
+  gBoardModuleTokenSpaceGuid.PcdHdaVerbTable
+
+  gBoardModuleTokenSpaceGuid.PcdBoardUcmcGpioTable
+  gBoardModuleTokenSpaceGuid.PcdBoardUcmcGpioTableSize

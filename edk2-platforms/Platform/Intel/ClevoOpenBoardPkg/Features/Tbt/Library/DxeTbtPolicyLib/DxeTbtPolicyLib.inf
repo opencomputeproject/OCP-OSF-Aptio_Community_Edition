@@ -1,0 +1,73 @@
+## @file
+# Component description file for Tbt functionality
+#
+# Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+
+[Defines]
+INF_VERSION = 0x00010017
+BASE_NAME = DxeTbtPolicyLib
+FILE_GUID = 28ABF346-4E52-4BD3-b1FF-63BA7563C9D4
+VERSION_STRING = 1.0
+MODULE_TYPE = BASE
+LIBRARY_CLASS = DxeTbtPolicyLib
+
+
+[LibraryClasses]
+BaseMemoryLib
+UefiRuntimeServicesTableLib
+UefiBootServicesTableLib
+DebugLib
+PostCodeLib
+HobLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+  ClevoOpenBoardPkg/OpenBoardPkg.dec
+  KabylakeSiliconPkg/SiPkg.dec
+
+[Pcd]
+gBoardModuleTokenSpaceGuid.PcdDTbtSecurityMode       ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtGpio5Filter        ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtWakeupSupport      ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtHotSMI             ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtHotNotify          ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtSetClkReq          ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtAspm               ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtAcDcSwitch         ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdRtd3Tbt                ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdRtd3TbtClkReq          ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtWin10Support       ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdRtd3TbtClkReqDelay     ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdRtd3TbtOffDelay        ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPcieExtraBusRsvd   ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPcieMemRsvd        ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPcieMemAddrRngMax  ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPciePMemRsvd       ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPciePMemAddrRngMax ## CONSUMES
+gBoardModuleTokenSpaceGuid.PcdDTbtPcieRpNumber       ## CONSUMES
+
+
+[Sources]
+DxeTbtPolicyLib.c
+
+
+[Guids]
+gEfiEndOfDxeEventGroupGuid
+#gSetupVariableGuid
+gTbtInfoHobGuid
+
+[Protocols]
+gDxeTbtPolicyProtocolGuid

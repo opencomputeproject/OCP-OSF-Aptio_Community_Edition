@@ -1,0 +1,65 @@
+### @file
+# Component description file for Acpi Debug module.
+#
+# Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AcpiDebugSmm
+  FILE_GUID                      = 9069C144-0A7E-41ef-9C07-418BCA9BF939
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  ENTRY_POINT                    = InitializeAcpiDebugSmm
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF
+#
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  PcdLib
+  DxeServicesLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AdvancedFeaturePkg/AdvancedFeaturePkg.dec
+
+[Pcd]
+  gAdvancedFeaturePkgTokenSpaceGuid.PcdAcpiDebugEnable      ## CONSUMES
+  gAdvancedFeaturePkgTokenSpaceGuid.PcdAcpiDebugBufferSize  ## CONSUMES
+  gAdvancedFeaturePkgTokenSpaceGuid.PcdAcpiDebugAddress     ## PRODUCES
+
+[Sources]
+  AcpiDebug.c
+  AcpiDebug.asl
+
+[Protocols]
+  gEfiAcpiTableProtocolGuid         ## CONSUMES
+  gEfiSmmBase2ProtocolGuid          ## CONSUMES
+  gEfiSmmSwDispatch2ProtocolGuid    ## CONSUMES
+  gEfiSmmEndOfDxeProtocolGuid       ## NOTIFY
+
+[Guids]
+  gEfiEndOfDxeEventGroupGuid        ## CONSUMES ## Event # only for DXE version
+
+[Depex]
+  gEfiAcpiTableProtocolGuid AND
+  gEfiSmmBase2ProtocolGuid AND
+  gEfiSmmSwDispatch2ProtocolGuid

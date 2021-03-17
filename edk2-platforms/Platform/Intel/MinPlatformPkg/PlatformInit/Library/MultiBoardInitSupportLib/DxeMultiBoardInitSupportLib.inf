@@ -1,0 +1,42 @@
+## @file
+# Component information file for Board Init Library
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DxeMultiBoardInitSupportLib
+  FILE_GUID                      = 4790240A-F86D-4E91-BA4C-7E24B9AC393B
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MultiBoardInitSupportLib
+  LIBRARY_CLASS                  = BoardInitLib
+
+[LibraryClasses]
+  BaseLib
+  PcdLib
+  DebugLib
+  UefiBootServicesTableLib
+
+[Packages]
+  MinPlatformPkg/MinPlatformPkg.dec
+  MdePkg/MdePkg.dec
+
+[Sources]
+  DxeMultiBoardInitSupportLib.c
+  DxeBoardInitLib.c
+
+[Guids]
+  gBoardNotificationInitGuid
+
+[Pcd]

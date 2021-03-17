@@ -1,0 +1,52 @@
+### @file
+# Module Information file for the PlatformInit DXE driver.
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = PlatformInitSmm
+  FILE_GUID                      = EE447DFD-7B3A-4F39-80FC-ED02BB20F6A0
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  PI_SPECIFICATION_VERSION       = 1.10
+  ENTRY_POINT                    = PlatformInitSmmEntryPoint
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DxeServicesTableLib
+  MemoryAllocationLib
+  PcdLib
+  SmmServicesTableLib
+  UefiDriverEntryPoint
+  BoardInitLib
+  TestPointCheckLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+
+[Sources]
+  PlatformInitSmm.c
+
+[Protocols]
+  gEfiSmmReadyToLockProtocolGuid
+  gEfiSmmEndOfDxeProtocolGuid
+  gEdkiiSmmReadyToBootProtocolGuid
+  gEdkiiSmmExitBootServicesProtocolGuid
+
+[Depex]
+  TRUE

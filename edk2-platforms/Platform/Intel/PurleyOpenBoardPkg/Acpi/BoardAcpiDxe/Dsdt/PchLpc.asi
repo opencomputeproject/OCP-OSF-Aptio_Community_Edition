@@ -1,0 +1,28 @@
+/** @file
+
+Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+This program and the accompanying materials are licensed and made available under
+the terms and conditions of the BSD License that accompanies this distribution.
+The full text of the license may be found at
+http://opensource.org/licenses/bsd-license.php.
+
+THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+
+**/
+
+//
+// Define bits in LPC bridge config space
+//  (\_SB.PCI0.LPC0)
+//
+OperationRegion (LPCB, PCI_Config, 0x00, 0x100)
+Field (LPCB, DWordAcc, NoLock, Preserve)
+{
+	Offset (0xAC),
+	, 16,
+	XSMB, 1					// set when OS routes USB ports to xHCI in SmartAuto mode so next POST will know
+}
+
+#include "IrqLink.asl"       // PCI routing control methods
+#include "Mother.asi"        // Static motherboard device resource declaration
+

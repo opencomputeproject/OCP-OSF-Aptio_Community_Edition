@@ -1,0 +1,61 @@
+### @file
+#
+# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+################################################################################
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PeiDxeSmmMmPciLib
+  FILE_GUID                      = AA112999-A913-4F96-A9C4-28BFA0BD83EE
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MmPciLib
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+[Sources]
+  MmPciBaseLib.c
+
+################################################################################
+#
+# Package Dependency Section - list of Package files that are required for
+#                              this module.
+#
+################################################################################
+
+  [Packages]
+  MdePkg/MdePkg.dec
+  PurleyRcPkg/RcPkg.dec
+
+################################################################################
+#
+# Library Class Section - list of Library Classes that are required for
+#                         this module.
+#
+################################################################################
+
+[LibraryClasses]
+  BaseLib
+  IoLib
+  DebugLib
+  SiliconAccessLib
+
+[Guids]
+  gEfiCpRcPkgTokenSpaceGuid
+
+[Pcd]
+  gEfiCpRcPkgTokenSpaceGuid.PcdSingleSegFixMmcfg
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress

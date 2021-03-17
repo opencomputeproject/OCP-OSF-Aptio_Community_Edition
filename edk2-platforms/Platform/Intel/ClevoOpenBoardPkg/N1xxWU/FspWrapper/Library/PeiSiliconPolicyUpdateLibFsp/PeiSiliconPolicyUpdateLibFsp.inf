@@ -1,0 +1,149 @@
+## @file
+#  FSP wrapper silicon policy update library.
+#
+# Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+################################################################################
+#
+# Defines Section - statements that will be processed to create a Makefile.
+#
+################################################################################
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SiliconPolicyUpdateLibFsp
+  FILE_GUID                      = 4E83003B-49A9-459E-AAA6-1CA3C6D04FB2
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SiliconPolicyUpdateLib
+
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+
+################################################################################
+#
+# Sources Section - list of files that are required for the build to succeed.
+#
+################################################################################
+
+[Sources]
+  PeiFspPolicyUpdateLib.c
+  PeiPchPolicyUpdatePreMem.c
+  PeiPchPolicyUpdate.c
+  PeiSaPolicyUpdatePreMem.c
+  PeiSaPolicyUpdate.c
+  PeiFspMiscUpdUpdateLib.c
+  PcieDeviceTable.c
+
+################################################################################
+#
+# Package Dependency Section - list of Package files that are required for
+#                              this module.
+#
+################################################################################
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  IntelFsp2Pkg/IntelFsp2Pkg.dec
+  IntelFsp2WrapperPkg/IntelFsp2WrapperPkg.dec
+  IntelSiliconPkg/IntelSiliconPkg.dec
+  KabylakeSiliconPkg/SiPkg.dec
+  KabylakeFspBinPkg/KabylakeFspBinPkg.dec
+  ClevoOpenBoardPkg/OpenBoardPkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+
+[LibraryClasses.IA32]
+  FspWrapperApiLib
+  OcWdtLib
+  PchResetLib
+  FspWrapperPlatformLib
+  BaseMemoryLib
+  CpuPlatformLib
+  DebugLib
+  HobLib
+  IoLib
+  PcdLib
+  PostCodeLib
+  SmbusLib
+  MmPciLib
+  ConfigBlockLib
+  PeiSaPolicyLib
+  PchGbeLib
+  PchInfoLib
+  PchHsioLib
+  PchPcieRpLib
+  MemoryAllocationLib
+  CpuMailboxLib
+  DebugPrintErrorLevelLib
+  SiPolicyLib
+  PchGbeLib
+  TimerLib
+  GpioLib
+  PeiLib
+
+[Pcd]
+  gBoardModuleTokenSpaceGuid.PcdMrcRcompResistor       ## CONSUMES
+  gBoardModuleTokenSpaceGuid.PcdMrcRcompTarget         ## CONSUMES
+  gBoardModuleTokenSpaceGuid.PcdMrcDqByteMap           ## CONSUMES
+  gBoardModuleTokenSpaceGuid.PcdMrcDqsMapCpu2Dram      ## CONSUMES
+  gBoardModuleTokenSpaceGuid.PcdMrcSpdData
+  gBoardModuleTokenSpaceGuid.PcdMrcSpdDataSize
+
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress      ## CONSUMES
+  gSiPkgTokenSpaceGuid.PcdSerialIoUartDebugEnable        ## CONSUMES
+  gSiPkgTokenSpaceGuid.PcdSerialIoUartNumber             ## CONSUMES
+  gSiPkgTokenSpaceGuid.PcdSmmbaseSwSmi                   ## CONSUMES
+  gBoardModuleTokenSpaceGuid.PcdSaDdrFreqLimit           ## CONSUMES
+
+  gBoardModuleTokenSpaceGuid.PcdUnknowLpHsioPtssTable1
+  gBoardModuleTokenSpaceGuid.PcdUnknowLpHsioPtssTable2
+  gBoardModuleTokenSpaceGuid.PcdUnknowLpHsioPtssTable1Size
+  gBoardModuleTokenSpaceGuid.PcdUnknowLpHsioPtssTable2Size
+  gBoardModuleTokenSpaceGuid.PcdSpecificLpHsioPtssTable1
+  gBoardModuleTokenSpaceGuid.PcdSpecificLpHsioPtssTable2
+  gBoardModuleTokenSpaceGuid.PcdSpecificLpHsioPtssTable1Size
+  gBoardModuleTokenSpaceGuid.PcdSpecificLpHsioPtssTable2Size
+
+  gBoardModuleTokenSpaceGuid.PcdUnknowHHsioPtssTable1
+  gBoardModuleTokenSpaceGuid.PcdUnknowHHsioPtssTable2
+  gBoardModuleTokenSpaceGuid.PcdUnknowHHsioPtssTable1Size
+  gBoardModuleTokenSpaceGuid.PcdUnknowHHsioPtssTable2Size
+  gBoardModuleTokenSpaceGuid.PcdSpecificHHsioPtssTable1
+  gBoardModuleTokenSpaceGuid.PcdSpecificHHsioPtssTable2
+  gBoardModuleTokenSpaceGuid.PcdSpecificHHsioPtssTable1Size
+  gBoardModuleTokenSpaceGuid.PcdSpecificHHsioPtssTable2Size
+
+  gBoardModuleTokenSpaceGuid.PcdHdaVerbTable
+  gBoardModuleTokenSpaceGuid.PcdHdaVerbTable2
+  gBoardModuleTokenSpaceGuid.PcdExtHdaVerbTable
+  gBoardModuleTokenSpaceGuid.PcdCommonHdaVerbTable1
+  gBoardModuleTokenSpaceGuid.PcdCommonHdaVerbTable2
+  gBoardModuleTokenSpaceGuid.PcdCommonHdaVerbTable3
+  gBoardModuleTokenSpaceGuid.PcdDisplayAudioHdaVerbTable
+
+  gBoardModuleTokenSpaceGuid.PcdAudioConnector
+
+  gBoardModuleTokenSpaceGuid.PcdGraphicsVbtGuid
+
+[Guids]
+  gFspNonVolatileStorageHobGuid                 ## CONSUMES
+  gTianoLogoGuid                                ## CONSUMES
+  gEfiMemoryOverwriteControlDataGuid
+
+[Depex]
+  gEdkiiVTdInfoPpiGuid
+

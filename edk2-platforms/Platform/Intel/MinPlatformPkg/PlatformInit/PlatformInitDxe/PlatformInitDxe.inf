@@ -1,0 +1,55 @@
+### @file
+# Module Information file for the PlatformInit DXE driver.
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = PlatformInitDxe
+  FILE_GUID                      = CA84408A-0929-4F11-BFED-18C7D9576C6B
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_DRIVER
+  ENTRY_POINT                    = PlatformInitDxeEntryPoint
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DxeServicesTableLib
+  MemoryAllocationLib
+  PcdLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+  UefiRuntimeServicesTableLib
+  BoardInitLib
+  TestPointCheckLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[Sources]
+  PlatformInitDxe.c
+
+[Protocols]
+  gEfiPciEnumerationCompleteProtocolGuid
+  gEfiDxeSmmReadyToLockProtocolGuid
+
+[Guids]
+  gEfiEventExitBootServicesGuid
+  gEfiEndOfDxeEventGroupGuid
+
+[Depex]
+  TRUE

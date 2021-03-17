@@ -1,0 +1,80 @@
+## @file
+#  Component description file for Pch Initialization driver for FSP package
+#
+# Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+##
+
+
+[Defines]
+INF_VERSION          = 0x00010005
+BASE_NAME            = PchInitDxe
+FILE_GUID            = 5AA5031E-4CB6-43D4-B219-FE50FF5D116C
+MODULE_TYPE          = PEIM
+VERSION_STRING       = 1.0
+ENTRY_POINT          = PchInitEntryPointFsp
+
+
+[LibraryClasses]
+PeimEntryPoint
+PchCycleDecodingLib
+PchPcieRpLib
+PchP2sbLib
+PchPcrLib
+PchInfoLib
+PchEspiLib
+PchPciExpressHelpersLib
+DebugLib
+IoLib
+TimerLib
+HobLib
+BaseMemoryLib
+MemoryAllocationLib
+CpuPlatformLib
+GpioLib
+PchSerialIoLib
+PchInitCommonLib
+S3BootScriptLib  # NULL library
+ConfigBlockLib
+PchPsfLib
+PchPsfPrivateLib
+
+[Packages]
+MdePkg/MdePkg.dec
+KabylakeSiliconPkg/SiPkg.dec
+KabylakeSiliconPkg/KabylakeSiliconPrivate.dec
+
+
+[Pcd]
+gSiPkgTokenSpaceGuid.PcdEfiGcdAllocateType
+
+
+[Sources]
+PchInitFsp.c
+PchInit.h
+PchInit.c
+PchSata.c
+PchSerialIo.c
+
+
+[Protocols]
+gEfiPciEnumerationCompleteProtocolGuid ## CONSUMES
+
+
+[Guids]
+gEfiEventReadyToBootGuid
+gSiConfigHobGuid                 ## CONSUMES
+gPchConfigHobGuid                ## CONSUMES
+
+
+[Depex]
+  gEfiPeiMemoryDiscoveredPpiGuid
+
