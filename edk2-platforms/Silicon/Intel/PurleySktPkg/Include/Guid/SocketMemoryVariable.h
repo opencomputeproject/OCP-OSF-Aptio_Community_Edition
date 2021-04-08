@@ -43,7 +43,7 @@ typedef struct {
     UINT8                   SddcPlusOneEn;
     UINT16                  spareErrTh;
     UINT8                   DieSparing;
-    UINT8                   DieSparingAggressivenessLevel;
+    UINT8                   Reserved1;
     UINT8                   ADDDCEn;
     UINT8                   AdddcErrInjEn;
     UINT8                   leakyBktLo;
@@ -56,11 +56,11 @@ typedef struct {
     UINT16                  MemTestLoops;
     UINT8                   EccSupport;
     UINT8                   SocketInterleaveBelow4GB;
-    UINT8                   RtoDimmManagement;
-    UINT8                   RtoPartitionDDRTDimm;
-    UINT8                   RtoPartitionRatio[16];    //[MAX_SOCKET * MAX_IMC] = [8]
+    UINT8                   Reserved2;
+    UINT8                   Reserved3;
+    UINT8                   Reserved4[16];
     UINT8                   volMemMode;
-    UINT8                   RtoPerMemMode;
+    UINT8                   Reserved5;
     UINT8                   memInterleaveGran1LM;
     UINT8                   RtoMemInterleaveGranPMemUMA;
     UINT8                   RtoCfgMask2LM;
@@ -68,7 +68,7 @@ typedef struct {
     UINT8                   ChannelInterleaving;
     UINT8                   RankInterleaving;
     UINT8                   CkeProgramming;
-    UINT8                   SrefProgramming;
+    UINT8                   Reserved6;
     UINT8                   PkgcSrefEn;
     UINT8                   CkeIdleTimer;
     UINT8                   ApdEn;
@@ -172,26 +172,26 @@ typedef struct {
     UINT8                   oneRankTimingMode;
     UINT8                   eyeDiagram;
 
-    UINT8                   EnableBiosSsaLoader;
-    UINT8                   EnableBiosSsaRMT;
-    UINT8                   EnableBiosSsaRMTonFCB;
-    UINT8                   BiosSsaPerBitMargining;
-    UINT8                   BiosSsaDisplayTables;
-    UINT8                   BiosSsaPerDisplayPlots;
-    UINT8                   BiosSsaLoopCount;
-    UINT8                   BiosSsaBacksideMargining;
-    UINT8                   BiosSsaEarlyReadIdMargining;
-    UINT8                   BiosSsaStepSizeOverride;
-    UINT8                   BiosSsaRxDqs;
-    UINT8                   BiosSsaRxVref;
-    UINT8                   BiosSsaTxDq;
-    UINT8                   BiosSsaTxVref;
-    UINT8                   BiosSsaCmdAll;
-    UINT8                   BiosSsaCmdVref;
-    UINT8                   BiosSsaCtlAll;
-    UINT8                   BiosSsaEridDelay;
-    UINT8                   BiosSsaEridVref;
-    UINT8                   BiosSsaDebugMessages;
+    UINT8                   Reserved9;
+    UINT8                   Reserved10;
+    UINT8                   Reserved11;
+    UINT8                   Reserved12;
+    UINT8                   Reserved13;
+    UINT8                   Reserved14;
+    UINT8                   Reserved15;
+    UINT8                   Reserved16;
+    UINT8                   Reserved17;
+    UINT8                   Reserved18;
+    UINT8                   Reserved19;
+    UINT8                   Reserved20;
+    UINT8                   Reserved21;
+    UINT8                   Reserved22;
+    UINT8                   Reserved23;
+    UINT8                   Reserved24;
+    UINT8                   Reserved25;
+    UINT8                   Reserved26;
+    UINT8                   Reserved27;
+    UINT8                   Reserved28;
     UINT8                   DramRaplInit;
     UINT8                   BwLimitTfOvrd;
     UINT8                   perbitmargin;
@@ -220,17 +220,17 @@ typedef struct {
     UINT32                  memFlowsExt;
     UINT8                   Blockgnt2cmd1cyc;
     UINT8                   Disddrtopprd;
-    UINT8                   setTDPDIMMPower;
+    UINT8                   Reserved8;
     UINT8                   setSecureEraseAllDIMMs;
-    UINT8                   setSecureEraseSktCh[48];
-    UINT8                   SetSecureEraseSktChHob[48];
+    UINT8                   setSecureEraseSktCh[MAX_AEP_DIMM_SETUP];
+    UINT8                   SetSecureEraseSktChHob[MAX_AEP_DIMM_SETUP];
     //
     // PPR related
     //
     UINT8                   pprType;
     UINT8                   pprErrInjTest;
     // CR QoS Configuration Profiles
-    UINT8                   crQosConfig;
+    UINT8                   FastGoConfig;
     UINT8                   Reserved_11;
     UINT8                   Reserved_12;
     UINT8                   Reserved_13;
@@ -262,9 +262,9 @@ typedef struct {
     UINT8                   EliminateDirectoryInFarMemory;
     UINT8                   NvmdimmPowerCyclePolicy;
     UINT8                   ShortStroke2GB;
-    UINT8                   DfxPublishDimmCtrlRegSpa;
-    UINT8                   DfxSkuBasedNfitCreation;
-    UINT8                   DfxNfitExtendedLogs;
+    UINT8                   Reserved29;
+    UINT8                   Reserved30;
+    UINT8                   Reserved31;
     UINT8                   NvmQos;
     UINT8                   ExtendedType17;
     UINT8                   Force1ChWayFM;
@@ -294,15 +294,15 @@ typedef struct {
     UINT8                   sck7ch3;
     UINT8                   sck7ch4;
     UINT8                   sck7ch5;
-    UINT8                   dfxClxA0StarveThreshold;
+    UINT8                   Reserved32;
     UINT8                   EadrSupport;
-    UINT8                   DfxCrAcpiDebugInterface;
+    UINT8                   Reserved33;
     UINT8                   FactoryResetClear;
     UINT8                   LsxImplementation;
     UINT32                  NvdimmSmbusMaxAccessTime;
     UINT32                  NvdimmSmbusReleaseDelay;
-    UINT8                   DfxCrSkipArsOnBoot;
-    UINT8                   DfxCrBackgroundArs;
+    UINT8                   Reserved34;
+    UINT8                   Reserved35;
     UINT8                   TrfcPerfEnable;
     UINT8                   PanicWm;
     UINT32                  AdvMemTestOptions;

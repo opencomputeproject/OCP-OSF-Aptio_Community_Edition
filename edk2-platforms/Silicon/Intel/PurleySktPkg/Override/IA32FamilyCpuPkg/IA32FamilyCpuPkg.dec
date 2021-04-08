@@ -398,24 +398,30 @@
   # @Prompt SMM Code Access Check.
   gEfiCpuTokenSpaceGuid.PcdCpuSmmCodeAccessCheckEnable|TRUE|BOOLEAN|0x60000013
 
-#[PcdsFixedAtBuild, PcdsPatchableInModule, PcdsDynamic, PcdsDynamicEx]
 [PcdsDynamicEx]
   ## Specifies timeout value in microseconds for the BSP to detect all APs for the first time.
   # @Prompt Timeout for the BSP to detect all APs for the first time.
   gEfiCpuTokenSpaceGuid.PcdCpuApInitTimeOutInMicroSeconds|50000|UINT32|0x30000001
-  ## Specifies stack size in bytes for each AP.
-  # @Prompt AP stack size.
-  #gEfiCpuTokenSpaceGuid.PcdCpuApStackSize|0x8000|UINT32|0x30000003
   ## Specifies user's desired settings for enabling/disabling processor features, each bit corresponding to a specific feature.
   # @Prompt User settings for enabling/disabling processor features.
   gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureUserConfiguration|0|UINT32|0x40000001
   ## Specifies desired settings for enabling/disabling processor features, each bit corresponding to a specific feature.
   # @Prompt User extension1 settings for enabling/disabling processor features.
   gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureUserConfigurationEx1|0|UINT32|0x40000006
+  ## Specifies the Energy efficiency policy when Energy Performance Bias feature is enabled.
+  #   0  - indicates preference to highest performance.
+  #   15 - indicates preference to maximize energy saving.
+  # @Prompt The Energy efficiency policy.
+  # @ValidRange  0x80000001 | 0 - 15
   gEfiCpuTokenSpaceGuid.PcdCpuEnergyPolicy|0x0|UINT8|0x60008000
+  ## Specifies the 16-bit IO port base address of the LVL_2 register visible to software.
+  # @Prompt LVL_2 register IO port base address.
   gEfiCpuTokenSpaceGuid.PcdCpuAcpiLvl2Addr|0x0|UINT16|0x60008001
+  ## Specifies the package C-State limit.
+  # @Prompt The package C-State limit.
+  # @ValidRange  0x80000001 | 0 - 7
   gEfiCpuTokenSpaceGuid.PcdCpuPackageCStateLimit|0x0|UINT8|0x60008002
-    ## Specifies the On-demand clock modulation duty cycle when T-State feature is enabled.
+  ## Specifies the On-demand clock modulation duty cycle when T-State feature is enabled.
   # @Prompt The encoded values for target duty cycle modulation.
   # @ValidRange  0x80000001 | 0 - 15
   gEfiCpuTokenSpaceGuid.PcdCpuClockModulationDutyCycle|0x0|UINT8|0x60008003
@@ -470,35 +476,7 @@
   #  Note that there is a minimum size requirement for a processor.
   # @Prompt IEDRAM size.
   gEfiCpuTokenSpaceGuid.PcdCpuIEDRamSize|0x20000|UINT32|0x6000000C
-  ## Specifies the Energy efficiency policy when Energy Performance Bias feature is enabled.
-  #   0  - indicates preference to highest performance.
-  #   15 - indicates preference to maximize energy saving.
-  # @Prompt The Energy efficiency policy.
-  # @ValidRange  0x80000001 | 0 - 15
-  #gEfiCpuTokenSpaceGuid.PcdCpuEnergyPolicy|0x0|UINT8|0x60008000
-  ## Specifies the 16-bit IO port base address of the LVL_2 register visible to software.
-  # @Prompt LVL_2 register IO port base address.
-  #gEfiCpuTokenSpaceGuid.PcdCpuAcpiLvl2Addr|0x0|UINT16|0x60008001
-  ## Specifies the package C-State limit.
-  # @Prompt The package C-State limit.
-  # @ValidRange  0x80000001 | 0 - 7
-  #gEfiCpuTokenSpaceGuid.PcdCpuPackageCStateLimit|0x0|UINT8|0x60008002
 
-  ## Specifies the On-demand clock modulation duty cycle when T-State feature is enabled.
-  # @Prompt The encoded values for target duty cycle modulation.
-  # @ValidRange  0x80000001 | 0 - 15
-  #gEfiCpuTokenSpaceGuid.PcdCpuClockModulationDutyCycle|0x0|UINT8|0x60008003
-  ## Indicates if HW Coordination is enabled when EIST feature is enabled.<BR><BR>
-  #   TRUE  - HW Coordination will be enabled.<BR>
-  #   FALSE - HW Coordination will be disabled.<BR>
-  # @Prompt Enable HW Coordination.
-  #gEfiCpuTokenSpaceGuid.PcdCpuHwCoordination|FALSE|BOOLEAN|0x60008004
-  ## Selects the DCU (Data Cache Unit) mode.<BR><BR>
-  #   0 - 32-KB 8-way without ECC.<BR>
-  #   1 - 16-KB 4-way with ECC.<BR>
-  # @Prompt The DCU (Data Cache Unit) mode.
-  # @ValidRange  0x80000001 | 0 - 1
-  #gEfiCpuTokenSpaceGuid.PcdCpuDcuMode|0x0|UINT8|0x60008005
   ## Specifies the AP wait loop mode during POST.
   #  The value is defined as below.<BR><BR>
   #  1: ApInHltLoop,   AP is in the Hlt-Loop state.<BR>
@@ -507,12 +485,6 @@
   # @Prompt The AP wait loop mode.
   # @ValidRange  0x80000001 | 1 - 3
   gEfiCpuTokenSpaceGuid.PcdCpuApLoopMode|1|UINT8|0x60008006
-  ## Indidates if SMM Save State saved in MSRs.
-  #  if enabled, SMM Save State will use the MSRs instead of the memory.<BR><BR>
-  #   TRUE  - SMM Save State will use the MSRs.<BR>
-  #   FALSE - SMM Save State will use the memory.<BR>
-  # @Prompt SMM Save State uses MSRs.
-  #gEfiCpuTokenSpaceGuid.PcdCpuSmmMsrSaveStateEnable|FALSE|BOOLEAN|0x60000014
   ## Specifies the SMRR2 base address.<BR><BR>
   # @Prompt SMRR2 base address.
   # @Expression  0x80000001 | (gEfiCpuTokenSpaceGuid.PcdCpuSmmSmrr2Base & 0xfff) == 0
@@ -546,16 +518,20 @@
   ## Specifies the TCC Activation Offset value.<BR><BR>
   # @Prompt TCC Activation Offset value.
   gEfiCpuTokenSpaceGuid.PcdCpuTccActivationOffset|0|UINT8|0x6000001B
+
+
+[PcdsDynamicEx]
+  ## Indidates if SMM Save State saved in MSRs.
+  #  if enabled, SMM Save State will use the MSRs instead of the memory.<BR><BR>
+  #   TRUE  - SMM Save State will use the MSRs.<BR>
+  #   FALSE - SMM Save State will use the memory.<BR>
+  # @Prompt SMM Save State uses MSRs.
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmMsrSaveStateEnable|FALSE|BOOLEAN|0x60000014
   ## Indidates if SMM PROT MODE feature is supported.<BR><BR>
   #   TRUE  - SMM PROT MODE feature is supported.<BR>
   #   FALSE - SMM PROT MODE feature is not supported.<BR>
   # @Prompt  SMM PROT MODE feature.
-  #gEfiCpuTokenSpaceGuid.PcdCpuSmmProtectedModeEnable|FALSE|BOOLEAN|0x6000001C
-
-
-[PcdsDynamicEx]
-gEfiCpuTokenSpaceGuid.PcdCpuSmmMsrSaveStateEnable|FALSE|BOOLEAN|0x60000014
-gEfiCpuTokenSpaceGuid.PcdCpuSmmProtectedModeEnable|FALSE|BOOLEAN|0x6000001C
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmProtectedModeEnable|FALSE|BOOLEAN|0x6000001C
   gEfiCpuTokenSpaceGuid.PcdCpuCoreCStateValue|0x0|UINT8|0x60008009
 
   ## Indicates processor feature capabilities, each bit corresponding to a specific feature.

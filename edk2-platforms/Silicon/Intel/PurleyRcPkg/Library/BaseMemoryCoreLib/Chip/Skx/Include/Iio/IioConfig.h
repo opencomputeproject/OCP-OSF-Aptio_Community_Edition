@@ -153,7 +153,7 @@ typedef struct {
 ==================================    Crystal Beach 3 Setup Options    ===========================
 ==================================================================================================
 **/
-      UINT8                 Cb3DcaEn[MAX_SOCKET];           // on setup
+      UINT8                 Reserved1[MAX_SOCKET];           // on setup
       UINT8                 Cb3DmaEn[TOTAL_CB3_DEVICES];        // on setup
       UINT8                 Cb3NoSnoopEn[TOTAL_CB3_DEVICES];    // on setup
       UINT8                 DisableTPH;

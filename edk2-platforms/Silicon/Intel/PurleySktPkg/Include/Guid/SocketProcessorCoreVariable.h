@@ -55,7 +55,7 @@ typedef struct {
   UINT8   CheckCpuBist;                     // check and disable BIST faile core or ignore
   UINT8   ProcessorFlexibleRatio;           // Non-Turbo Mode Processor Core Ratio Multiplier
   UINT8   ProcessorFlexibleRatioOverrideEnable;         // Non-Turbo Mode Processor Core Ratio Multiplier Enable
-  UINT8   MTRRDefTypeUncachable;            // For changing UC to WB
+  UINT8   Reserved2;                        // Reserved 2
   UINT8   ForcePhysicalModeEnable;          // Force physical destionation mode
   UINT8   LlcPrefetchEnable;                // LLC Prefetch
   UINT8   ProcessorVirtualWireMode;
@@ -67,6 +67,7 @@ typedef struct {
 
   UINT8   BiosAcmErrorReset;                // Disable LT-SX and reset system when BIOS ACM error occurs
   UINT8   AcmType;                          // 0x80 = debug signed ACM; 0x40 = NPW production signed ACM; 0x00 = PW production signed ACM
+
 
   UINT64  CoreDisableMask[MAX_SOCKET];      // one for each CPU socket
   // IOT/OCLA configs

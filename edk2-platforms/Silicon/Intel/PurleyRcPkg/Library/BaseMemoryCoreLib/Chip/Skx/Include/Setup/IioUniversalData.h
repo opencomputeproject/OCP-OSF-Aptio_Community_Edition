@@ -113,8 +113,6 @@ typedef struct {
     UINT8                   numofIIO;
     UINT8                   MaxBusNumber;
     UINT32                  packageBspApicID[MAX_SOCKET]; // This data array is valid only for SBSP, not for non-SBSP CPUs. <AS> for CpuSv
-//    UINT8                   MaxCoreToBusRatio[MAX_SOCKET]; // Package Max Non-turbo Ratio (per socket).
-//    UINT8                   MinCoreToBusRatio[MAX_SOCKET]; // Package Maximum Efficiency Ratio (per socket).
     UINT8                   EVMode;
     UINT8                   Pci64BitResourceAllocation;
     UINT8                   SkuPersonality[MAX_SOCKET];
@@ -123,7 +121,7 @@ typedef struct {
     UINT32                  MmiolGranularity;
     UINT64_STRUCT           MmiohGranularity;
     UINT8                   RemoteRequestThreshold;
-    UINT64                  softskuSocketPresentBitMap;    // bitmap of Softsku sockets with CPUs present detected
+    UINT64                  Reserved;
     BOOLEAN                 Simics;                        // TRUE - Simics Environtment; FALSE - H\w
 } PLATFORM_DATA;
 

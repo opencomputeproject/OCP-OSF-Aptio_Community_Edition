@@ -1,6 +1,6 @@
 ### @file
 #
-# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+# Copyright (c) 2018 - 2019, Intel Corporation. All rights reserved.<BR>
 #
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -72,15 +72,6 @@
   gEfiCpuTokenSpaceGuid.PcdCpuIvyBridgeFamilyFlag|TRUE|BOOLEAN|0x10000031
   gPlatformTokenSpaceGuid.PcdLockCsrSsidSvidRegister|TRUE|BOOLEAN|0x10000001
 
-### [PcdsFixedAtBuild, PcdsPatchableInModule]
-[PcdsFixedAtBuild,PcdsPatchableInModule,PcdsDynamic]
-  ## PCD for ServerCommonPkg\Override\IA32FamilyCpuPkg\CpuMpDxe.inf
-  ## This PCD is the AP state on POST. The value is defined as below.
-  #  1: ApInHltLoop,   AP is in the Hlt-Loop state.
-  #  2: ApInMwaitLoop, AP is in the Mwait-Loop state.
-  #  3: ApInRunLoop,   AP is in the Run-Loop state.
-  #gEfiCpuTokenSpaceGuid.PcdCpuApLoopMode|1|UINT8|0x10001004
-
 [PcdsFixedAtBuild]
   gPlatformTokenSpaceGuid.PcdBusStack|0x06|UINT8|0x30000006
   gPlatformTokenSpaceGuid.PcdUboDev|0x08|UINT8|0x3000000D
@@ -106,7 +97,13 @@
   gEfiCpuTokenSpaceGuid.PcdCpuPmStructAddr|0x0|UINT64|0x60008020
   gEfiCpuTokenSpaceGuid.PcdCpuRRQCountThreshold|0x0|UINT64|0x60008024
   gPlatformTokenSpaceGuid.PcdPlatformType|0x00000000|UINT8|0x30000041
+  ## PCD for ServerCommonPkg\Override\IA32FamilyCpuPkg\CpuMpDxe.inf
+  ## This PCD is the AP state on POST. The value is defined as below.
+  #  1: ApInHltLoop,   AP is in the Hlt-Loop state.
+  #  2: ApInMwaitLoop, AP is in the Mwait-Loop state.
+  #  3: ApInRunLoop,   AP is in the Run-Loop state.
   gEfiCpuTokenSpaceGuid.PcdCpuApLoopMode|1|UINT8|0x10001004
+
 [PcdsFeatureFlag]
   ## This PCD specifies whether StatusCode is reported via USB Serial port.
   gEfiCpuTokenSpaceGuid.PcdCpuSelectLfpAsBspFlag|TRUE|BOOLEAN|0x1000000F

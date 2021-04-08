@@ -66,27 +66,24 @@ typedef struct {
   UINT8  StaleAtoSOptEn;           // HA A to S directory optimization
   UINT8  LLCDeadLineAlloc;         // Never fill dead lines in LLC: 1 - Enable, 0 - Disable
 
-  //
-  // KTI DFX variables
-  //
-  UINT8  DfxSystemWideParmStart;       // This must be the first DFX variable
-  UINT8  DfxHaltLinkFailReset;         // 2 - Auto; 1 - Enable; 0 - Disable
-  UINT8  DfxKtiMaxInitAbort;           // 0 - Disable; 1 - Enable; 2 - AUTO (default)
-  UINT8  DfxLlcShareDrdCrd;            // Enable migration from SF to LLC and to leave shared lines in the LLC for Drd and Crd: 1 - Enable; 1 - Disable; 2 - Auto
-  UINT8  DfxBiasFwdMode;               // 0 - Mode 0 (Fwd only when Hom != Req); 1 - Mode 1 (Fwd when Hom != Req & Hom != Local); 2 - Mode 2 (Disable Bias Fwd)
-  UINT8  DfxSnoopFanoutEn;             // snoop fanout enable 0: disable 1: enable 2 - Auto (default) (EX only)
-  UINT8  DfxHitMeEn;                   // CHA HitME$ Enable: 1 - Enable; 0 - Disable; 2 - Auto (Default)
-  UINT8  DfxFrcfwdinv;                 // Enable alias all conflict flows to FwdInvItoE behaviour: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxDbpEnable;                 // Dbp Enable : 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxOsbEn;                     // OSB Enable: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxHitMeRfoDirsEn;            // Enable HitME DIR=S RFO optimization: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxGateOsbIodcAllocEn;        // When OSB indicates that there aren't enough snoop credits don't allocate IODC entry: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxDualLinksInterleavingMode; // In 2S 2KTI can: 2 - Auto - do nothing (default); 1 - use legacy CHA interleaving (disable SNC, turn off XOR interleave); 0 - disable D2C
-  UINT8  DfxSystemDegradeMode;         // 0 - Degrade to 1S; 1 - Degarde to supported topology (default); 2 - Leave the topology as is.
-  UINT8  DfxVn1En;                     // VN1 enable 0: disable 1: enable 2 - Auto (default) (EX only)
-  UINT8  DfxD2cEn;                     // Direct To Core enable: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxD2kEn;                     // Direct To Kti enable: 1 - Enable; 0 - Disable; 2 - Auto (default)
-  UINT8  DfxSystemWideParmEnd;         // This must be the last DFX variable
+  UINT8  Reserved1;
+  UINT8  Reserved2;
+  UINT8  Reserved3;
+  UINT8  Reserved4;
+  UINT8  Reserved5;
+  UINT8  Reserved6;
+  UINT8  Reserved7;
+  UINT8  Reserved8;
+  UINT8  Reserved9;
+  UINT8  Reserved10;
+  UINT8  Reserved11;
+  UINT8  Reserved12;
+  UINT8  Reserved13;
+  UINT8  Reserved14;
+  UINT8  Reserved15;
+  UINT8  Reserved16;
+  UINT8  Reserved17;
+  UINT8  Reserved18;
 
 
 #define  CSICPUPRTVARIABLE(x)       x##KtiPortDisable;x##KtiLinkSpeed;x##KtiLinkVnaOverride;
@@ -131,9 +128,9 @@ typedef struct {
   CSICPUPRTVARIABLE(UINT8 Cpu7P2)
 #endif
 
-#define CSICPUPRTDFXVARIABLE(x)    x##DfxCrcMode;x##DfxL0pEnable;x##DfxL1Enable;x##DfxKtiFailoverEn;
+#define CSICPUPRTDFXVARIABLE(x)    x##ReservedA;x##ReservedB;x##ReservedC;x##ReservedD;
 
-  UINT8 DfxKtiCpuPerPortStartTag;
+  UINT8 Reserved19;
   CSICPUPRTDFXVARIABLE(UINT8 Cpu0P0)
   CSICPUPRTDFXVARIABLE(UINT8 Cpu0P1)
   CSICPUPRTDFXVARIABLE(UINT8 Cpu0P2)

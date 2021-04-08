@@ -18,7 +18,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #include <UncoreCommonIncludes.h>
 #include "SocketConfiguration.h"
 
-extern EFI_GUID gEfiSocketPowermanagementVarGuid;                
+extern EFI_GUID gEfiSocketPowermanagementVarGuid;
 #define SOCKET_POWERMANAGEMENT_CONFIGURATION_NAME L"SocketPowerManagementConfig"
 
 #define NUM_CST_LAT_MSR 3
@@ -28,13 +28,13 @@ extern EFI_GUID gEfiSocketPowermanagementVarGuid;
 typedef struct {
   UINT8   LOT26UnusedVrPowerDownEnable;
   UINT8   WFRWAEnable;
-  UINT8   UFSDisable;                       // Allow Mailbox Command to PCU_MISC_CONFIG Bit[28]  
+  UINT8   UFSDisable;                       // Allow Mailbox Command to PCU_MISC_CONFIG Bit[28]
   UINT8   ProcessorEistEnable;              // EIST or GV3 setup option
 
   // Config TDP
   UINT8   ConfigTDP;
   UINT8   ConfigTDPLevel;
-  
+
   // Individual controls for ACPI sleep states
   // ** These can be overridden by AcpiSleepState because these knobs are not available to CRB **
   //
@@ -50,8 +50,8 @@ typedef struct {
   UINT8   ProcessorEPPEnable;
   UINT8   ProcessorEppProfile;
   UINT8   ProcessorAPSrocketing;
-  UINT8   ProcessorScalability;  
-  UINT8   ProcessorPPOBudget;
+  UINT8   ProcessorScalability;
+  UINT8   ProcessorRaplPrioritization;
   UINT8   ProcessorOutofBandAlternateEPB;
   //
   //HWPM ends
@@ -73,13 +73,13 @@ typedef struct {
   //
   UINT8   TurboMode;
   UINT8   EnableXe;
-  
+
   //OverClocking
   UINT8   OverclockingLock;
-  
+
   UINT8   TurboRatioLimitRatio[8];
   UINT8   TurboRatioLimitCores[8];
-  
+
   UINT8   C2C3TT;
   UINT8   DynamicL1;                        // Enabling Dynamic L1
   UINT8   ProcessorCcxEnable;               // Enabling CPU C states of processor
@@ -132,7 +132,7 @@ typedef struct {
 
   // PRIMARY_PLANE_CURRENT_CONFIG_CONTROL  0x601
   UINT8   PpcccLock;
-  
+
   UINT8   SnpLatVld;
   UINT8   SnpLatOvrd;
   UINT8   SnpLatMult;
@@ -142,7 +142,7 @@ typedef struct {
   UINT8   NonSnpLatMult;
   UINT16  NonSnpLatVal;
 
-  // DYNAMIC_PERF_POWER_CTL (CSR 1:30:2:0x64) 
+  // DYNAMIC_PERF_POWER_CTL (CSR 1:30:2:0x64)
   UINT8   EepLOverride;
   UINT8   EepLOverrideEn;
   UINT8   ITurboOvrdEn;
@@ -151,7 +151,7 @@ typedef struct {
   UINT8   UncrPerfPlmtOvrdEn;
   UINT8   EetOverrideEn;
   UINT8   IoBwPlmtOvrdEn;
-  UINT8   ImcApmOvrdEn;                      // unused         
+  UINT8   ImcApmOvrdEn;                      // unused
   UINT8   IomApmOvrdEn;
   UINT8   QpiApmOvrdEn;
   UINT8   PerfPLmtThshld;
@@ -181,7 +181,7 @@ typedef struct {
   // PERF_P_LIMIT_CONTROL (CSR 1:30:2:0xe4) >= HSX C stepping
   UINT8   PerfPlimitDifferential;
   UINT8   PerfPLimitClipC;
-  
+
   // SKX: PKG_CST_ENTRY_CRITERIA_MASK2 (CSR 1:30:2:0x90)
   UINT8   Kti0In[MAX_SOCKET];
   UINT8   Kti1In[MAX_SOCKET];

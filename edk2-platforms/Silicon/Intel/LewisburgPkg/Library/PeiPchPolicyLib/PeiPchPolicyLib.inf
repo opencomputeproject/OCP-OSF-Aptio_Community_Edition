@@ -47,6 +47,3 @@
 
 [Ppis]
   gPchPlatformPolicyPpiGuid            ## PRODUCES # SERVER_BIOS
-
-[Depex]
-#  gPchInitPreMemDonePpiGuid
