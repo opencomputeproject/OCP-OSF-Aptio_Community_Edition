@@ -212,7 +212,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #define    R_IC_TXFL R                       ( 0x74) // Transmit FIFO Level Register
 #define    R_IC_RXFLR                        ( 0x78) // Receive FIFO Level Register
-#define    R_IC_SDA_HOLD                     ( 0x7C) 
+#define    R_IC_SDA_HOLD                     ( 0x7C)
 #define    R_IC_TX_ABRT_SOURCE               ( 0x80) // I2c Transmit Abort Status Register
 #define    B_IC_TX_ABRT_7B_ADDR_NACK          BIT0 // NACK on 7-bit address
 

@@ -19,34 +19,34 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 //
 // Get Aligned Access Address
 //
-typedef 
-  VOID  
+typedef
+  VOID
   (EFIAPI *GET_ALLIGNED_ACCESS_ADDRESS) (VOID*, BOOLEAN, USRA_ADDRESS*, UINTN*);
 
 //
 // Register Read
 //
-typedef 
-  RETURN_STATUS  
+typedef
+  RETURN_STATUS
   (EFIAPI *REGISTER_READ) (USRA_ADDRESS *, VOID *);
 
 //
 // Register Write
 //
-typedef 
-  RETURN_STATUS  
+typedef
+  RETURN_STATUS
   (EFIAPI *REGISTER_WRITE) (USRA_ADDRESS *, VOID *);
-  
+
 //
 // Register Write
 //
-typedef 
-  RETURN_STATUS  
+typedef
+  RETURN_STATUS
   (EFIAPI *REGISTER_MODIFY) (USRA_ADDRESS *, VOID *, VOID *);
-  
+
 /**
   This API get the Pcie address from the given USRA Address.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
 
   @retval NONE
@@ -61,7 +61,7 @@ GetPcieAccessAddress (
 
 /**
   This API get the CSR address from the given USRA Address.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -76,9 +76,9 @@ GetCsrAccessAddress (
   );
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register read operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -89,11 +89,11 @@ PcieRegisterRead (
   IN USRA_ADDRESS             *Address,
   IN VOID                     *Buffer
   );
-  
+
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie block silicon register read operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie block silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -106,9 +106,9 @@ PcieBlkRegisterRead (
   );
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit CSR silicon register read operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit CSR silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -121,9 +121,9 @@ CsrRegisterRead (
   );
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register write operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register write operations.
   It transfers data from a naturally aligned data buffer into a register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
@@ -134,11 +134,11 @@ PcieRegisterWrite (
   IN USRA_ADDRESS             *Address,
   OUT VOID                    *Buffer
   );
-  
+
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie block silicon register write operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie block silicon register write operations.
   It transfers data from a naturally aligned data buffer into a register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
@@ -149,11 +149,11 @@ PcieBlkRegisterWrite (
   IN USRA_ADDRESS             *Address,
   OUT VOID                    *Buffer
   );
-  
+
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit CSR silicon register write operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit CSR silicon register write operations.
   It transfers data from a naturally aligned data buffer into a register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
@@ -164,11 +164,11 @@ CsrRegisterWrite (
   IN USRA_ADDRESS             *Address,
   OUT VOID                    *Buffer
   );
-  
+
 /**
   This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register AND then OR operations. It read data from a
   register, And it with the AndBuffer, then Or it with the OrBuffer, and write the result back to the register
-  
+
   @param[in] Address              A pointer of the address of the silicon register to be modified
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -183,11 +183,11 @@ PcieRegisterModify (
   IN VOID                     *AndBuffer,
   IN VOID                     *OrBuffer
   );
-  
+
 /**
   This API Perform 8-bit, 16-bit, 32-bit or 64-bit CSR silicon register AND then OR operations. It read data from a
   register, And it with the AndBuffer, then Or it with the OrBuffer, and write the result back to the register
-  
+
   @param[in] Address              A pointer of the address of the silicon register to be modified
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -202,10 +202,10 @@ CsrRegisterModify (
   IN VOID                     *AndBuffer,
   IN VOID                     *OrBuffer
   );
-  
+
 /**
-  Perform MMIO read 
-  
+  Perform MMIO read
+
   @param[in] AccessWidth          Access Width
   @param[in] AlignedAddress       An address to be read out
   @param[in] Buffer               A pointer of buffer contains the data to be read out
@@ -220,8 +220,8 @@ UsraRegAlignedRead (
   );
 
 /**
-  Perform AND then OR operations for a input data 
-  
+  Perform AND then OR operations for a input data
+
   @param[in out] Data             A pointer of the address of the register to be modified
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -240,8 +240,8 @@ DataAndOr (
 );
 
 /**
-  Perform MMIO write 
-  
+  Perform MMIO write
+
   @param[in] AccessWidth          Access Width
   @param[in] AlignedAddress       An address to be written
   @param[in] Buffer               A pointer of buffer contains the data to be written

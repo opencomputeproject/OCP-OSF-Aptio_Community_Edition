@@ -16,7 +16,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 /**
   This Lib Convert the logical address (CSR type, e.g. CPU ID, Boxtype, Box instance etc.) into physical address
-  
+
   @param[in] Global               Global pointer
   @param[in] Virtual              Virtual address
   @param[in] Address              A pointer of the address of the USRA Address Structure

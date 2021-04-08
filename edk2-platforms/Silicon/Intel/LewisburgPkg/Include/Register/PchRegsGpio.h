@@ -489,7 +489,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define V_PCH_GPIO_OWN_ACPI             0x00
 
 //
-// GPE 
+// GPE
 //
 #define V_PCH_GPIO_GPE_EN               0x01
 #define V_PCH_GPIO_GPE_DIS              0x00
@@ -504,7 +504,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define V_PCH_GPIO_NMI_EN               0x01
 #define V_PCH_GPIO_NMI_DIS              0x00
 //
-// Reserved: RSVD1  
+// Reserved: RSVD1
 //
 #define V_PCH_GPIO_RSVD1                0x00
 

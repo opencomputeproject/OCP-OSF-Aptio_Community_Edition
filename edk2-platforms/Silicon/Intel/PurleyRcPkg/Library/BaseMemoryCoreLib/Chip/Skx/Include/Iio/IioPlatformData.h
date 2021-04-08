@@ -57,7 +57,7 @@ typedef enum {
   IIOInitPhase3 = 4,
 } IIO_INIT_PHASE;
 
-typedef enum {  
+typedef enum {
   IioBeforeBifurcation,            // Point before IOU Bi-fucuation and link training, no generic inbound access at this point
   IioAfterBifurcation,             // Point immediately after IOU bifurcation and link training but before any PCIe root port initialization
   IioPortEnumeration,              // Point before Port initialization, no generic inbound access at this point
@@ -264,14 +264,14 @@ typedef struct _INTEL_IIO_PRELINK_DATA {
 } INTEL_IIO_PRELINK_DATA;
 
 typedef struct {
-  UINT8       PciePortPresent[MaxIIO*NUMBER_PORTS_PER_SOCKET];    
-  UINT8       PciePortConfig[MaxIIO*NUMBER_PORTS_PER_SOCKET];     
+  UINT8       PciePortPresent[MaxIIO*NUMBER_PORTS_PER_SOCKET];
+  UINT8       PciePortConfig[MaxIIO*NUMBER_PORTS_PER_SOCKET];
   UINT8       PciePortOwnership[MaxIIO*NUMBER_PORTS_PER_SOCKET];
-  UINT8       CurrentPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET]; 
-  UINT8       MaxPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET]; 
-  UINT8       LinkedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET]; 
-  UINT8       SpeedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET]; 
-  UINT8       LaneReversedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET]; 
+  UINT8       CurrentPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET];
+  UINT8       MaxPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET];
+  UINT8       LinkedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET];
+  UINT8       SpeedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET];
+  UINT8       LaneReversedPXPMap[MaxIIO*NUMBER_PORTS_PER_SOCKET];
   UINT8       PciePortMaxWidth[MaxIIO*NUMBER_PORTS_PER_SOCKET];
   UINT8       PciePortNegWidth[MaxIIO*NUMBER_PORTS_PER_SOCKET];
   UINT8       PciePortNegSpeed[MaxIIO*NUMBER_PORTS_PER_SOCKET];

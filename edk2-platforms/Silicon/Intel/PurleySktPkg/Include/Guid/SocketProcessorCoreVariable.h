@@ -12,7 +12,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <UncoreCommonIncludes.h>
 #include "SocketConfiguration.h"
 
-extern EFI_GUID gEfiSocketProcessorCoreVarGuid;                
+extern EFI_GUID gEfiSocketProcessorCoreVarGuid;
 #define SOCKET_PROCESSORCORE_CONFIGURATION_NAME L"SocketProcessorCoreConfig"
 
 #pragma pack(1)
@@ -69,7 +69,7 @@ typedef struct {
     #define OCLA_TOR_ENTRY_MIN         0
     #define OCLA_TOR_ENTRY_MAX      0x11      // 15 or 17 depending on Isoch on/off
     #define OCLA_TOR_ENTRY_DEFAULT     1
-    #define OCLA_WAY_MIN               0 
+    #define OCLA_WAY_MIN               0
     #define OCLA_WAY_MAX               8      // max 8 LLC ways out of 11 can be reserved for OCLA
     #define OCLA_WAY_DEFAULT           1
 #endif
@@ -83,7 +83,7 @@ typedef struct {
   UINT32  QlruCfgMask_Hi;                         // MSR VIRTUAL_MSR_CR_QLRU_CONFIG bitmask - Higher 32-bit
 
 
-  UINT8   PCIeDownStreamPECIWrite;  
+  UINT8   PCIeDownStreamPECIWrite;
 
 //
 // Targeted Smi Support

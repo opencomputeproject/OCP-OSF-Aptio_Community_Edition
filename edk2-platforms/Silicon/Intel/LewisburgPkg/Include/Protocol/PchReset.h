@@ -38,12 +38,12 @@ typedef        PCH_RESET_CALLBACK_PPI  PCH_RESET_CALLBACK_PROTOCOL;
   { \
     0x8d8ee25b, 0x66dd, 0x4ed8, { 0x8a, 0xbd, 0x14, 0x16, 0xe8, 0x8e, 0x1d, 0x24 } \
   }
- 
+
 #define PCH_GLOBAL_RESET_GUID \
   { \
     0x9db31b4c, 0xf5ef, 0x48bb, { 0x94, 0x2b, 0x18, 0x1f, 0x7e, 0x3a, 0x3e, 0x40 } \
   }
-  
+
 #define PCH_GLOBAL_RESET_WITH_EC_GUID \
   { \
     0xd22e6b72, 0x53cd, 0x4158, { 0x83, 0x3f, 0x6f, 0xd8, 0x7e, 0xbe, 0xa9, 0x93 } \
@@ -89,7 +89,7 @@ EFI_STATUS
   @param[in]  Guid      PCH platform specific reset GUID.
   @param[out] DataSize  The size of ResetData in bytes.
 
-  @retval ResetData     A platform specific reset that the exact type of 
+  @retval ResetData     A platform specific reset that the exact type of
                         the reset is defined by the EFI_GUID that follows
                         the Null-terminated Unicode string.
   @retval NULL          If Guid is not defined in PCH platform specific reset.

@@ -29,7 +29,7 @@ PCIE_MMCFG_TABLE_TYPE mMmcfgTable =\
     {
       0x00000000,             // Base Address Low
       0x00000000,             // Base Address High
-      0x0000,                 // Segment 0 
+      0x0000,                 // Segment 0
       0x00,                   // Start Bus
       0xFF,                   // End Bus
       {0x00,0x00,0x00,0x00}   // Reserved
@@ -102,7 +102,7 @@ PCIE_MMCFG_BASE_ADDRESS_TYPE mMmcfgAddr[] = \
 
 /**
   This Lib is used for platform to set platform specific Pcie MMCFG Table
-  
+
   @param[in] MmcfgTable           A pointer of the MMCFG Table structure for PCIE_MMCFG_TABLE_TYPE type
   @param[in] NumOfSeg             Number of Segments in the table
 
@@ -127,7 +127,7 @@ SetPcieSegMmcfgTable (
   Data.D32[0] = Data.D32[1] = 0;
   MmcfgTableSize = sizeof(PCIE_MMCFG_HEADER_TYPE) + (NumOfSeg * sizeof(PCIE_MMCFG_BASE_ADDRESS_TYPE));
 
-  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr); 
+  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr);
   ASSERT (MmcfgTableSize < PcdGetSize (PcdPcieMmcfgTablePtr));
 
   InternalMemCopyMem(HobMmcfgTable, MmcfgTable, PcdGetSize (PcdPcieMmcfgTablePtr));
@@ -145,8 +145,8 @@ SetPcieSegMmcfgTable (
 };
 
 /**
-  This Lib return PCIE MMCFG Base Address 
-  
+  This Lib return PCIE MMCFG Base Address
+
   @param[in] Address              A pointer of the address of the USRA Address Structure for PCIE type
 
   @retval NULL                    The function completed successfully.

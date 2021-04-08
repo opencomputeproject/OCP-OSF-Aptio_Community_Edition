@@ -15,8 +15,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define ADDRESS_BASED_MIRROR_VARIABLE_SIZE sizeof(ADDRESS_RANGE_MIRROR_VARIABLE_DATA)
 #define ADDRESS_BASED_MIRROR_VARIABLE_ATTRIBUTE (EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS)
 #define ADDRESS_RANGE_MIRROR_VARIABLE_VERSION 1
-#define MIRROR_STATUS_SUCCESS 0 
-#define MIRROR_STATUS_MIRROR_INCAPABLE 1 
+#define MIRROR_STATUS_SUCCESS 0
+#define MIRROR_STATUS_MIRROR_INCAPABLE 1
 #define MIRROR_STATUS_VERSION_MISMATCH 2
 #define MIRROR_STATUS_INVALID_REQUEST  3
 #define MIRROR_STATUS_UNSUPPORTED_CONFIG 4
@@ -26,10 +26,10 @@ extern EFI_GUID gAddressBasedMirrorGuid;
 
 #pragma pack(1)
 
-typedef struct { 
+typedef struct {
 //
 // MirroredAmountAbove4GB is the amount of available memory above 4GB that needs to be mirrored
-// measured in basis point (hundredths of percent e.g. 12% = 1275). 
+// measured in basis point (hundredths of percent e.g. 12% = 1275).
 // In a multi-socket system, platform is required to distribute the mirrored memory ranges such that the
 // amount mirrored is approximately  proportional to the amount of memory on each NUMA node. E.g. on
 // a two node machine with 64GB on node 0 and 32GB on node 1, a request for 12GB of mirrored memory

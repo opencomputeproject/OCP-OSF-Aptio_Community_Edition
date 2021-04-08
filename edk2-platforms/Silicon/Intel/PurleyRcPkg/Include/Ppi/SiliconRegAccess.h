@@ -13,16 +13,16 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 extern EFI_GUID gUsraPpiGuid;
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
   @retval NULL                    The function completed successfully.
   @retval <>NULL                  Return Error
 **/
-typedef 
+typedef
 INTN
 (EFIAPI *USRA_PPI_REG_READ)(
   IN USRA_ADDRESS             *Address,
@@ -30,16 +30,16 @@ INTN
   );
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations.
   It transfers data from a naturally aligned data buffer into a silicon register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
   @retval NULL                    The function completed successfully.
   @retval <>NULL                  Return Error
 **/
-typedef 
+typedef
 INTN
 (EFIAPI *USRA_PPI_REG_WRITE)(
   IN USRA_ADDRESS             *Address,
@@ -49,7 +49,7 @@ INTN
 /**
   This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register AND then OR operations. It read data from a
   register, And it with the AndBuffer, then Or it with the OrBuffer, and write the result back to the register
-  
+
   @param[in] Address              A pointer of the address of the silicon register to be written
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -69,7 +69,7 @@ INTN
 
 /**
   This API get the flat address from the given USRA Address.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
 
   @retval                         The flat address
@@ -92,9 +92,9 @@ typedef struct {
 } USRA_PPI;
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -109,9 +109,9 @@ PeiRegRead (
   );
 
 /**
-  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations. 
+  This API Perform 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations.
   It transfers data from a naturally aligned data buffer into a silicon register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
@@ -128,7 +128,7 @@ PeiRegWrite (
 /**
   This API Perform 8-bit, 16-bit, 32-bit or 64-bit Pcie silicon register AND then OR operations. It read data from a
   register, And it with the AndBuffer, then Or it with the OrBuffer, and write the result back to the register
-  
+
   @param[in] Address              A pointer of the address of the silicon register to be written
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -148,7 +148,7 @@ PeiRegModify (
 
 /**
   This API get the flat address from the given USRA Address.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
 
   @retval                         The flat address

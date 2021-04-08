@@ -283,7 +283,7 @@ extern CPU_CONFIG_CONTEXT_BUFFER      *mCpuConfigLibConfigContextBuffer;
 
 /**
   Set feature capability and related attribute.
-  
+
   This function sets the feature capability and its attribute.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -293,7 +293,7 @@ extern CPU_CONFIG_CONTEXT_BUFFER      *mCpuConfigLibConfigContextBuffer;
 **/
 VOID
 EFIAPI
-SetProcessorFeatureCapability (	
+SetProcessorFeatureCapability (
   IN  UINTN               ProcessorNumber,
   IN  CPU_FEATURE_ID      FeatureID,
   IN  VOID                *Attribute
@@ -301,7 +301,7 @@ SetProcessorFeatureCapability (
 
 /**
   Clears feature capability and related attribute.
-  
+
   This function clears the feature capability and its attribute.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -310,14 +310,14 @@ SetProcessorFeatureCapability (
 **/
 VOID
 EFIAPI
-ClearProcessorFeatureCapability (	
+ClearProcessorFeatureCapability (
   IN  UINTN               ProcessorNumber,
   IN  CPU_FEATURE_ID      FeatureID
   );
 
 /**
   Get feature capability and related attribute.
-  
+
   This function gets the feature capability and its attribute.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -330,7 +330,7 @@ ClearProcessorFeatureCapability (
 **/
 BOOLEAN
 EFIAPI
-GetProcessorFeatureCapability (	
+GetProcessorFeatureCapability (
   IN  UINTN               ProcessorNumber,
   IN  CPU_FEATURE_ID      FeatureID,
   OUT VOID                **Attribute  OPTIONAL
@@ -346,7 +346,7 @@ typedef enum {
 
 /**
   Get the number of CPUID leafs of various types.
-  
+
   This function get the number of CPUID leafs of various types.
 
   @param  ProcessorNumber   Handle number of specified logical processor
@@ -364,7 +364,7 @@ GetNumberOfCpuidLeafs (
 
 /**
   Get the pointer to specified CPUID leaf.
-  
+
   This function gets the pointer to specified CPUID leaf.
 
   @param  ProcessorNumber   Handle number of specified logical processor
@@ -382,7 +382,7 @@ GetProcessorCpuid (
 
 /**
   Get the pointer to specified CPUID leaf of cache and TLB parameters.
-  
+
   This function gets the pointer to specified CPUID leaf of cache and TLB parameters.
 
   @param  ProcessorNumber   Handle number of specified logical processor
@@ -400,7 +400,7 @@ GetCacheAndTlbCpuidLeaf (
 
 /**
   Get the pointer to specified CPUID leaf of deterministic cache parameters.
-  
+
   This function gets the pointer to specified CPUID leaf of deterministic cache parameters.
 
   @param  ProcessorNumber   Handle number of specified logical processor
@@ -418,7 +418,7 @@ GetDeterministicCacheParametersCpuidLeaf (
 
 /**
   Get the pointer to specified CPUID leaf of Extended Topology Enumeration.
-  
+
   This function gets the pointer to specified CPUID leaf of Extended Topology Enumeration.
 
   @param  ProcessorNumber   Handle number of specified logical processor.
@@ -436,7 +436,7 @@ GetExtendedTopologyEnumerationCpuidLeafs (
 
 /**
   Get the version information of specified logical processor.
-  
+
   This function gets the version information of specified logical processor,
   including family ID, model ID, stepping ID and processor type.
 
@@ -452,14 +452,14 @@ EFIAPI
 GetProcessorVersionInfo (
   IN  UINTN               ProcessorNumber,
   OUT UINT32              *DisplayedFamily OPTIONAL,
-  OUT UINT32              *DisplayedModel  OPTIONAL,       
+  OUT UINT32              *DisplayedModel  OPTIONAL,
   OUT UINT32              *SteppingId      OPTIONAL,
   OUT UINT32              *ProcessorType   OPTIONAL
   );
 
 /**
   Get initial local APIC ID of specified logical processor
-  
+
   This function gets initial local APIC ID of specified logical processor.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -475,7 +475,7 @@ GetInitialLocalApicId (
 
 /**
   Get the location of specified processor.
-  
+
   This function gets the location of specified processor, including
   package number, core number within package, thread number within core.
 
@@ -496,7 +496,7 @@ GetProcessorLocation (
 
 /**
   Get the Feature entry at specified position in a feature list.
-  
+
   This function gets the Feature entry at specified position in a feature list.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -516,7 +516,7 @@ GetProcessorFeatureEntry (
 
 /**
   Append a feature entry at the end of a feature list.
-  
+
   This function appends a feature entry at the end of a feature list.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -536,7 +536,7 @@ AppendProcessorFeatureIntoList (
 
 /**
   Delete a feature entry in a feature list.
-  
+
   This function deletes a feature entry in a feature list.
 
   @param  ProcessorNumber Handle number of specified logical processor
@@ -555,7 +555,7 @@ DeleteProcessorFeatureFromList (
 
 /**
   Insert a feature entry into a feature list.
-  
+
   This function insert a feature entry into a feature list before a node specified by FeatureIndex.
 
   @param  ProcessorNumber        Handle number of specified logical processor
@@ -578,7 +578,7 @@ InsertProcessorFeatureIntoList (
 
 /**
   Add an entry in the post-SMM-init register table.
-  
+
   This function adds an entry in the post-SMM-init register table, with given register type,
   register index, bit section and value.
 
@@ -603,7 +603,7 @@ WriteRegisterTable (
 
 /**
   Add an entry in the pre-SMM-init register table.
-  
+
   This function adds an entry in the pre-SMM-init register table, with given register type,
   register index, bit section and value.
 
@@ -628,7 +628,7 @@ WritePreSmmInitRegisterTable (
 
 /**
   Set the sequence of processor setting.
-  
+
   This function sets the a processor setting at the position in
   setting sequence specified by Index.
 
@@ -637,7 +637,7 @@ WritePreSmmInitRegisterTable (
 
   @retval EFI_SUCCESS            The sequence successfully modified.
   @retval EFI_INVALID_PARAMETER  Index surpasses the boundary of sequence.
-  @retval EFI_NOT_FOUND          Processor specified by ProcessorNumber does not exist. 
+  @retval EFI_NOT_FOUND          Processor specified by ProcessorNumber does not exist.
 
 **/
 EFI_STATUS
@@ -648,7 +648,7 @@ SetSettingSequence (
 
 /**
   Set PcdCpuCallbackSignal, and then read the value back.
-  
+
   This function sets PCD entry PcdCpuCallbackSignal. If there is callback
   function registered on it, the callback function will be triggered, and
   it may change the value of PcdCpuCallbackSignal. This function then reads

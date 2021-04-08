@@ -64,7 +64,7 @@ typedef struct {
     UINT8   PcieExtendedTagField;              //
     UINT8   PCIe_AtomicOpReq;                  //
     UINT8   PcieMaxReadRequestSize;            //
-     
+
 
     UINT8   RpCorrectableErrorEsc[MAX_SOCKET];           //on Setup
     UINT8   RpUncorrectableNonFatalErrorEsc[MAX_SOCKET]; //on Setup
@@ -184,10 +184,10 @@ typedef struct {
   UINT8   VMDHotPlugEnable[MAX_VMD_STACKS];
   UINT8   VMDCfgBarSz[MAX_VMD_STACKS];
   UINT8   VMDCfgBarAttr[MAX_VMD_STACKS];
-  UINT8   VMDMemBarSz1[MAX_VMD_STACKS];  
-  UINT8   VMDMemBar1Attr[MAX_VMD_STACKS];  
-  UINT8   VMDMemBarSz2[MAX_VMD_STACKS]; 
-  UINT8   VMDMemBar2Attr[MAX_VMD_STACKS]; 
+  UINT8   VMDMemBarSz1[MAX_VMD_STACKS];
+  UINT8   VMDMemBar1Attr[MAX_VMD_STACKS];
+  UINT8   VMDMemBarSz2[MAX_VMD_STACKS];
+  UINT8   VMDMemBar2Attr[MAX_VMD_STACKS];
 
 
   /**

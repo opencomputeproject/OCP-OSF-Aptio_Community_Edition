@@ -9,7 +9,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Bus                  Pci Bus Number
   @param[in] Device               Pci Device Number
   @param[in] Function             Pci Function Number
@@ -26,7 +26,7 @@ MmPciBase (
   USRA_ADDRESS Address;
   USRA_PCIE_ADDRESS(Address, UsraWidth32, Bus, Device, Function, 0);
 
-  if (!FeaturePcdGet (PcdSingleSegFixMmcfg)) 
+  if (!FeaturePcdGet (PcdSingleSegFixMmcfg))
   {
     return GetRegisterAddress(&Address);
   }
@@ -38,7 +38,7 @@ MmPciBase (
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Seg                  Pcie Segment Number
   @param[in] Bus                  Pcie Bus Number
   @param[in] Device               Pcie Device Number

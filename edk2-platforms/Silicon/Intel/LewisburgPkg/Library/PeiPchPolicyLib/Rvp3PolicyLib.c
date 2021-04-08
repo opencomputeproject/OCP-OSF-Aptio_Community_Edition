@@ -201,5 +201,5 @@ PchRvp3DefaultPolicy (
   //
   PchPolicy->PchTraceHubConfig.MemReg0Size = 0x100000;  // 1MB
   PchPolicy->PchTraceHubConfig.MemReg1Size = 0x100000;  // 1MB
-  
+
 }

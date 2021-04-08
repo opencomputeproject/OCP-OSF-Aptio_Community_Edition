@@ -105,8 +105,8 @@ Returns:
     PcieAddress->Bus = GetBusNumber(host, SocId, BoxType, BoxInst, FuncBlk, CpuCsrAccessVar);
     PcieAddress->Dev = GetDeviceNumber(host, BoxType, BoxInst, FuncBlk, CpuCsrAccessVar);
     PcieAddress->Func = GetFunctionNumber(host, BoxType, BoxInst, FuncBlk, CpuCsrAccessVar);
-    PcieAddress->Seg = SocId;  // Refcode and EFI data structure difference.   Refcode treats this array as 1 entry per socket, and not per segment, thus we index by SocId for now..  
-}     
+    PcieAddress->Seg = SocId;  // Refcode and EFI data structure difference.   Refcode treats this array as 1 entry per socket, and not per segment, thus we index by SocId for now..
+}
 //////////////////////////////////////////////////////////////////////////
 //
 // USRA Silicon Address Library
@@ -116,7 +116,7 @@ Returns:
 
 /**
   This Lib Convert the logical address (CSR type, e.g. CPU ID, Boxtype, Box instance etc.) into physical address
-  
+
   @param[in] Global               Global pointer
   @param[in] Virtual              Virtual address
   @param[in] Address              A pointer of the address of the USRA Address Structure
@@ -166,7 +166,7 @@ CsrGetPcieAlignAddress (
 
   UsraAddress.Pcie.Offset = (UINT16)((CSR_OFFSET *) &Address->Csr.Offset)->Bits.offset;
   UsraAddress.Attribute.HostPtr = Address->Attribute.HostPtr;
-  
+
   MmCfgBase = GetPcieSegMmcfgBaseAddress(&UsraAddress);
   *AlignedAddress = MmCfgBase + (UINTN)(UsraAddress.Attribute.RawData32[0] & 0x0fffffff);
 

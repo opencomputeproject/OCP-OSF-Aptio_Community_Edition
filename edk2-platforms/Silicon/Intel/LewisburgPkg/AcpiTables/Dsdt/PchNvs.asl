@@ -8,7 +8,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
   //
   // Define PCH NVS Area operatino region.
   //
-  
+
 
 
   OperationRegion(PNVA,SystemMemory,PNVB,PNVL)
@@ -55,7 +55,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
   Offset(152),    G2LA, 32, // Offset(152),   GPE 2-tier level edged enabled Gpio pads (Group Index 10)
   Offset(156),    G2LB, 32, // Offset(156),   GPE 2-tier level edged enabled Gpio pads (Group Index 11)
   Offset(160),    G2LC, 32, // Offset(160),   GPE 2-tier level edged enabled Gpio pads (Groip Index 12)
-  
+
   Offset(164),    PML1, 16, // Offset(164),   PCIE LTR max snoop Latency 1
   Offset(166),    PML2, 16, // Offset(166),   PCIE LTR max snoop Latency 2
   Offset(168),    PML3, 16, // Offset(168),   PCIE LTR max snoop Latency 3
@@ -259,7 +259,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
   Offset(565),    OBFI, 8,  // Offset(565),   Optimized Buffer Flush and Fill
   Offset(566),    OBFJ, 8,  // Offset(566),   Optimized Buffer Flush and Fill
   Offset(567),    OBFK, 8,  // Offset(567),   Optimized Buffer Flush and Fill
-  Offset(568),    ECR1, 8,  // Offset(568),   External Change Request 
+  Offset(568),    ECR1, 8,  // Offset(568),   External Change Request
   Offset(569),    AG1L, 64, // Offset(569),   HDA PP module custom GUID 1 - first 64bit  [0-63]
   Offset(577),    AG1H, 64, // Offset(577),   HDA PP module custom GUID 1 - second 64bit [64-127]
   Offset(585),    AG2L, 64, // Offset(585),   HDA PP module custom GUID 2 - first 64bit  [0-63]

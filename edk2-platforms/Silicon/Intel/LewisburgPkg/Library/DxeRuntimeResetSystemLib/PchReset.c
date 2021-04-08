@@ -135,7 +135,7 @@ SetSystemWakeupAlarm (
   @param[in]  Guid      PCH platform specific reset GUID.
   @param[out] DataSize  The size of ResetData in bytes.
 
-  @retval ResetData     A platform specific reset that the exact type of 
+  @retval ResetData     A platform specific reset that the exact type of
                         the reset is defined by the EFI_GUID that follows
                         the Null-terminated Unicode string.
   @retval NULL          If Guid is not defined in PCH platform specific reset.
@@ -158,7 +158,7 @@ GetResetData (
     *DataSize = sizeof (mPchGlobalResetWithEc);
     return (VOID *)&mPchGlobalResetWithEc;
   }
-   
+
    return NULL;
 }
 
@@ -344,12 +344,12 @@ ResetSystem (
 /**
   <b>PchReset Runtime  DXE Driver Entry Point</b>\n
   - <b>Introduction</b>\n
-    The PchReset Runtime DXE driver provide a standard way for other modules to 
+    The PchReset Runtime DXE driver provide a standard way for other modules to
     use the PCH Reset Interface in DXE/SMM/Runtime environments. It has no longer
     hooked ResetSystem() function of the runtime service table.
 
   - @pre
-    - If there is any driver which needs to run the callback function right before 
+    - If there is any driver which needs to run the callback function right before
       issuing the reset, PCH Reset Callback Protocol will need to be installed
       before PCH Reset Runtime DXE driver. If PchReset Runtime DXE driver is run
       before Status Code Runtime Protocol is installed and there is the need
@@ -436,7 +436,7 @@ InstallPchReset (
   Status = PchResetConstructor (mPchResetInstance);
 
   ///
-  /// Create Address Change event 
+  /// Create Address Change event
   ///
   ///
   Status = gBS->CreateEventEx (

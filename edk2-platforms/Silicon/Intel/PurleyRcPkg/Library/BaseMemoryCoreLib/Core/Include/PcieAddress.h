@@ -20,7 +20,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 typedef struct
   {
-    UINT8                         Signature[4];       ///< “MCFG”. Signature For this Table
+    UINT8                         Signature[4];       ///< ï¿½MCFGï¿½. Signature For this Table
     UINT32                        Length;             ///< Length, in bytes, include base address allocation structures.
     UINT8                         Revision;           ///< "1"
     UINT8                         SegMax;             ///< The Maximum number of Segments

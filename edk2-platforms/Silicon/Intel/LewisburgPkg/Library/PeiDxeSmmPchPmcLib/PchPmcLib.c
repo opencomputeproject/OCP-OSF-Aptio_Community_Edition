@@ -106,7 +106,7 @@ PchIsRtcBatteryGood (
   VOID
   )
 {
-  UINTN    Data; 
+  UINTN    Data;
   UINTN    PmcBaseAddress;
 
   //
@@ -119,7 +119,7 @@ PchIsRtcBatteryGood (
                      PCI_FUNCTION_NUMBER_PCH_PMC
                      );
 
-  Data = MmioRead32 (PmcBaseAddress + R_PCH_PMC_GEN_PMCON_B); 
+  Data = MmioRead32 (PmcBaseAddress + R_PCH_PMC_GEN_PMCON_B);
   if ((Data & B_PCH_PMC_GEN_PMCON_B_RTC_PWR_STS) == 0) {
     return TRUE;
   }

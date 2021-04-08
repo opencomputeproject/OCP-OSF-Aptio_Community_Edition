@@ -212,7 +212,7 @@ Scope(\_SB_.PC00.XHCI) {
           //
           // 1. BIOS writes a new command to the MTPMC register to cause the PMC to disable power gating
           Store(1,MPMC)
-          
+
           // 2. BIOS waits for PCH_PM_STS.MSG_FULL_STS to be 0
           //      In parallel and in response to the previous command from BIOS, PMC FW will:
           //         * Make the USB2 force common lane PG match the BIOS policy (common lane PG disallowed)
@@ -281,7 +281,7 @@ Scope(\_SB_.PC00.XHCI) {
 
           // 1. BIOS writes a new command to the MTPMC register to enable power gating
           Store(3,MPMC)
-          
+
           // 2. BIOS waits for PCH_PM_STS.MSG_FULL_STS to be 0
           //      In parallel and in response to the previous command from BIOS, PMC FW will:
           //        * Make the USB2 force common lane PG match the BIOS policy (common lane PG allowed)
@@ -298,11 +298,11 @@ Scope(\_SB_.PC00.XHCI) {
     }
 
 
-    // Apply S3 workaround. 
-    // Arguments : 
+    // Apply S3 workaround.
+    // Arguments :
     //  None
-    // Changes 8090 Bit 10 before S3. 
-    // 
+    // Changes 8090 Bit 10 before S3.
+    //
     Method(XHCS,0, Serialized) {
       Store(^MEMB,Local2)         // Save MBAR
       Store(^PDBM,Local1)         // Save CMD
@@ -315,7 +315,7 @@ Scope(\_SB_.PC00.XHCI) {
       OperationRegion(MC11,SystemMemory,\XWMB,0x9000)
       Field(MC11,DWordAcc,Lock,Preserve)
       {
-        Offset(0x8090),   //  HC Transfer Manager - TRM 
+        Offset(0x8090),   //  HC Transfer Manager - TRM
             ,  10,
         UCLI,  1,         // CLEAR IN EP
       }
@@ -326,7 +326,7 @@ Scope(\_SB_.PC00.XHCI) {
 
       Store(Local2,^MEMB)         // Restore MBAR
       Store(Local1,^PDBM)         // Restore CMD
-    
+
     }
 
     //
@@ -362,7 +362,7 @@ Scope(\_SB_.PC00.XHCI) {
         // Call platform XHC.RHUB PS0 method if present.
         //
         If(CondRefOf(\_SB.PC00.XHCI.RHUB.PS0X))
-        { 
+        {
           \_SB.PC00.XHCI.RHUB.PS0X()
         }
       }

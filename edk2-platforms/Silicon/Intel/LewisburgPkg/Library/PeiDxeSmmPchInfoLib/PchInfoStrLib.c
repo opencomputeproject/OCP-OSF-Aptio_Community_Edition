@@ -176,7 +176,7 @@ PchGetSteppingStr (
   }
   Status = AsciiStrCpyS (Buffer, *BufferSize, Str);
   ASSERT_EFI_ERROR(Status);
-  return Status; 
+  return Status;
 }
 
 /**

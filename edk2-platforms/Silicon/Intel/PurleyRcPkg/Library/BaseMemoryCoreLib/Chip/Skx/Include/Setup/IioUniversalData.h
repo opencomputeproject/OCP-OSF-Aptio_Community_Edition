@@ -38,7 +38,7 @@ typedef struct {
   UINT8                     stackPresentBitmap;
   UINT8                     StackBus[MAX_IIO_STACK];
   UINT8                     M2PciePresentBitmap;
-  UINT8                     TotM3Kti;   
+  UINT8                     TotM3Kti;
   UINT8                     TotCha;
   UINT32                    ChaList;
   UINT32                    SocId;
@@ -122,7 +122,7 @@ typedef struct {
 typedef struct {
     UINT8                   CurrentCsiLinkSpeed;// Current programmed CSI Link speed (Slow/Full speed mode)
     UINT8                   CurrentCsiLinkFrequency; // Current requested CSI Link frequency (in GT)
-    UINT32                  OutKtiPerLinkL1En[MAX_SOCKET];    // output kti link enabled status for PM 
+    UINT32                  OutKtiPerLinkL1En[MAX_SOCKET];    // output kti link enabled status for PM
     UINT8                   IsocEnable;
     UINT32                  meRequestedSize; // Size of the memory range requested by ME FW, in MB
     UINT8                   DmiVc1;

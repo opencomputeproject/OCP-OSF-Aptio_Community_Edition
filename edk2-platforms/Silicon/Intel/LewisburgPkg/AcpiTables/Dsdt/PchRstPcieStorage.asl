@@ -53,21 +53,21 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
   {
     RDCA(NCRN,Add(NPMV,0x04),0xFFFFFFFC,0x3,ENDPOINT_WRITE)
   }
-     
+
   //
-  // Restore of Remapped Device and Hidden Root Port 
+  // Restore of Remapped Device and Hidden Root Port
   // This method is called after the endpoint is to be power ungated (D3-cold to D0 unitialized)
   //
-  Method(CNRS, 0, Serialized) 
+  Method(CNRS, 0, Serialized)
   {
     //
     // Return if RST Pcie Storage Remapping is disabled
     //
-    If(LEqual(NITV,0)) 
+    If(LEqual(NITV,0))
     {
       Return(0)
     }
-  
+
     //
     // Clear all BARs in Remapped Device
     //
@@ -79,7 +79,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     RDCA(NCRN,PCI_CARD_BASE_ADDR5,0x0,0x0,ENDPOINT_WRITE)
 
     //
-    // Restore Endpoint CMD and remapped BAR 
+    // Restore Endpoint CMD and remapped BAR
     //
     RDCA(NCRN,0x4,0xFFFFFFF8,PCMD,ENDPOINT_WRITE)
     RDCA(NCRN,PRBI,0x0,PRBD,ENDPOINT_WRITE)
@@ -126,7 +126,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     // Check CCC bit
     // If this bit is 1, perform link retrain by setting the "Retrain Link" bit
     //
-    If(LEqual(And(NEAV,0x40),0x40)) 
+    If(LEqual(And(NEAV,0x40),0x40))
     {
       RDCA(NCRN,0x50,0xFFFFFFDF,0x20,ROOTPORT_WRITE)
       //
@@ -161,13 +161,13 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     //Fix warning: not all control paths return a value
     Return(0)
   }
- 
+
   Method(_PS3,0,Serialized)
   {
     //
     // Return if RST Pcie Storage Remapping is disabled
     //
-    If(LEqual(NITV,0)) 
+    If(LEqual(NITV,0))
     {
       //Fix warning: restricted method should not return a value
 
@@ -197,19 +197,19 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     //
     // Return if RST Pcie Storage Remapping is disabled
     //
-    If(LEqual(NITV,0)) 
+    If(LEqual(NITV,0))
     {
       //Fix warning: restricted method should not return a value
     }
     RPD0(NCRN)
     EPD0()
-        
+
     //
     // Check NSR bit in PMCS
-    // If this bit is 0, invoke CNRS() to perform restoration on the remapped device and hidden root port  
+    // If this bit is 0, invoke CNRS() to perform restoration on the remapped device and hidden root port
     //
     Store(RDCA(NCRN,Add(NPMV,0x04),0x0,0x0,ENDPOINT_READ),Local0)
-    If(LEqual(And(Local0,0x8),0)) 
+    If(LEqual(And(Local0,0x8),0))
     {
       CNRS()
     }

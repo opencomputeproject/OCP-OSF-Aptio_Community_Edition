@@ -119,7 +119,7 @@ PCIE_MMCFG_BASE_ADDRESS_TYPE mMmcfgAddr[] = \
 **/
 UINTN
 SetSocketMmcfgTable (
-  IN UINT8                SocketLastBus[], 
+  IN UINT8                SocketLastBus[],
   IN UINT8                SocketFirstBus[],
   IN UINT8                segmentSocket[],
   IN UINT32               mmCfgBaseH[],
@@ -139,7 +139,7 @@ SetSocketMmcfgTable (
 
   MmcfgTableSize = sizeof(PCIE_MMCFG_HEADER_TYPE) + (NumOfSocket * sizeof(PCIE_MMCFG_BASE_ADDRESS_TYPE));
 
-  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr); 
+  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr);
   ASSERT (MmcfgTableSize < PcdGetSize (PcdPcieMmcfgTablePtr));
 
   Data.D64 = PcdGet64 (PcdPciExpressBaseAddress);
@@ -152,7 +152,7 @@ SetSocketMmcfgTable (
   Dest = (UINT8*)HobMmcfgTable;
   Source = (UINT8*)&mMmcfgTable;
   for(i=0; i<sizeof(PCIE_MMCFG_TABLE_TYPE); i++)
-  {    
+  {
     Dest[i] = Source[i];
   }
 
@@ -207,7 +207,7 @@ SetPcieSegMmcfgTable (
   Data.D32[0] = Data.D32[1] = 0;
   MmcfgTableSize = sizeof(PCIE_MMCFG_HEADER_TYPE) + (NumOfSeg * sizeof(PCIE_MMCFG_BASE_ADDRESS_TYPE));
 
-  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr); 
+  HobMmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr);
   //ASSERT (MmcfgTableSize < PcdGetSize (PcdPcieMmcfgTablePtr));
 
   //InternalMemCopyMem(HobMmcfgTable, MmcfgTable, PcdGetSize (PcdPcieMmcfgTablePtr));
@@ -221,13 +221,13 @@ SetPcieSegMmcfgTable (
     HobMmcfgTable->MmcfgBase[0].BaseAddressL = Data.D32[0];
     HobMmcfgTable->MmcfgBase[0].BaseAddressH = Data.D32[1];
   };
-#endif  
+#endif
   return 0;
 };
 
 
 /**
-  This Lib return PCIE MMCFG Base Address 
+  This Lib return PCIE MMCFG Base Address
 
   @param  Address: A pointer of the address of the Common Address Structure for PCIE type.
   @param  Buffer: A pointer of buffer for the value read from platform.
@@ -243,7 +243,7 @@ GetPcieSegMmcfgBaseAddress (
   )
 {
   UINT32                        BaseAddressL=0;       // Processor-relative Base Address (Lower 32-bit) for the Enhanced Configuration Access Mechanism
-  UINT32                        BaseAddressH=0; 
+  UINT32                        BaseAddressH=0;
   UINTN SegMmcfgBase;
 
 #if !defined(MINIBIOS_BUILD) && !defined(KTI_SW_SIMULATION)
@@ -258,28 +258,28 @@ GetPcieSegMmcfgBaseAddress (
     MmcfgTable = (PCIE_MMCFG_TABLE_TYPE *) PcdGetPtr (PcdPcieMmcfgTablePtr);
     if(MmcfgTable->Header.Length != 0)
     {
-      BaseAddressH = MmcfgTable->MmcfgBase[Address->Pcie.Seg].BaseAddressH; 
+      BaseAddressH = MmcfgTable->MmcfgBase[Address->Pcie.Seg].BaseAddressH;
       BaseAddressL = MmcfgTable->MmcfgBase[Address->Pcie.Seg].BaseAddressL;
     } else {
     //
       // if it is not valid MMCFG pointer, initialize it to use the predefined default MMCFG Table
       //
       SetPcieSegMmcfgTable(&mMmcfgTable, PcdGet32 (PcdNumOfPcieSeg));
-      BaseAddressH = mMmcfgTable.MmcfgBase[Address->Pcie.Seg].BaseAddressH; 
-      BaseAddressL = mMmcfgTable.MmcfgBase[Address->Pcie.Seg].BaseAddressL; 
-    
+      BaseAddressH = mMmcfgTable.MmcfgBase[Address->Pcie.Seg].BaseAddressH;
+      BaseAddressL = mMmcfgTable.MmcfgBase[Address->Pcie.Seg].BaseAddressL;
+
       if((BaseAddressL == 0) && (BaseAddressH == 0)){
         Data.D32[0] = Data.D32[1] = 0;
         Data.D64 = (UINTN) PcdGet64 (PcdPciExpressBaseAddress);
         BaseAddressL = Data.D32[0];
         BaseAddressH = Data.D32[1];
-      } 
+      }
   }
   }
-  else 
-#endif  
+  else
+#endif
   {
-    BaseAddressH = 0; 
+    BaseAddressH = 0;
     BaseAddressL = 0;
   }
 

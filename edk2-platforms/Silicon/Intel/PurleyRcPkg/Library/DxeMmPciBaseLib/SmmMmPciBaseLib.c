@@ -28,11 +28,11 @@ SmmMmPciLibConstructor (
 {
   EFI_STATUS  Status;
 
-  if (mPciUsra == NULL) 
+  if (mPciUsra == NULL)
   {
     //
     // USRA protocol need to be installed before the module access USRA.
-    // 
+    //
     Status = gSmst->SmmLocateProtocol (&gUsraProtocolGuid, NULL, &mPciUsra);
     ASSERT_EFI_ERROR (Status);
     ASSERT (mPciUsra != NULL);
@@ -42,7 +42,7 @@ SmmMmPciLibConstructor (
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Bus                  Pci Bus Number
   @param[in] Device               Pci Device Number
   @param[in] Function             Pci Function Number
@@ -63,7 +63,7 @@ MmPciBase (
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Seg                  Pcie Segment Number
   @param[in] Bus                  Pcie Bus Number
   @param[in] Device               Pcie Device Number

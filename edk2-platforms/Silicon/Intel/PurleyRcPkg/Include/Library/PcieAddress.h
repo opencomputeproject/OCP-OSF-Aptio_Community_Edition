@@ -18,7 +18,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 //
 //////////////////////////////////////////////////////////////////////////
 
-typedef struct 
+typedef struct
   {
     UINT8                         Signature[4];       // "MCFG" Signature For this Table
     UINT32                        Length;             // Length, in bytes, include base address allocation structures.
@@ -28,7 +28,7 @@ typedef struct
     UINT8                         Reserved[4];        // Reserved
 } PCIE_MMCFG_HEADER_TYPE;
 
-typedef struct 
+typedef struct
   {
     UINT32                        BaseAddressL;       // Processor-relative Base Address (Lower 32-bit) for the Enhanced Configuration Access Mechanism
     UINT32                        BaseAddressH;       // Processor-relative Base Address (Upper 32-bit) for the Enhanced Configuration Access Mechanism
@@ -39,7 +39,7 @@ typedef struct
 } PCIE_MMCFG_BASE_ADDRESS_TYPE;
 
 
-typedef struct 
+typedef struct
   {
     PCIE_MMCFG_HEADER_TYPE        Header;             // The header of MMCFG Table
     PCIE_MMCFG_BASE_ADDRESS_TYPE  MmcfgBase[1];       // First Array of base address allocation structures.
@@ -48,7 +48,7 @@ typedef struct
 
 /**
   This Lib is used for platform to set platform specific Pcie MMCFG Table
-  
+
   @param[in] MmcfgTable           A pointer of the MMCFG Table structure for PCIE_MMCFG_TABLE_TYPE type
   @param[in] NumOfSeg             Number of Segments in the table
 
@@ -64,7 +64,7 @@ SetPcieSegMmcfgTable (
 
 /**
   This Lib return PCIE MMCFG Base Address
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure for PCIE type
 
   @retval <>NULL                  The function completed successfully.

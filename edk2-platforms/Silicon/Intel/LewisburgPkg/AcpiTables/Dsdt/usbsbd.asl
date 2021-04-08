@@ -29,7 +29,7 @@ Method (_DSM, 4, Serialized, 0, UnknownObj, {BuffObj, IntObj, IntObj, PkgObj})
       //
       Case (0)
       {
-        if (LEqual(Arg1, 1)){ // test Arg1 for the revision 
+        if (LEqual(Arg1, 1)){ // test Arg1 for the revision
           Return (Buffer () {0x07})
         } else {
           Return (Buffer () {0})

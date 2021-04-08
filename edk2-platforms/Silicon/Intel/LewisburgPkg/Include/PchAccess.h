@@ -136,7 +136,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     ( \
       IS_PCH_H_LPC_DEVICE_ID_SERVER(DeviceId) \
     )
-    
+
 #define IS_PCH_H_LPC_DEVICE_ID(DeviceId) \
     ( \
       IS_PCH_H_LPC_DEVICE_ID_DESKTOP (DeviceId) || \
@@ -209,7 +209,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
       (DeviceId == V_PCH_LBG_PROD_SSATA_DEVICE_ID_D_AHCI) || \
       (DeviceId == V_PCH_LBG_SSATA_DEVICE_ID_D_AHCI) \
     )
-    
+
 
 #define IS_PCH_H_SATA_AHCI_DEVICE_ID(DeviceId) \
     ( \
@@ -221,7 +221,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
     ( \
       (DeviceId == V_PCH_LP_SATA_DEVICE_ID_M_AHCI) \
     )
-    
+
 #define IS_PCH_SATA_AHCI_DEVICE_ID(DeviceId) \
     ( \
       IS_PCH_LBG_SATA_AHCI_DEVICE_ID (DeviceId) || \
@@ -275,7 +275,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
       (DeviceId == V_PCH_LP_SATA_DEVICE_ID_M_RAID_PREM) || \
       (DeviceId == V_PCH_LP_SATA_DEVICE_ID_M_RAID_RRT) \
     )
-    
+
 #define IS_PCH_SATA_RAID_DEVICE_ID(DeviceId) \
     ( \
       IS_PCH_LBG_SATA_RAID_DEVICE_ID(DeviceId) || \
@@ -343,7 +343,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
       (DeviceId == V_PCH_LP_SPI_DEVICE_ID) || \
       FALSE \
     )
-    
+
 #define IS_PCH_SPI_DEVICE_ID(DeviceId) \
     ( \
       IS_PCH_LBG_SPI_DEVICE_ID(DeviceId) \
@@ -598,17 +598,17 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 ///
 ///
 /// And any device that is PCH LBG
-/// 
+///
 #define IS_PCH_DEVICE_ID(DeviceId) \
     (\
      IS_PCH_LBG_DEVICE_ID(DeviceId) \
     )
 
 
-/** 
+/**
   PCH PCR boot script accessing macro
   Those macros are only available for DXE phase.
-**/ 
+**/
 #define PCH_PCR_BOOT_SCRIPT_WRITE(Width, Pid, Offset, Count, Buffer) \
           S3BootScriptSaveMemWrite (Width, PCH_PCR_ADDRESS (Pid, Offset), Count, Buffer); \
           S3BootScriptSaveMemPoll (Width, PCH_PCR_ADDRESS (Pid, Offset), Buffer, Buffer, 1, 1);

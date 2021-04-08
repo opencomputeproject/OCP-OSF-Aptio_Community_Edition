@@ -13,7 +13,7 @@
   PACKAGE_VERSION                = 0.5
 
 [Includes]
-  Include                        
+  Include
 
 [LibraryClasses]
   CpuConfigLib|Include/Library/CpuConfigLib.h
@@ -46,76 +46,76 @@
 #
 
 [PcdsFeatureFlag]
-  ## Indicates if the support for Intel(R) Pentium(R) 4 (90nm) processor with HT 
-  #  Technology, Intel(R) Celeron D Processor, Intel(R) Pentium(R) 4 Processor 
-  #  Extreme Edition Supporting HT Technology Processor, and Mobile Intel(R) 
+  ## Indicates if the support for Intel(R) Pentium(R) 4 (90nm) processor with HT
+  #  Technology, Intel(R) Celeron D Processor, Intel(R) Pentium(R) 4 Processor
+  #  Extreme Edition Supporting HT Technology Processor, and Mobile Intel(R)
   #  Pentium(R) 4 Processor supporting HT Technology is included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Processor Family.
   gEfiCpuTokenSpaceGuid.PcdCpuPrescottFamilyFlag|TRUE|BOOLEAN|0x00000001
-  ## Indicates if the support for Intel(R) Pentium(R) 4 (65nm) processor supporting HT Technology and Intel(R) 
+  ## Indicates if the support for Intel(R) Pentium(R) 4 (65nm) processor supporting HT Technology and Intel(R)
   #  Celeron D Processor is included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Pentium(R) 4 (65nm) processor supporting HT Technology and Intel(R) Celeron D Processor Support.
   gEfiCpuTokenSpaceGuid.PcdCpuCedarMillFamilyFlag|TRUE|BOOLEAN|0x00000002
-  ## Indicates if the support for Intel(R) Core(TM)2 Processor, Intel(R) Celeron(R) Processor, 
-  #  Intel (R) Pentium(R) Processor, and Intel(R) Xeon(R) Processor is included in 
+  ## Indicates if the support for Intel(R) Core(TM)2 Processor, Intel(R) Celeron(R) Processor,
+  #  Intel (R) Pentium(R) Processor, and Intel(R) Xeon(R) Processor is included in
   #  the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Core(TM)2 Processor, Intel(R) Celeron(R) Processor, Intel (R) Pentium(R) Processor, and Intel(R) Xeon(R) Processor Support.
   gEfiCpuTokenSpaceGuid.PcdCpuConroeFamilyFlag|TRUE|BOOLEAN|0x00000003
-  ## Indicates if the support for Intel(R) Atom(TM) E6xx processor family is 
+  ## Indicates if the support for Intel(R) Atom(TM) E6xx processor family is
   #  included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support for Intel(R) Atom(TM) E6xx processor family is included in the CPU MP driver.<BR>
   #   FALSE - The support for Intel(R) Atom(TM) E6xx processor family is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Atom(TM) E6xx processor family Support.
   gEfiCpuTokenSpaceGuid.PcdCpuTunnelCreekFamilyFlag|FALSE|BOOLEAN|0x10000033
-  ## Indicates if the support for Intel(R) Xeon(R) (45nm QPI) processor family is included 
+  ## Indicates if the support for Intel(R) Xeon(R) (45nm QPI) processor family is included
   #  in the CPU MP driver.<BR><BR>
   #   TRUE  - The support for Intel(R) Xeon(R) Processor family (45nm QPI)is included in the CPU MP driver.<BR>
   #   FALSE - The support for Intel(R) Xeon(R) Processor family (45nm QPI)is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Xeon(R) Processor family (45nm QPI) Support.
   gEfiCpuTokenSpaceGuid.PcdCpuNehalemFamilyFlag|TRUE|BOOLEAN|0x10000019
-  ## Indicates if the support for Intel(R) Core(TM) 2xxx processor family is 
+  ## Indicates if the support for Intel(R) Core(TM) 2xxx processor family is
   #  included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Xeon(R) Processor, Intel (R) Pentium(R) Processor, Intel(R) Core(TM) Processor, Intel(R) Celeron(R) Processor Support.
   gEfiCpuTokenSpaceGuid.PcdCpuSandyBridgeFamilyFlag|TRUE|BOOLEAN|0x10000030
-  ## Indicates if the support for Intel(R) Atom(TM) C2xxx processor family is 
+  ## Indicates if the support for Intel(R) Atom(TM) C2xxx processor family is
   #  included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Atom(TM) C2xxx processor family Support.
   gEfiCpuTokenSpaceGuid.PcdCpuSilvermontFamilyFlag|FALSE|BOOLEAN|0x10000034
-  ## Indicates if the support for Intel(R) Core(TM) 3xxx processor family is 
+  ## Indicates if the support for Intel(R) Core(TM) 3xxx processor family is
   #  included in the CPU MP driver.<BR><BR>
   #   TRUE  - The support is included in the CPU MP driver.<BR>
   #   FALSE - The support is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver Intel(R) Xeon(R) Processor, Intel (R) Pentium(R) Processor, Intel(R) Core(TM) Processor Support.
   gEfiCpuTokenSpaceGuid.PcdCpuIvyBridgeFamilyFlag|TRUE|BOOLEAN|0x10000031
-  ## Indicates if the support for 4th Generation Intel(R) Core(TM) processor family is included in the CPU 
+  ## Indicates if the support for 4th Generation Intel(R) Core(TM) processor family is included in the CPU
   #  MP driver.<BR><BR>
   #   TRUE  - The support for 4th Generation Intel(R) Core(TM) processor is included in the CPU MP driver.<BR>
   #   FALSE - The support for 4th Generation Intel(R) Core(TM) processor is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver 4th Generation Intel(R) Core(TM) processor support.
   gEfiCpuTokenSpaceGuid.PcdCpuHaswellFamilyFlag|TRUE|BOOLEAN|0x10000032
-  ## Indicates if the support for 5th Generation Intel(R) Core(TM) processor family is included in the CPU 
+  ## Indicates if the support for 5th Generation Intel(R) Core(TM) processor family is included in the CPU
   #  MP driver.<BR><BR>
   #   TRUE  - The support for 5th Generation Intel(R) Core(TM) processor is included in the CPU MP driver.<BR>
   #   FALSE - The support for 5th Generation Intel(R) Core(TM) processor is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver 5th Generation Intel(R) Core(TM) processor support.
   gEfiCpuTokenSpaceGuid.PcdCpuBroadwellFamilyFlag|FALSE|BOOLEAN|0x10000035
-  ## Indicates if the support for 6th Generation Intel(R) Core(TM) processor family is included in the CPU 
+  ## Indicates if the support for 6th Generation Intel(R) Core(TM) processor family is included in the CPU
   #  MP driver.<BR><BR>
   #   TRUE  - The support for 6th Generation Intel(R) Core(TM) processor is included in the CPU MP driver.<BR>
   #   FALSE - The support for 6th Generation Intel(R) Core(TM) processor is not included in the CPU MP driver.<BR>
   # @Prompt CPU MP driver 6th Generation Intel(R) Core(TM) processor support.
   gEfiCpuTokenSpaceGuid.PcdCpuSkylakeFamilyFlag|FALSE|BOOLEAN|0x10000036
-  ## Indicates if the support for 16nm Intel(R) Atom(TM) processor family is included in the CPU 
+  ## Indicates if the support for 16nm Intel(R) Atom(TM) processor family is included in the CPU
   #  MP driver.<BR><BR>
   #   TRUE  - The support for 16nm Intel(R) Atom(TM) processor family is included in the CPU MP driver.<BR>
   #   FALSE - The support for 16nm Intel(R) Atom(TM) processor family is not included in the CPU MP driver.<BR>
@@ -380,10 +380,10 @@
   gEfiCpuTokenSpaceGuid.PcdCpuSmmProfileSize|0x200000|UINT32|0x32132107
   ## Specifies the temporary RAM base address.
   # @Prompt Temporary RAM base address.
-  gEfiCpuTokenSpaceGuid.PcdTemporaryRamBase|0xfef00000|UINT32|0x10001001                   
+  gEfiCpuTokenSpaceGuid.PcdTemporaryRamBase|0xfef00000|UINT32|0x10001001
   ## Specifies the temporary RAM size in bytes.
   # @Prompt Temporary RAM size.
-  gEfiCpuTokenSpaceGuid.PcdTemporaryRamSize|0x2000|UINT32|0x10001002                       
+  gEfiCpuTokenSpaceGuid.PcdTemporaryRamSize|0x2000|UINT32|0x10001002
   ## Maximum number of processors in SEC (Not used).
   # @Prompt Maximum number of processors in SEC.
   gEfiCpuTokenSpaceGuid.PcdSecMaximumNumberOfProcessors|1|UINT32|0x10001000
@@ -554,8 +554,8 @@
   # @Prompt The pointer to CPU Configuration Context Buffer.
   # @ValidList   0x80000001 | 0
   gEfiCpuTokenSpaceGuid.PcdCpuConfigContextBuffer|0x0|UINT64|0x50000001
-  ## Used for a callback mechanism for the CPU MP driver. 
-  #  The CPU MP driver will set this PCD at pre-defined points. If there is callback function registered on it, 
+  ## Used for a callback mechanism for the CPU MP driver.
+  #  The CPU MP driver will set this PCD at pre-defined points. If there is callback function registered on it,
   #  the callback function will be triggered, and it may change the value of PcdCpuCallbackSignal.
   # @Prompt PCD for CPU callback signal.
   # @ValidList   0x80000001 | 0

@@ -234,7 +234,7 @@ Scope(\_SB)
     Store (GNMB(Arg0), Local1)
     // Local2 - Gpio group index for GpioPad
     Store (GGRP(Arg0), Local2)
-    
+
     Return (Add(Local1,Multiply(Local2, 24)))
   }
 
@@ -246,7 +246,7 @@ Scope(\_SB)
     //
     // Arg0 - GpioPad
     //
-    
+
     If(LEqual(PCHS, 0x2)) { // SPT-LP
       Store(PCH_LP_PKG_INDEX, Local0)
     } Else { //SPT-H
@@ -258,12 +258,12 @@ Scope(\_SB)
     Store (GGRP(Arg0), Local2)
     // Local3 - Group index used in a loop
     Store (0 , Local3)
-    
+
     While(LLess  (Local3, Local2)) {
       Add( DeRefOf( Index (DeRefOf(Index (GPPG, Local0)),Local3)),Local1,Local1)
       Increment(Local3)
     }
-    
+
     return(Add(24,Mod(Local1,96)))
   }
 
@@ -306,12 +306,12 @@ Scope(\_SB)
     //
     // Arg0 - GPIO pad
     //
-    
+
     //Local0 - GPIO group index (GPP_A - 0, GPP_B - 1 ... )
     Store (GGRP(Arg0), Local0)
     //Local1 - GPIO pad number
     Store (GNMB(Arg0), Local1)
-    
+
     //
     // Get mapping for certain group
     // Local2 = (GPEM >> (Local0*2)) & 0x3
@@ -341,7 +341,7 @@ Scope(\_SB)
     // Arg0 - GPIO Group index
     // Arg1 - Package with registers offsets for GPIO groups
     //
-    
+
     If(LEqual(PCHS, 0x2)) { // SPT-LP
       Store(PCH_LP_PKG_INDEX, Local0)
     } Else { //SPT-H
@@ -349,7 +349,7 @@ Scope(\_SB)
     }
     //Local1 = GpioCommunityAddress
     Store( Add( DeRefOf(Index (DeRefOf( Index(GCOM,Local0)),Arg0)),SBRG),Local1)
-    
+
     //Local2 = Register Offset
     Store( DeRefOf(Index (DeRefOf( Index(Arg1,Local0)),Arg0)),Local2)
 
@@ -664,7 +664,7 @@ Scope(\_SB)
     Store (GGRP(Arg0), Local0)
     // Local1 - GPIO pad number
     Store (GNMB(Arg0), Local1)
-    
+
     OperationRegion(PREG, SystemMemory, GADR(Local0,HOWN), 4)
     Field(PREG, AnyAcc, NoLock, Preserve) {
       Offset(0x0),
@@ -884,7 +884,7 @@ Scope(\_SB)
 
     While(Local0) {
       Decrement(Local0)
-      
+
       If(LEqual(Local0,9)){Store(G2L9,Local1);}
       ElseIf(LEqual(Local0,8)){Store(G2L8,Local1);}
       ElseIf(LEqual(Local0,7)){Store(G2L7,Local1);}
@@ -896,7 +896,7 @@ Scope(\_SB)
       ElseIf(LEqual(Local0,1)){Store(G2L1,Local1);}
       ElseIf(LEqual(Local0,0)){Store(G2L0,Local1);}
       Else {continue}
-      
+
       CGP1(Local0,Local1)
     }
   }

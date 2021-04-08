@@ -17,9 +17,9 @@ extern EFI_GUID  gPchPcieDeviceTablePpiGuid;
 typedef enum {
   PchPcieOverrideDisabled             = 0,
   PchPcieL1L2Override                 = 0x01,
-  PchPcieL1SubstatesOverride          = 0x02, 
-  PchPcieL1L2AndL1SubstatesOverride   = 0x03, 
-  PchPcieLtrOverride                  = 0x04  
+  PchPcieL1SubstatesOverride          = 0x02,
+  PchPcieL1L2AndL1SubstatesOverride   = 0x03,
+  PchPcieLtrOverride                  = 0x04
 } PCH_PCIE_OVERRIDE_CONFIG;
 
 /**
@@ -29,7 +29,7 @@ typedef enum {
   To take effect table consisting of such entries must be instelled as PPI
   on gPchPcieDeviceTablePpiGuid.
   Last entry VendorId must be 0.
-**/ 
+**/
 typedef struct {
   UINT16  VendorId;                    ///< The vendor Id of Pci Express card ASPM setting override, 0xFFFF means any Vendor ID
   UINT16  DeviceId;                    ///< The Device Id of Pci Express card ASPM setting override, 0xFFFF means any Device ID
@@ -75,7 +75,7 @@ typedef struct {
   /**
     SnoopLatency bit definition
     Note: All Reserved bits must be set to 0
-  
+
     BIT[15]     - When set to 1b, indicates that the values in bits 9:0 are valid
                   When clear values in bits 9:0 will be ignored
     BITS[14:13] - Reserved
@@ -90,14 +90,14 @@ typedef struct {
                   111b - Reserved
     BITS[9:0]   - Snoop Latency Value. The value in these bits will be multiplied with
                   the scale in bits 12:10
-    
+
     This field takes effect only if bit 3 is set in OverrideConfig.
   **/
   UINT16  SnoopLatency;
   /**
     NonSnoopLatency bit definition
     Note: All Reserved bits must be set to 0
-  
+
     BIT[15]     - When set to 1b, indicates that the values in bits 9:0 are valid
                   When clear values in bits 9:0 will be ignored
     BITS[14:13] - Reserved

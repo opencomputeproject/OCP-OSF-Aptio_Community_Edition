@@ -8,10 +8,10 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #ifndef __PCIE_PLATFORM_HOOK_LIB_H__
 #define __PCIE_PLATFORM_HOOK_LIB_H__
 
-typedef enum {  
+typedef enum {
   PcieInitStart,
-  BeforeBifurcation, 
-  AfterBifurcation,             
+  BeforeBifurcation,
+  AfterBifurcation,
   BeforePortInit,
   AfterPortInit,
   PcieInitEnd

@@ -54,7 +54,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 // M0    7       6          4           0x50654     2 (hcc)
 // U0    8       6          4           0x50654     0 (lcc)
 //
-// xy_REV_SKX is the logical ID for BIOS to distinguish the Si 
+// xy_REV_SKX is the logical ID for BIOS to distinguish the Si
 // A0 and A1 still keep to 0
 //
 #ifndef A0_REV
@@ -154,7 +154,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #ifndef MAX_MC_CH
 #define MAX_MC_CH                     3                     // Max number of channels per MC (3 for EP)
 #endif
-   
+
 
 // If you change this, please also update MAX_CH in Library\ProcMemInit\Include\MemHostChip.h
 // If you change this, please also update MAX_IMC in Library\ProcMemInit\Platform\Include\MemDefaults.h

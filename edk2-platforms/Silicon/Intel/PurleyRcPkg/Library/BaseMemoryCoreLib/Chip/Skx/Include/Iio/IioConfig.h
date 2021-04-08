@@ -293,7 +293,7 @@ typedef struct {
   UINT8   RtoUpTxPreset[MAX_TOTAL_PORTS];				//On Setup
 
   UINT8   InboundConfiguration[MAX_TOTAL_PORTS];		//On Setup
-  
+
 } IIO_CONFIG;
 #pragma pack()
 

@@ -94,7 +94,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define B_PCH_HSIO_RX_DWORD57_JIMMODE                   BIT28
 #define B_PCH_HSIO_RX_DWORD57_JIMNUMCYCLES_3_0          0x0F000000
 #define N_PCH_HSIO_RX_DWORD57_JIMNUMCYCLES_3_0          24
-#define B_PCH_HSIO_RX_DWORD57_ICFGMARGINEN              BIT0 
+#define B_PCH_HSIO_RX_DWORD57_ICFGMARGINEN              BIT0
 
 #define R_PCH_HSIO_RX_DWORD59                           0x1EC
 #define R_PCH_HSIO_RX_DWORD60                           0x1F0
@@ -143,7 +143,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #define R_PCH_HSIO_PLL_SSC_DWORD2                       0x8108
 #define B_PCH_HSIO_PLL_SSC_DWORD2_SSCSTEPSIZE_7_0       (BIT23 | BIT22 | BIT21 | BIT20 | BIT19 | BIT18 | BIT17 | BIT16)
-#define N_PCH_HSIO_PLL_SSC_DWORD2_SSCSTEPSIZE_7_0       16 
+#define N_PCH_HSIO_PLL_SSC_DWORD2_SSCSTEPSIZE_7_0       16
 #define B_PCH_HSIO_PLL_SSC_DWORD2_SSCSEN                BIT10
 #define N_PCH_HSIO_PLL_SSC_DWORD2_SSCSEN                10
 

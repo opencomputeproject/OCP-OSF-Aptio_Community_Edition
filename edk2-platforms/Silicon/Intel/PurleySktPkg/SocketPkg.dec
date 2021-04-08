@@ -12,7 +12,7 @@
   PACKAGE_GUID                   = DD44D851-9A3E-46E8-A2Ef-D794D014ECC1
   PACKAGE_VERSION                = 0.91
 
-[Includes]              
+[Includes]
   Include
   Include/Library
   Include/Guid
@@ -20,10 +20,10 @@
   Library/ProcMemInit/Chip/Include
   Override/IA32FamilyCpuPkg
   Override/IA32FamilyCpuPkg/Include
-  
+
   Iio/Include
   Iio/Include/Protocol
-  
+
 [Guids]
   gCpuUncoreTokenSpaceGuid                            = { 0x9044434c, 0x40e8, 0x47a1, { 0xa3, 0xba, 0x85, 0x07, 0xf3, 0xc0, 0xe2, 0x56 } }
   gProcessorProducerGuid                              = { 0x1bf06aea, 0x5bec, 0x4a8d, { 0x95, 0x76, 0x74, 0x9b, 0x09, 0x56, 0x2d, 0x30 } }

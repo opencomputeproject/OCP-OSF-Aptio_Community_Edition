@@ -26,19 +26,19 @@
   Library/BaseMemoryCoreLib/Chip/Skx/Include/Setup
 
 [LibraryClasses]
-  
+
   ##  @libraryclass  Provides services to get the silicon access library.
   SiliconAccessLib|Include/Library/UsraAccessApi.h
 
   ##  @libraryclass  Provides services to convert CSR to PCIE address library.
   CsrToPcieLib|PurleyRcPkg/Include/Library/CsrToPcieAddress.h
-  
+
   ##  @libraryclass  Provides services to PCIE address library.
   PcieAddrLib|PurleyRcPkg/Include/Library/PcieAddress.h
-  
+
   ##  @libraryclass  Provides services to get PCI Express Address Base library.
   MmPciLib|PurleyRcPkg/Include/Library/MmPciBaseLib.h
-  
+
   ##  @libraryclass  Provides services to get the silicon access library.
   UsraLib|PurleyRcPkg/Include/Protocol/SiliconRegAccess.h
 
@@ -46,7 +46,7 @@
 
   ## Include/Guid/CpRcPkgTokenSpace.h
   gEfiCpRcPkgTokenSpaceGuid  = { 0xfcdd2efc, 0x6ca8, 0x4d0b, { 0x9d, 0x0, 0x6f, 0x9c, 0xfa, 0x57, 0x8f, 0x98 }}
-  
+
 [Protocols]
   ## Include/Protocol/SiliconRegAccess.h
   gUsraProtocolGuid              = { 0xfd480a76, 0xb134, 0x4ef7, { 0xad, 0xfe, 0xb0, 0xe0, 0x54, 0x63, 0x98, 0x7 }}
@@ -87,4 +87,4 @@
 
 [PcdsFixedAtBuild, PcdsPatchableInModule, PcdsDynamic, PcdsDynamicEx]
 
-    
+

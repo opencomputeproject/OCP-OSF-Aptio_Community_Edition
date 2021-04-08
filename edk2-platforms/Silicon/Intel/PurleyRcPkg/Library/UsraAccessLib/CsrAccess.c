@@ -48,7 +48,7 @@ CsrRegisterRead (
   GetCsrAccessAddress (NULL, 0, Address, &AlignedAddress);
 
     UsraRegAlignedRead((UINT32)Address->Attribute.AccessWidth, AlignedAddress, Buffer);
-  
+
   return RETURN_SUCCESS;
 }
 
@@ -71,7 +71,7 @@ CsrRegisterWrite (
 
   GetCsrAccessAddress (NULL, 0, Address, &AlignedAddress);
 
-    UsraRegAlignedWrite((UINT32)Address->Attribute.AccessWidth, AlignedAddress, Buffer);  
+    UsraRegAlignedWrite((UINT32)Address->Attribute.AccessWidth, AlignedAddress, Buffer);
 
   if (FeaturePcdGet (PcdUsraSupportS3))
   {

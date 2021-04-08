@@ -12,7 +12,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Bus                  Pci Bus Number
   @param[in] Device               Pci Device Number
   @param[in] Function             Pci Function Number
@@ -28,7 +28,7 @@ MmPciBase (
 
 /**
   This procedure will get PCIE address
-  
+
   @param[in] Seg                  Pcie Segment Number
   @param[in] Bus                  Pcie Bus Number
   @param[in] Device               Pcie Device Number

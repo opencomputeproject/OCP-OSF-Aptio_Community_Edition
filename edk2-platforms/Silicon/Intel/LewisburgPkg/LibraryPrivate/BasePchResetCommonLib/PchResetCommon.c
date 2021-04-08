@@ -108,7 +108,7 @@ PchReset (
       /// Then, GPE0_EN should be disabled to avoid any GPI waking up the system from S5
       ///
       IoWrite32 ((UINTN) (ABase + R_PCH_ACPI_GPE0_EN_127_96), 0);
-      
+
       ///
       /// Secondly, PwrSts register must be cleared
       ///
@@ -117,18 +117,18 @@ PchReset (
       ///
       Data16 = B_PCH_SMI_STS_PM1_STS_REG;
       IoWrite16 ((UINTN) (ABase + R_PCH_SMI_STS), Data16);
-      
+
       ///
       /// Finally, transform system into S5 sleep state
       ///
       Data32  = IoRead32 ((UINTN) (ABase + R_PCH_ACPI_PM1_CNT));
-      
+
       Data32  = (UINT32) ((Data32 &~(B_PCH_ACPI_PM1_CNT_SLP_TYP + B_PCH_ACPI_PM1_CNT_SLP_EN)) | V_PCH_ACPI_PM1_CNT_S5);
-      
+
       IoWrite32 ((UINTN) (ABase + R_PCH_ACPI_PM1_CNT), Data32);
-      
+
       Data32 = Data32 | B_PCH_ACPI_PM1_CNT_SLP_EN;
-      
+
       IoWrite32 ((UINTN) (ABase + R_PCH_ACPI_PM1_CNT), Data32);
       return EFI_SUCCESS;
 

@@ -258,7 +258,7 @@ Scope(\_SB.PC00.CAVS) {
               Return(ADFM)
             }
 
-            // Function 3: Query Pre/Post Processing Module Support 
+            // Function 3: Query Pre/Post Processing Module Support
             //                    Used by the Intel Offload Engine Driver to determine if a
             //                    specified PP Module is allowed to be supported on this platform
             // Arg2 - Function Index: 0x03 (Integer)

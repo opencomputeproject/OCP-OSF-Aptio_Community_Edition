@@ -56,7 +56,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define B_PCH_SCS_DEV_MEM_TIMEOUT_CTL_DTCV                0x0F               ///< Data Timeout Counter Value
 #define R_PCH_SCS_DEV_MEM_SWRST                           0x2F
 #define B_PCH_SCS_DEV_MEM_SWRST_CMDLINE                   BIT1
-#define B_PCH_SCS_DEV_MEM_SWRST_DATALINE                  BIT2 
+#define B_PCH_SCS_DEV_MEM_SWRST_DATALINE                  BIT2
 #define R_PCH_SCS_DEV_MEM_NINTSTS                         0x30
 #define B_PCH_SCS_DEV_MEM_NINTSTS_MASK                    0xFFFF
 #define B_PCH_SCS_DEV_MEM_NINTSTS_CLEAR_MASK              0x60FF

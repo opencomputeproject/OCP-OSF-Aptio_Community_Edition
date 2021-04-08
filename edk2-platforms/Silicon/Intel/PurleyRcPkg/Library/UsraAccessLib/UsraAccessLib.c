@@ -36,8 +36,8 @@ REGISTER_MODIFY mRegisterModifyPtr[] =
 };
 
 /**
-  Perform MMIO read 
-  
+  Perform MMIO read
+
   @param[in] AccessWidth          Access Width
   @param[in] AlignedAddress       An address to be read out
   @param[in] Buffer               A pointer of buffer contains the data to be read out
@@ -71,8 +71,8 @@ UsraRegAlignedRead (
 };
 
 /**
-  Perform MMIO write 
-  
+  Perform MMIO write
+
   @param[in] AccessWidth          Access Width
   @param[in] AlignedAddress       An address to be written
   @param[in] Buffer               A pointer of buffer contains the data to be written
@@ -105,8 +105,8 @@ UsraRegAlignedWrite (
 }
 
 /**
-  Perform AND then OR operations for a input data 
-  
+  Perform AND then OR operations for a input data
+
   @param[in out] Data             A pointer of the address of the register to be modified
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()
@@ -143,7 +143,7 @@ DataAndOr (
       OrData[i] = ((UINT8*)OrBuffer)[i];
     Buffer.Byte[i] = (Buffer.Byte[i] & AndData[i]) | OrData[i];
   }
-  
+
   *Data = Buffer.QW;
 }
 
@@ -155,7 +155,7 @@ DataAndOr (
 
 /**
   This API gets the flat address from the given USRA Address.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
 
   @retval                         The flat address
@@ -174,9 +174,9 @@ GetRegisterAddress (
 };
 
 /**
-  This API performs 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations. 
+  This API performs 8-bit, 16-bit, 32-bit or 64-bit silicon register read operations.
   It transfers data from a register into a naturally aligned data buffer.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be read out
   @param[in] Buffer               A pointer of buffer for the value read from the register
 
@@ -193,9 +193,9 @@ RegisterRead (
 };
 
 /**
-  This API performs 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations. 
+  This API performs 8-bit, 16-bit, 32-bit or 64-bit silicon register write operations.
   It transfers data from a naturally aligned data buffer into a silicon register.
-  
+
   @param[in] Address              A pointer of the address of the USRA Address Structure to be written
   @param[in] Buffer               A pointer of buffer for the value write to the register
 
@@ -214,7 +214,7 @@ RegisterWrite (
 /**
   This API performs 8-bit, 16-bit, 32-bit or 64-bit silicon register AND then OR operations. It read data from a
   register, And it with the AndBuffer, then Or it with the OrBuffer, and write the result back to the register
-  
+
   @param[in] Address              A pointer of the address of the silicon register to be written
   @param[in] AndBuffer            A pointer of buffer for the value used for AND operation
                                   A NULL pointer means no AND operation. RegisterModify() equivalents to RegisterOr()

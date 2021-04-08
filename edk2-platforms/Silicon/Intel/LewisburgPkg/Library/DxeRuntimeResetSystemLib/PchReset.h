@@ -43,16 +43,16 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 /**
   <b>PchReset Runtime  DXE Driver Entry Point</b>\n
   - <b>Introduction</b>\n
-    The PchReset Runtime DXE driver provide a standard way for other modules to 
+    The PchReset Runtime DXE driver provide a standard way for other modules to
     use the PCH Reset Interface in DXE/SMM/Runtime environments. It has no longer
     hooked ResetSystem() function of the runtime service table.
 
   - @pre
-    - If there is any driver which needs to run the callback function right before 
-    issuing the reset, PCH Reset Callback Protocol will need to be installed 
-    before PCH Reset Runtime DXE driver. If PchReset Runtime DXE driver is run 
-    before Status Code Runtime Protocol is installed and there is the need 
-    to use Status code in the driver, it will be necessary to add EFI_STATUS_CODE_RUNTIME_PROTOCOL_GUID 
+    - If there is any driver which needs to run the callback function right before
+    issuing the reset, PCH Reset Callback Protocol will need to be installed
+    before PCH Reset Runtime DXE driver. If PchReset Runtime DXE driver is run
+    before Status Code Runtime Protocol is installed and there is the need
+    to use Status code in the driver, it will be necessary to add EFI_STATUS_CODE_RUNTIME_PROTOCOL_GUID
     to the dependency file.
     - @link _PCH_RESET_CALLBACK_PROTOCOL  PCH_RESET_CALLBACK_PROTOCOL @endlink
 

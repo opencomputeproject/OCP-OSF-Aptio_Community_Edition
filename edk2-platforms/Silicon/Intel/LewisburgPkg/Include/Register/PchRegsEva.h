@@ -24,7 +24,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define PCI_FUNCTION_NUMBER_PCH_SSATA   5
 
 #define PCH_SSATA_MAX_CONTROLLERS 1
-#define PCH_SSATA_MAX_PORTS       6   // But only 4 ports are enable, BIOS needs to disable Port 4 and 5 
+#define PCH_SSATA_MAX_PORTS       6   // But only 4 ports are enable, BIOS needs to disable Port 4 and 5
 
 #define R_PCH_LBG_SSATA_DEVICE_ID      0x02
 
@@ -80,7 +80,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define V_PCH_LBG_MROM_ADRTIMERCTRL_ADR_MULT_96   0x9
 #define V_PCH_LBG_MROM_ADRTIMERCTRL_ADR_MULT_MAX  (V_PCH_LBG_MROM_ADRTIMERCTRL_ADR_MULT_96)
 #define ADR_MULT_SETUP_DEFAULT_POR 99
-#define B_PCH_LBG_MROM_ADRTIMERCTRL_ADR_DBG_DIS   BIT28   
+#define B_PCH_LBG_MROM_ADRTIMERCTRL_ADR_DBG_DIS   BIT28
 #define B_PCH_LBG_MROM_ADRTIMERCTRL_ADR_TMR_DIS   BIT29
 #define B_PCH_LBG_MROM_ADRTIMERCTRL_ADR_TMR_MASK  (BIT30|BIT31)
 #define N_PCH_LBG_MROM_ADRTIMERCTRL_ADR_TMR       30

@@ -24,10 +24,10 @@ EFI_STATUS
 /**
 
   Enables the requested VC in IIO
-    
+
   @param This                    Pointer to the EFI_IOH_UDS_PROTOCOL instance.
   @param VcCtrlData              Data read from VC resourse control reg.
-                          
+
 **/
 
 

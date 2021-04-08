@@ -12,7 +12,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <PiDxe.h>
 #include <Protocol/CpuCsrAccess.h>
 #include <Library/TimerLib.h>
-#include "SysHost.h" 
+#include "SysHost.h"
 #include "UncoreCommonIncludes.h"
 
 #define NUM_CST_LAT_MSR     3
@@ -73,7 +73,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define IOM_APM_OVERRIDE_ENABLE                    (1 << IOM_APM_OVERRIDE_ENABLE_SHIFT)            // Bit 5
 #define QPI_APM_OVERRIDE_ENABLE                    (1 << QPI_APM_OVERRIDE_ENABLE_SHIFT)            // Bit 0
 #define DYNAMIC_PERF_POWER_CTL_MASK  (0x3C000000 + UNOCRE_PERF_PLIMIT_OVERRIDE_ENABLE + EET_OVERRIDE_ENABLE + IO_BW_PLIMIT_OVERRIDE_ENABLE + IMC_APM_OVERRIDE_ENABLE + IOM_APM_OVERRIDE_ENABLE + QPI_APM_OVERRIDE_ENABLE)
- 
+
 // CSR_PCIE_ILTR_OVRD  (CSR 1:10:1:78)
 // SW_LTR_OVRD (MSR 0xa02) -- not used
 //CSR_PCIE_ILTR_OVRD bit definition
@@ -127,8 +127,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define MASK_PCIE_IN_L1_BITS                   0xFF000000    // clear bits 23:0
 #define SET_KTI_INPKGCENTRY                    (KTI_0_IN_L1 + KTI_1_IN_L1 + KTI_2_IN_L1)
 #define SET_PCIE_INPKGCENTRY                   0xFFFFFF      // set bits 23:0
-#define SET_PCIEx_MASK                         0xF     
-#define SET_DMI_MASK                           0x1     
+#define SET_PCIEx_MASK                         0xF
+#define SET_DMI_MASK                           0x1
 
 
 // CSR Perf PLIMIT bit definition for HSX <= B Stepping
@@ -156,8 +156,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define PERF_PLIMIT_THRESHOLD                 (0x1f << PERF_P_LIMIT_THRESHOLD_SHIFT) // Bits 5:1
 #define REPERF_PLIMIT_EN_SHIFT                0                                      // Bit 0
 #define REPERF_PLIMIT_EN                      (1 << REPERF_P_LIMIT_EN_SHIFT)         // Bit 0
-#define PERF_P_LIMIT_CTRL_MASK  (PERF_PLIMIT_THRESHOLD + PERF_PLIMIT_CLIP + PERF_PLIMIT_DIFFERENTIAL + REPERF_PLIMIT_EN) 
-      
+#define PERF_P_LIMIT_CTRL_MASK  (PERF_PLIMIT_THRESHOLD + PERF_PLIMIT_CLIP + PERF_PLIMIT_DIFFERENTIAL + REPERF_PLIMIT_EN)
+
 //CSR SAPMCTLbit definition
 #define SAPMCTL_LOCK_SHIFT                      31                          // Bit 31 for IVT/HSX/SKX
 #define SETVID_DECAY_DISABLE_SHIFT              30                          // Bit 30 for IVT/KSX/SKX
@@ -283,7 +283,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define POWER_CTL_MASK                          (PCH_NEG_DISABLE + LTR_SW_DISABLE + PWR_PERF_TUNING_CFG_MODE + \
         PWR_PERF_TUNING_ENABLE_DYN_SWITCHING + PWR_PERF_TUNING_DISABLE_EEP_CTRL + \
         PWR_PERF_TUNING_DISABLE_SAPM_CTRL + DIS_PROCHOT_OUT + ENABLE_BIDIR_PROCHOT_EN + C1E_ENABLE)
-           
+
 // PRIMARY_PLANE_CURRENT_CONFIG_CONTROL  0x601
 #define PSI3_CODE_SHIFT               27  // (Bits 61:59 actully) we operate on a 32 bit register
 #define PSI3_THSHLD_SHIFT             20  // (Bits 58:52 actully) we operate on a 32 bit register
@@ -310,13 +310,13 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define VALUE_SHIFT                    0
 
 // MSR_TURBO_POWER_LIMIT  0x610
-// CSR_TURBO_POWER_LIMIT  
-#define POWER_LIMIT_ENABLE_SHIFT    15   
+// CSR_TURBO_POWER_LIMIT
+#define POWER_LIMIT_ENABLE_SHIFT    15
 #define POWER_LIMIT_ENABLE          (1 << POWER_LIMIT_ENABLE_SHIFT)   // Used as Bit 15 and Bit 47
 #define PKG_CLMP_LIM_SHIFT          16
 #define PKG_CLMP_LIM                (1 <<  PKG_CLMP_LIM_SHIFT)        // used as Bit 16 and Bit48
 #define POWER_LIMIT_MASK            (0x7FFF)                          // Bits 14:0 and 46:32
-#define POWER_LIMIT_1_TIME_SHIFT    17  
+#define POWER_LIMIT_1_TIME_SHIFT    17
 #define POWER_LIMIT_1_TIME_MASK     (0xFE0000)                        // Bits 23:17
 #define POWER_LIMIT_LOCK_SHIFT      31
 #define POWER_LIMIT_LOCK            (1 << POWER_LIMIT_LOCK_SHIFT)     // Bit 63
@@ -357,26 +357,26 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 ***************************/
 
 typedef struct _PPM_FROM_PPMINFO_HOB {
-  UINT8       NumberOfSockets;                      // # of populated sockets in the system 
+  UINT8       NumberOfSockets;                      // # of populated sockets in the system
   UINT8       SocketNumber;                         // which socket
   UINT32      SocketPresentBitMap;                  // bitmap for present CPU packages/nodes
-  UINT8       IioBusNumber[MAX_SOCKET];             // Bus# for IIO, indexed by CPU Socket/Node ID 
+  UINT8       IioBusNumber[MAX_SOCKET];             // Bus# for IIO, indexed by CPU Socket/Node ID
   UINT8       UncoreBusNumber[MAX_SOCKET];          // Bus# for Uncore, indexed by CPU Socket/Node ID
   UINT32      mmCfgBase;
   UINT8       DdrXoverMode;                         // DDR 2.2 Mode
-  UINT32      OutKtiPerLinkL1En[MAX_SOCKET];        // output kti link enabled status for PM 
-  UINT32      OutPciePerLinkL1En[MAX_SOCKET];       // output PCIe (IIO) link enabled status for PM 
-  UINT8       KtiPortCnt;                           // num KTI ports residing on each Socket 
+  UINT32      OutKtiPerLinkL1En[MAX_SOCKET];        // output kti link enabled status for PM
+  UINT32      OutPciePerLinkL1En[MAX_SOCKET];       // output PCIe (IIO) link enabled status for PM
+  UINT8       KtiPortCnt;                           // num KTI ports residing on each Socket
   UINT8       ProcessorPowerUnit[MAX_SOCKET];       //
   UINT8       ProcessorTimeUnit[MAX_SOCKET];        //
-  UINT16      PackageTdp[MAX_SOCKET];               // Package TDP 
+  UINT16      PackageTdp[MAX_SOCKET];               // Package TDP
   UINT32      CapId4;                               //CapId CSR value
   UINT32      CpuType;                              // CpuType
   UINT8       CpuStepping;                          // CpuStepping
   UINT32      mNumOfBitShift;                       // # Bits to shift right APIC ID to get next level APIC ID
   UINTN       NumberOfProcessors;                   // number of active threads
   BOOLEAN     EistCap;                              // EIST Capability
-  UINT8       Bios_Reset_Cpl_Phase;         
+  UINT8       Bios_Reset_Cpl_Phase;
   UINT8        HwpmSupport;                         //HWPM support flag
 }PPM_FROM_PPMINFO_HOB;
 
@@ -637,7 +637,7 @@ ProgramB2PFastRaplDutyCycle (
   EFI_CPU_PM_STRUCT *ppm
   );
 
-UINT8 
+UINT8
 EFIAPI
 GetHwpmSupport (
   EFI_CPU_PM_STRUCT *ppm

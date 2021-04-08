@@ -302,8 +302,8 @@ typedef enum {
 ==================================================================================================
 **/
 
-#define NUM_DEVHIDE_REGS                              8 
-// Hide all 8 Devices for every Stack 
+#define NUM_DEVHIDE_REGS                              8
+// Hide all 8 Devices for every Stack
 #define MAX_DEVHIDE_REGS                             (MAX_IIO_STACK * NUM_DEVHIDE_REGS)
 #if MaxIIO > 4
 #define MAX_DEVHIDE_REGS_PER_SYSTEM                  384 //(MAX_DEVHIDE_REGS * MaxIIO)

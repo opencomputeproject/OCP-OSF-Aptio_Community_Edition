@@ -58,10 +58,10 @@ PchStepping (
 
   if (IS_PCH_H_LPC_DEVICE_ID (LpcDeviceId)) {
     switch (RevId) {
-       case V_PCH_LPC_RID_0: 
-         mPchStepping = PchHA0; 
+       case V_PCH_LPC_RID_0:
+         mPchStepping = PchHA0;
          return PchHA0;
- 
+
       case V_PCH_LPC_RID_10:
         mPchStepping = PchHB0;
         return PchHB0;
@@ -138,7 +138,7 @@ PchStepping (
       case V_PCH_LBG_LPC_RID_3:
         return LbgB1;
       case V_PCH_LBG_LPC_RID_4:
-        return LbgB2;  
+        return LbgB2;
       case V_PCH_LBG_LPC_RID_8:
         return LbgS0;
       case V_PCH_LBG_LPC_RID_9:

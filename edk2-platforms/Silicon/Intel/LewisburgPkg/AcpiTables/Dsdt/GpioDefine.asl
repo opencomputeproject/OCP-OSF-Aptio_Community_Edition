@@ -5,9 +5,9 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
-// 
+//
 // Definition for GPIO groups and pads
-// 
+//
 #ifndef GPIO_DEFINE_ASL
 #define GPIO_DEFINE_ASL
 

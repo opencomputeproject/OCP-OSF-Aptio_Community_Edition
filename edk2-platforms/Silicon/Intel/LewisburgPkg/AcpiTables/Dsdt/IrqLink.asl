@@ -33,7 +33,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 Device(LNKA)        // PARC Routing Resource
 {
   Name(_HID,EISAID("PNP0C0F"))  // PCI Interrupt Link Device
-  
+
   Name(_UID,1)      // Unique to other Link Devices
 
   // Disable the PCI IRQ.
@@ -62,7 +62,7 @@ Device(LNKA)        // PARC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLA,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -74,15 +74,15 @@ Device(LNKA)        // PARC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PARC)
   }
@@ -134,7 +134,7 @@ Device(LNKB)        // PBRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLB,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -146,15 +146,15 @@ Device(LNKB)        // PBRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PBRC)
   }
@@ -175,7 +175,7 @@ Device(LNKB)        // PBRC Routing Resource
 }
 
 Device(LNKC)        // PCRC Routing Resource
-{    
+{
   Name(_HID,EISAID("PNP0C0F"))
 
   Name(_UID,3)
@@ -206,7 +206,7 @@ Device(LNKC)        // PCRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLC,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -218,19 +218,19 @@ Device(LNKC)        // PCRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PCRC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
@@ -247,7 +247,7 @@ Device(LNKC)        // PCRC Routing Resource
 }
 
 Device(LNKD)        // PDRC Routing Resource
-{    
+{
   Name(_HID,EISAID("PNP0C0F"))
 
   Name(_UID,4)
@@ -258,7 +258,7 @@ Device(LNKD)        // PDRC Routing Resource
   {
     Or(\_SB.PDRC,0x80,\_SB.PDRC)
   }
-                   
+
   // Possible IRQ Resource Setting.
 
   Method (_PRS, 0, Serialized)
@@ -278,7 +278,7 @@ Device(LNKD)        // PDRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLD,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -290,23 +290,23 @@ Device(LNKD)        // PDRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PDRC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
-  { 
+  {
     If(And(\_SB.PDRC,0x80))
     {
       Return(0x0009)
@@ -319,7 +319,7 @@ Device(LNKD)        // PDRC Routing Resource
 }
 
 Device(LNKE)        // PERC Routing Resource
-{    
+{
   Name(_HID,EISAID("PNP0C0F"))
 
   Name(_UID,5)
@@ -330,7 +330,7 @@ Device(LNKE)        // PERC Routing Resource
   {
     Or(\_SB.PERC,0x80,\_SB.PERC)
   }
-                   
+
   // Possible IRQ Resource Setting.
 
   Method (_PRS, 0, Serialized)
@@ -350,7 +350,7 @@ Device(LNKE)        // PERC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLE,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -362,23 +362,23 @@ Device(LNKE)        // PERC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PERC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
-  { 
+  {
     If(And(\_SB.PERC,0x80))
     {
       Return(0x0009)
@@ -402,7 +402,7 @@ Device(LNKF)        // PFRC Routing Resource
   {
     Or(\_SB.PFRC,0x80,\_SB.PFRC)
   }
-                   
+
   // Possible IRQ Resource Setting.
 
   Method (_PRS, 0, Serialized)
@@ -422,7 +422,7 @@ Device(LNKF)        // PFRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLF,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -434,23 +434,23 @@ Device(LNKF)        // PFRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PFRC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
-  { 
+  {
     If(And(\_SB.PFRC,0x80))
     {
       Return(0x0009)
@@ -463,7 +463,7 @@ Device(LNKF)        // PFRC Routing Resource
 }
 
 Device(LNKG)        // PGRC Routing Resource
-{    
+{
   Name(_HID,EISAID("PNP0C0F"))
 
   Name(_UID,7)
@@ -474,7 +474,7 @@ Device(LNKG)        // PGRC Routing Resource
   {
     Or(\_SB.PGRC,0x80,\_SB.PGRC)
   }
-                   
+
   // Possible IRQ Resource Setting.
 
   Method (_PRS, 0, Serialized)
@@ -494,7 +494,7 @@ Device(LNKG)        // PGRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLG,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -506,23 +506,23 @@ Device(LNKG)        // PGRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PGRC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
-  { 
+  {
     If(And(\_SB.PGRC,0x80))
     {
       Return(0x0009)
@@ -535,7 +535,7 @@ Device(LNKG)        // PGRC Routing Resource
 }
 
 Device(LNKH)        // PHRC Routing Resource
-{    
+{
   Name(_HID,EISAID("PNP0C0F"))
 
   Name(_UID,8)
@@ -546,7 +546,7 @@ Device(LNKH)        // PHRC Routing Resource
   {
     Or(\_SB.PHRC,0x80,\_SB.PHRC)
   }
-                   
+
   // Possible IRQ Resource Setting.
 
   Method (_PRS, 0, Serialized)
@@ -566,7 +566,7 @@ Device(LNKH)        // PHRC Routing Resource
     // Point to specific byte.
 
     CreateWordField(RTLH,1,IRQ0)
-        
+
     // Zero out IRQ mask bits 0-15
 
     Store(Zero,IRQ0)
@@ -578,23 +578,23 @@ Device(LNKH)        // PHRC Routing Resource
 
   // Set IRQ Resource Setting.
 
-  Method(_SRS,1,Serialized) 
+  Method(_SRS,1,Serialized)
   {
     // Point to the specific byte passed in.
-      
+
     CreateWordField(Arg0,1,IRQ0)
 
     // Determine the IRQ bit to set and store it,
 
-    FindSetRightBit(IRQ0,Local0) 
+    FindSetRightBit(IRQ0,Local0)
     Decrement(Local0)
     Store(Local0,\_SB.PHRC)
   }
-        
+
   // PCI IRQ Status.
 
   Method(_STA,0,Serialized)
-  { 
+  {
     If(And(\_SB.PHRC,0x80))
     {
       Return(0x0009)

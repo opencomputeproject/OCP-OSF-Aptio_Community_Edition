@@ -54,7 +54,7 @@ enum PCH_LP_SERIAL_IO_HW_FLOW_CTRL {
   Returns index of the last i2c controller
 
   @param[in] Number  Number of SerialIo controller
-  
+
   @retval            Index of I2C controller
 **/
 PCH_SERIAL_IO_CONTROLLER
@@ -65,7 +65,7 @@ GetMaxI2cNumber (
   Returns string with AcpiHID assigned to selected SerialIo controller
 
   @param[in] Number  Number of SerialIo controller
-  
+
   @retval            pointer to 8-byte string
 **/
 CHAR8*
@@ -79,7 +79,7 @@ GetSerialIoAcpiHID (
 
   @param[in]  PciDevId  Device ID
   @param[out] Number    Number of SerialIo controller
-  
+
   @retval TRUE          Yes it is a SerialIo controller
   @retval FALSE         No it isn't a SerialIo controller
 **/
@@ -95,7 +95,7 @@ IsSerialIoPciDevId (
 
   @param[in]  AcpiHid   String
   @param[out] Number    Number of SerialIo controller
-  
+
   @retval TRUE          yes it is a SerialIo controller
   @retval FALSE         no it isn't a SerialIo controller
 **/

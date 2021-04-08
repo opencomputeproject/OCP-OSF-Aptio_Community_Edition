@@ -19,19 +19,19 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define EFI_PCI_CALLBACK_PROTOCOL_GUID \
   { \
     0x1ca0e202, 0xfe9e, 0x4776, 0x9f, 0xaa, 0x57, 0xc, 0x19, 0x61, 0x7a, 0x06 \
-  }  
+  }
 
 typedef struct _EFI_PCI_CALLBACK_PROTOCOL EFI_PCI_CALLBACK_PROTOCOL;
 
-typedef enum {  
+typedef enum {
   EfiPciEnumerationDeviceScanning    = 1,
   EfiPciEnumerationBusNumberAssigned = 2,
   EfiPciEnumerationResourceAssigned  = 4,
 } EFI_PCI_ENUMERATION_PHASE;
 
-typedef struct {  
+typedef struct {
   PCI_TYPE00                              PciHeader;
-  EFI_PCI_ROOT_BRIDGE_IO_PROTOCOL        *PciRootBridgeIo;  
+  EFI_PCI_ROOT_BRIDGE_IO_PROTOCOL        *PciRootBridgeIo;
   EFI_CPU_IO2_PROTOCOL                    *CpuIo;
 } EFI_PCI_CALLBACK_CONTEXT;
 
@@ -43,7 +43,7 @@ VOID
   IN  EFI_PCI_ENUMERATION_PHASE                    Phase,
   IN  EFI_PCI_CALLBACK_CONTEXT                     *Context
 );
-                  
+
 typedef
 EFI_STATUS
 (EFIAPI *EFI_REGISTER_PCI_CALLBACK) (
@@ -76,7 +76,7 @@ Returns:
 // Protocol definition
 //
 typedef struct _EFI_PCI_CALLBACK_PROTOCOL {
-  EFI_REGISTER_PCI_CALLBACK   RegisterPciCallback;  
+  EFI_REGISTER_PCI_CALLBACK   RegisterPciCallback;
 } EFI_PCI_CALLBACK_PROTOCOL;
 
 extern EFI_GUID gEfiPciCallbackProtocolGuid;

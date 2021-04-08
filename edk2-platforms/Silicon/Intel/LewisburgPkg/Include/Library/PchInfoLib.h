@@ -121,10 +121,10 @@ GetPchXhciMaxUsb3PortNum (
   );
 
 /**
-  Return TRUE if Server Sata is present 
-  
+  Return TRUE if Server Sata is present
+
   @retval BOOLEAN           TRUE if sSata device is present
-**/  
+**/
 BOOLEAN
 EFIAPI
 GetIsPchsSataPresent (
@@ -151,7 +151,7 @@ GetPchMaxsSataPortNum (
 
   @retval Pch Maximum sSata Controller Number
 **/
-UINT8 
+UINT8
 EFIAPI
 GetPchMaxsSataControllerNum (
   VOID
