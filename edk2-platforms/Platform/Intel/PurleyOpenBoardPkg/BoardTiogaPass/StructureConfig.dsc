@@ -2,13 +2,7 @@
 #
 # Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
 #
-# This program and the accompanying materials are licensed and made available under
-# the terms and conditions of the BSD License which accompanies this distribution.
-# The full text of the license may be found at
-# http://opensource.org/licenses/bsd-license.php
-#
-# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 ###
 
@@ -18,15 +12,7 @@
 # *                                                                     *
 # *      All rights reserved.                                           *
 # *                                                                     *
-# *      This program and the accompanying materials are licensed and   *
-# *      made available under the terms and conditions of the BSD       *
-# *      License that accompanies this distribution.  The full text of  *
-# *      the license may be found at:                                   *
-# *      http://opensource.org/licenses/bsd-license.php.                *
-# *                                                                     *
-# *      THIS PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN        *
-# *      "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF        *
-# *      ANY KIND, EITHER EXPRESS OR IMPLIED.                           *
+# *      SPDX-License-Identifier: BSD-2-Clause-Patent                   *
 # *                                                                     *
 # ***********************************************************************
 
@@ -254,7 +240,7 @@
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.PchSerm|0x0
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.PchDisplay|0x1
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.PchPciClockRun|0x1
-  gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.PchSirqMode|0x0
+  gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.PchSirqMode|0x1
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.EnableClockSpreadSpec|0x1
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.StateAfterG3|0x0
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData.IchPort80Route|0x0
@@ -1312,26 +1298,26 @@
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[1]|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[2]|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[3]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[4]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[5]|0x1
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[4]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[5]|0x0
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[6]|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[7]|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[8]|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[9]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[10]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[11]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[12]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[13]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[14]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[15]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[16]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[17]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[18]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[19]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[20]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[21]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[22]|0x1
-  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[23]|0x1
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[10]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[11]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[12]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[13]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[14]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[15]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[16]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[17]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[18]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[19]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[20]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[21]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[22]|0x0
+  gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.DevPresIoApicIio[23]|0x0
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.VTdSupport|0x0
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.InterruptRemap|0x1
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData.PassThroughDma|0x1

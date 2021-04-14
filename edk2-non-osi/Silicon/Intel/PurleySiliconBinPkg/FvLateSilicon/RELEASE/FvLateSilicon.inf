@@ -2,13 +2,7 @@
 #
 # Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
 #
-# This program and the accompanying materials are licensed and made available under
-# the terms and conditions of the BSD License which accompanies this distribution.
-# The full text of the license may be found at
-# http://opensource.org/licenses/bsd-license.php
-#
-# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 ###
 
@@ -717,6 +711,339 @@
 # # be modified by the user, subject to additional terms of the
 # # license agreement
 # #
+#
+# This file contains an 'Intel Peripheral Driver' and is
+# licensed for Intel CPUs and chipsets under the terms of your
+# license agreement with Intel or your vendor.  This file may
+# be modified by the user, subject to additional terms of the
+# license agreement
+#
+## @file
+# Component description file for Platform CPU Policy DXE Driver.
+#
+# Copyright (c) 2015 - 2018, Intel Corporation. All rights reserved.<BR>
+#
+#  This software and associated documentation (if any) is furnished
+#  under a license and may only be used or copied in accordance
+#  with the terms of the license. Except as permitted by such
+#  license, no part of this software or documentation may be
+#  reproduced, stored in a retrieval system, or transmitted in any
+#  form or by any means without the express written consent of
+#  Intel Corporation.
+#
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+#[Defines]
+#  INF_VERSION                = 0x00010017
+#  BASE_NAME                  = PlatformCpuPolicy
+#  FILE_GUID                  = 76A7B4FC-C8D5-462d-A4D2-6E88338A772A
+#  MODULE_TYPE                = DXE_DRIVER
+#  VERSION_STRING             = 1.0
+#  ENTRY_POINT                = PlatformCpuPolicyEntryPoint
+
+[Packages.X64]
+  MdePkg/MdePkg.dec
+#  PurleyPlatPkg/PlatPkg.dec
+  PurleySktPkg/SocketPkg.dec
+#  CpRcPkg/CpRcPkg.dec
+  PurleyRcPkg/RcPkg.dec
+  PurleySktPkg/Override/IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+#  IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+#  PurleySktPkg/SouthClusterLbg/PchRcPkg.dec
+#  PurleySktPkg/Me/MePkg.dec
+#  PurleySktPkg/Ie/IePkg.dec
+
+#[Binaries.X64]
+#  PE32|PlatformCpuPolicy.efi
+#  DXE_DEPEX|PlatformCpuPolicy.depex
+
+[PatchPcd.X64]
+  ## CONSUMES
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x80000042|0x313C4
+
+#[Protocols.X64]
+#  gIntelCpuPcdsSetDoneProtocolGuid
+
+#  gEfiPlatformTypeProtocolGuid
+
+  # PROTOCOL ALWAYS_CONSUMED
+#  gEfiCpuCsrAccessGuid
+
+#  gEfiDxeSystemBoardProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gPcdProtocolGuid
+
+  ## CONSUMES
+#  gEfiPcdProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gGetPcdInfoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiGetPcdInfoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiDevicePathProtocolGuid
+
+  ## UNDEFINED
+#  gEfiDebugPortProtocolGuid
+
+  ## SOMETIMES_PRODUCES
+#  gEfiDriverBindingProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiSimpleTextOutProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiGraphicsOutputProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiHiiFontProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiSimpleFileSystemProtocolGuid
+
+  ## SOMETIMES_CONSUMES # Consumes if gEfiGraphicsOutputProtocolGuid uninstalled
+#  gEfiUgaDrawProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiComponentNameProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiComponentName2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverConfigurationProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverConfiguration2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverDiagnosticsProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverDiagnostics2ProtocolGuid
+
+#  gEfiSmmCpuIo2ProtocolGuid
+
+  ## CONSUMES
+#  gUsraProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiLoadedImageProtocolGuid
+
+#  gEfiSmmBase2ProtocolGuid
+
+
+[Ppis.X64]
+
+#[Guids.X64]
+#  gEfiSetupVariableGuid
+
+#  gEfiSocketMemoryVariableGuid
+
+#  gEfiSocketPowermanagementVarGuid
+
+#  gEfiSocketProcessorCoreVarGuid
+
+#  gBiosGuardHobGuid
+
+#  gEfiEndOfDxeEventGroupGuid
+
+#  gEfiCpuTokenSpaceGuid
+
+#  gPlatformTokenSpaceGuid
+
+#  gPlatformGpioConfigGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVTUTF8Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVT100Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVT100PlusGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPcAnsiGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiUartDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiSasDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPersistentVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPersistentVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+#  gEfiEventReadyToBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+#  gEfiEventLegacyBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Variable
+#  gEfiGlobalVariableGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+#  gEfiAcpi20TableGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+#  gEfiAcpi10TableGuid
+
+  ## CONSUMES  ## SystemTable
+#  gEfiDxeServicesTableGuid
+
+  ## CONSUMES  ## SystemTable
+#  gEfiHobListGuid
+
+#  gEfiSocketIioVariableGuid
+
+#  gEfiSocketCommonRcVariableGuid
+
+#  gEfiSocketMpLinkVariableGuid
+
+#  gEfiPchRcVariableGuid
+
+#  gEfiMeRcVariableGuid
+
+#  gEfiIeRcVariableGuid
+
+#  gFpgaSocketVariableGuid
+
+
+[PcdEx.X64]
+  gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureUserConfiguration
+
+  gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureUserConfigurationEx1
+
+  gEfiCpuTokenSpaceGuid.PcdCpuEnergyPolicy
+
+  gEfiCpuTokenSpaceGuid.PcdCpuAcpiLvl2Addr
+
+  gEfiCpuTokenSpaceGuid.PcdCpuPackageCStateLimit
+
+  gEfiCpuTokenSpaceGuid.PcdCpuCoreCStateValue
+
+  gEfiCpuTokenSpaceGuid.PcdCpuClockModulationDutyCycle
+
+  gEfiCpuTokenSpaceGuid.PcdCpuHwCoordination
+
+  gEfiCpuTokenSpaceGuid.PcdPlatformCpuSocketCount
+
+  gEfiCpuTokenSpaceGuid.PcdPlatformCpuSocketNames
+
+  gEfiCpuTokenSpaceGuid.PcdPlatformCpuAssetTags
+
+  gEfiCpuTokenSpaceGuid.PcdIsPowerOnReset
+
+  gEfiCpuTokenSpaceGuid.PcdCpuDcuMode
+
+  gEfiCpuTokenSpaceGuid.PcdCpuTurboOverride
+
+  gEfiCpuTokenSpaceGuid.PcdCpuProcessorMsrLockCtrl
+
+  gEfiCpuTokenSpaceGuid.PcdCpuIioLlcWaysBitMask
+
+  gEfiCpuTokenSpaceGuid.PcdCpuExpandedIioLlcWaysBitMask
+
+  gEfiCpuTokenSpaceGuid.PcdPchTraceHubEn
+
+  gEfiCpuTokenSpaceGuid.PcdCpuQlruCfgBitMask
+
+  gEfiCpuTokenSpaceGuid.PcdSbspSelection
+
+  gEfiCpuTokenSpaceGuid.PcdCpuPmStructAddr
+
+  gEfiCpuTokenSpaceGuid.PcdCpuSocketId
+
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmMsrSaveStateEnable
+
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmProtectedModeEnable
+
+  gEfiCpuTokenSpaceGuid.PcdCpuRemoteWaysBitMask
+
+  gEfiCpuTokenSpaceGuid.PcdCpuRRQCountThreshold
+
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmRuntimeCtlHooks
+
+  gPlatformTokenSpaceGuid.PcdSyshostMemoryAddress
+
+
+#[LibraryClasses.X64]
+## @LIB_INSTANCES
+#  MdePkg/Library/BasePciCf8Lib/BasePciCf8Lib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchP2sbLib/PeiDxeSmmPchP2sbLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchInfoLib/PeiDxeSmmPchInfoLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchPcrLib/PeiDxeSmmPchPcrLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchSbiAccessLib/PeiDxeSmmPchSbiAccessLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchCycleDecodingLib/PeiDxeSmmPchCycleDecodingLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmGpioLib/PeiDxeSmmGpioLib.inf
+#  MdePkg/Library/BasePciLibCf8/BasePciLibCf8.inf
+#  PurleyPlatPkg/Library/PlatformHooksLib/PlatformHooksLib.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+#  MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  MdePkg/Library/DxePcdLib/DxePcdLib.inf
+#  MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
+#  MdePkg/Library/BasePrintLib/BasePrintLib.inf
+#  PurleyPlatPkg/Library/SerialPortLib/SerialPortLib.inf
+#  MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
+#  MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
+#  MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+#  MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+#  MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
+#  MdePkg/Library/UefiLib/UefiLib.inf
+#  MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
+#  CpRcPkg/Library/DxeMmPciBaseLib/DxeMmPciBaseLib.inf
+#  MdePkg/Library/DxeHobLib/DxeHobLib.inf
+#  MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
+#  PurleyRpPkg/Library/SetupLib/DxeSetupLib.inf
+
+#[Depex.X64]
+#  (gEfiVariableArchProtocolGuid AND gEfiPlatformTypeProtocolGuid AND gEfiCpuCsrAccessGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gUsraProtocolGuid) AND (gEfiBdsArchProtocolGuid AND gEfiCpuArchProtocolGuid AND gEfiMetronomeArchProtocolGuid AND gEfiMonotonicCounterArchProtocolGuid AND gEfiRealTimeClockArchProtocolGuid AND gEfiResetArchProtocolGuid AND gEfiRuntimeArchProtocolGuid AND gEfiSecurityArchProtocolGuid AND gEfiTimerArchProtocolGuid AND gEfiVariableWriteArchProtocolGuid AND gEfiVariableArchProtocolGuid AND gEfiWatchdogTimerArchProtocolGuid) AND (TRUE)
+
+
+
+
+
+#[BuildOptions.X64]
+## @AsBuilt
+##   MSFT:DEBUG_VS2015x86_X64_ASLPP_FLAGS = /nologo /E /C /FIAutoGen.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_ASLDLINK_FLAGS = /NODEFAULTLIB /ENTRY:ReferenceAcpiTable /SUBSYSTEM:CONSOLE
+##   MSFT:DEBUG_VS2015x86_X64_GENFW_FLAGS = 
+##   MSFT:DEBUG_VS2015x86_X64_SLINK_FLAGS = /NOLOGO /LTCG
+##   MSFT:DEBUG_VS2015x86_X64_OBJCOPY_FLAGS = objcopy not needed for
+##   MSFT:DEBUG_VS2015x86_X64_ASM_FLAGS = /nologo /c /WX /W3 /Cx /Zd /Zi
+##   MSFT:DEBUG_VS2015x86_X64_ASMLINK_FLAGS = /nologo /tiny
+##   MSFT:DEBUG_VS2015x86_X64_CC_FLAGS = /nologo /c /WX /GS- /W4 /Gs32768 /D UNICODE /O1b2s /GL /Gy /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1  /wd4819
+##   MSFT:DEBUG_VS2015x86_X64_VFR_FLAGS = -n
+##   MSFT:DEBUG_VS2015x86_X64_ASLCC_FLAGS = /nologo /c /FIAutoGen.h /TC /Dmain=ReferenceAcpiTable -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_APP_FLAGS = /nologo /E /TC -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_NASM_FLAGS = -Ox -f win64 -g
+##   MSFT:DEBUG_VS2015x86_X64_OPTROM_FLAGS = -e
+##   MSFT:DEBUG_VS2015x86_X64_MAKE_FLAGS = /nologo
+##   MSFT:DEBUG_VS2015x86_X64_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   MSFT:DEBUG_VS2015x86_X64_PP_FLAGS = /nologo /E /TC /FIAutoGen.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_VFRPP_FLAGS = /nologo /E /TC /DVFRCOMPILE /FI$(MODULE_NAME)StrDefs.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_DLINK_FLAGS = /NOLOGO /NODEFAULTLIB /IGNORE:4001 /OPT:REF /OPT:ICF=10 /MAP /ALIGN:32 /SECTION:.xdata,D /SECTION:.pdata,D /Machine:X64 /LTCG /DLL /ENTRY:$(IMAGE_ENTRY_POINT) /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER /SAFESEH:NO /BASE:0 /DRIVER /DEBUG
+##   MSFT:DEBUG_VS2015x86_X64_ASL_FLAGS = 
+##   MSFT:DEBUG_VS2015x86_X64_NASMB_FLAGS = -f bin
 # ## @file
 # # CPU MP DXE Driver.
 # #
@@ -763,10 +1090,10 @@
 # 
 [PatchPcd.X64]
   ## CONSUMES
-  gEfiIntelFrameworkModulePkgTokenSpaceGuid.PcdEbdaReservedMemorySize|0x00019000|0x382AC
+  gEfiIntelFrameworkModulePkgTokenSpaceGuid.PcdEbdaReservedMemorySize|0x00019000|0x49544
 
   ## SOMETIMES_CONSUMES
-  gUefiCpuPkgTokenSpaceGuid.PcdCpuNumberOfReservedVariableMtrrs|0x00000000|0x3B04C
+  gUefiCpuPkgTokenSpaceGuid.PcdCpuNumberOfReservedVariableMtrrs|0x00000000|0x4C2E4
 
 # [Protocols.X64]
 #   ## PRODUCES
@@ -1188,12 +1515,7 @@
 # #
 # #  Copyright (c) 2009 - 2016, Intel Corporation. All rights reserved.<BR>
 # #
-# #  This program and the accompanying materials
-# #  are licensed and made available under the terms and conditions of the BSD License
-# #  which accompanies this distribution. The full text of the license may be found at
-# #  http://opensource.org/licenses/bsd-license.php
-# #  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# #  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# #  SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # #
 # ##
@@ -1388,13 +1710,7 @@
 # # Copyright (c) 2009 - 2016, Intel Corporation. All rights reserved.<BR>
 # # Copyright (c) 2017, AMD Incorporated. All rights reserved.<BR>
 # #
-# # This program and the accompanying materials
-# # are licensed and made available under the terms and conditions of the BSD License
-# # which accompanies this distribution.  The full text of the license may be found at
-# # http://opensource.org/licenses/bsd-license.php
-# #
-# # THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# # WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# # SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # ##
 # 
@@ -1425,16 +1741,16 @@
 # 
 [PatchPcd.X64]
   ## CONSUMES
-  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseDelayIndication|0x00|0x69AC1
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseDelayIndication|0x00|0x7AD59
 
   ## CONSUMES
-  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseBlockIndication|0x00|0x69AC2
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseBlockIndication|0x00|0x7AD5A
 
   ## CONSUMES
-  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseSmmEnableIndication|0x00|0x69AC0
+  gEfiCpuTokenSpaceGuid.PcdCpuSmmUseSmmEnableIndication|0x00|0x7AD58
 
   ## SOMETIMES_CONSUMES
-  gUefiCpuPkgTokenSpaceGuid.PcdCpuNumberOfReservedVariableMtrrs|0x00000000|0x69AC4
+  gUefiCpuPkgTokenSpaceGuid.PcdCpuNumberOfReservedVariableMtrrs|0x00000000|0x7AD5C
 
 # [Protocols.X64]
 #   ## CONSUMES
@@ -1691,12 +2007,7 @@
 # #
 # #  Copyright (c) 2009 - 2016, Intel Corporation. All rights reserved.<BR>
 # #
-# #  This program and the accompanying materials
-# #  are licensed and made available under the terms and conditions of the BSD License
-# #  which accompanies this distribution. The full text of the license may be found at
-# #  http://opensource.org/licenses/bsd-license.php
-# #  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# #  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# #  SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # #
 # ##
@@ -1893,12 +2204,7 @@
 # #
 # #  Copyright (c) 2009 - 2016, Intel Corporation. All rights reserved.<BR>
 # #
-# #  This program and the accompanying materials
-# #  are licensed and made available under the terms and conditions of the BSD License
-# #  which accompanies this distribution. The full text of the license may be found at
-# #  http://opensource.org/licenses/bsd-license.php
-# #  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# #  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# #  SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # #
 # ##
@@ -2102,12 +2408,9 @@
 # #
 # #  Copyright (c) 2006 - 2016, Intel Corporation.
 # #
-# #  All rights reserved. This program and the accompanying materials
-# #  are licensed and made available under the terms and conditions of the BSD License
-# #  which accompanies this distribution. The full text of the license may be found at
-# #  http://opensource.org/licenses/bsd-license.php
-# #  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# #  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# #  All rights reserved.
+# #
+# #  SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # #
 # ##
@@ -2136,7 +2439,7 @@
 #   DISPOSABLE|IioInit.pdb
 # 
 [PatchPcd.X64]
-  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0x911A8
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0xA2440
 
 # [Protocols.X64]
 #   gEfiIioSystemProtocolGuid
@@ -2348,12 +2651,7 @@
 # #
 # #  Copyright (c) 2009 - 2016, Intel Corporation. All rights reserved.<BR>
 # #
-# #  This program and the accompanying materials
-# #  are licensed and made available under the terms and conditions of the BSD License
-# #  which accompanies this distribution. The full text of the license may be found at
-# #  http://opensource.org/licenses/bsd-license.php
-# #  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-# #  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+# #  SPDX-License-Identifier: BSD-2-Clause-Patent
 # #
 # #
 # ##
@@ -2547,6 +2845,302 @@
 # ##   MSFT:RELEASE_VS2015x86_X64_MAKE_FLAGS = /nologo
 # ##   MSFT:RELEASE_VS2015x86_X64_ASMLINK_FLAGS = /nologo /tiny
 # ##   MSFT:RELEASE_VS2015x86_X64_NASM_FLAGS = -Ox -f win64
+#
+# This file contains an 'Intel Peripheral Driver' and is
+# licensed for Intel CPUs and chipsets under the terms of your
+# license agreement with Intel or your vendor.  This file may
+# be modified by the user, subject to additional terms of the
+# license agreement
+#
+## @file
+# Component description file for CPU MP DXE Driver.
+#
+# CPU DXE Driver that configures multi-processor environment, logs data to datahub
+#  for processor subclass and cache subclass, and installs CPU Architecture Protocol and MP
+#  Services Protocol
+# Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
+#
+#  This software and associated documentation (if any) is furnished
+#  under a license and may only be used or copied in accordance
+#  with the terms of the license. Except as permitted by such
+#  license, no part of this software or documentation may be
+#  reproduced, stored in a retrieval system, or transmitted in any
+#  form or by any means without the express written consent of
+#  Intel Corporation.
+#
+#
+##
+
+# DO NOT EDIT
+# FILE auto-generated
+
+#[Defines]
+#  INF_VERSION                = 0x00010017
+#  BASE_NAME                  = PpmInitialize
+#  FILE_GUID                  = 3FFCAE95-23CF-4967-94F5-16352F68E43B
+#  MODULE_TYPE                = DXE_DRIVER
+#  VERSION_STRING             = 1.0
+#  ENTRY_POINT                = PpmInitializeEntry
+
+[Packages.X64]
+  PurleySktPkg/SocketPkg.dec
+#  CpRcPkg/CpRcPkg.dec
+#  ServerCommonPkg/ServerCommonPkg.dec
+  PurleyRcPkg/RcPkg.dec
+  MdePkg/MdePkg.dec
+#  IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+#  PurleyPlatPkg/PlatPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+#  PurleySktPkg/SouthClusterLbg/PchRcPkg.dec
+
+#[Binaries.X64]
+#  PE32|PpmInitialize.efi
+#  DXE_DEPEX|PpmInitialize.depex
+
+[PatchPcd.X64]
+
+#[Protocols.X64]
+  # PROTOCOL ALWAYS_CONSUMED
+#  gEfiPciCallbackProtocolGuid
+
+  # PROTOCOL ALWAYS_CONSUMED
+#  gEfiCpuCsrAccessGuid
+
+#  gEfiCpuPpmProtocolGuid
+
+#  gEfiIioSystemProtocolGuid
+
+  # PROTOCOL PRODUCED
+#  gEfiIssConfigInfoProtocolGuid
+
+#  gEfiRsaBmcCommandsProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiDevicePathProtocolGuid
+
+  ## UNDEFINED
+#  gEfiDebugPortProtocolGuid
+
+  ## CONSUMES
+#  gEfiStatusCodeRuntimeProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gPcdProtocolGuid
+
+  ## CONSUMES
+#  gEfiPcdProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gGetPcdInfoProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiGetPcdInfoProtocolGuid
+
+  ## SOMETIMES_PRODUCES
+#  gEfiDriverBindingProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiSimpleTextOutProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiGraphicsOutputProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiHiiFontProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiSimpleFileSystemProtocolGuid
+
+  ## SOMETIMES_CONSUMES # Consumes if gEfiGraphicsOutputProtocolGuid uninstalled
+#  gEfiUgaDrawProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiComponentNameProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiComponentName2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverConfigurationProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverConfiguration2ProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverDiagnosticsProtocolGuid
+
+  ## SOMETIMES_PRODUCES # User chooses to produce it
+#  gEfiDriverDiagnostics2ProtocolGuid
+
+#  gEfiSmmCpuIo2ProtocolGuid
+
+  ## CONSUMES
+#  gUsraProtocolGuid
+
+  ## SOMETIMES_CONSUMES
+#  gEfiLoadedImageProtocolGuid
+
+
+#[Ppis.X64]
+
+#[Guids.X64]
+#  gEfiPlatformInfoGuid
+
+#  gEfiEndOfDxeEventGroupGuid
+
+#  gEfiMemoryMapGuid
+
+#  gEfiSocketCommonRcVariableGuid
+
+#  gEfiCpuTokenSpaceGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVTUTF8Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVT100Guid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVT100PlusGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPcAnsiGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiUartDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiSasDevicePathGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPersistentVirtualDiskGuid
+
+  ## SOMETIMES_CONSUMES  ## GUID
+#  gEfiPersistentVirtualCdGuid
+
+  ## SOMETIMES_CONSUMES ## UNDEFINED
+#  gEfiStatusCodeSpecificDataGuid
+
+  ## SOMETIMES_CONSUMES ## UNDEFINED
+  ## SOMETIMES_CONSUMES ## GUID
+#  gEfiStatusCodeDataTypeDebugGuid
+
+#  gPlatformGpioConfigGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+#  gEfiEventReadyToBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Event
+#  gEfiEventLegacyBootGuid
+
+  ## SOMETIMES_CONSUMES  ## Variable
+#  gEfiGlobalVariableGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+#  gEfiAcpi20TableGuid
+
+  ## SOMETIMES_CONSUMES  ## SystemTable
+#  gEfiAcpi10TableGuid
+
+  ## CONSUMES  ## SystemTable
+#  gEfiDxeServicesTableGuid
+
+  ## CONSUMES  ## SystemTable
+#  gEfiHobListGuid
+
+
+[PcdEx.X64]
+  gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureCapability
+
+  gEfiCpuTokenSpaceGuid.PcdCpuProcessorFeatureUserConfiguration
+
+  gEfiCpuTokenSpaceGuid.PcdCpuPmStructAddr
+
+  ## SOMETIMES_PRODUCES
+  ## SOMETIMES_CONSUMES
+  gEfiCpuTokenSpaceGuid.PcdCpuCallbackSignal
+
+  ## CONSUMES
+  gEfiCpuTokenSpaceGuid.PcdCpuConfigContextBuffer
+
+
+#[LibraryClasses.X64]
+## @LIB_INSTANCES
+#  MdePkg/Library/BasePrintLib/BasePrintLib.inf
+#  MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+#  MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
+#  MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
+#  MdePkg/Library/BasePciCf8Lib/BasePciCf8Lib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchP2sbLib/PeiDxeSmmPchP2sbLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchInfoLib/PeiDxeSmmPchInfoLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchPcrLib/PeiDxeSmmPchPcrLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchSbiAccessLib/PeiDxeSmmPchSbiAccessLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmPchCycleDecodingLib/PeiDxeSmmPchCycleDecodingLib.inf
+#  PurleySktPkg/SouthClusterLbg/Library/PeiDxeSmmGpioLib/PeiDxeSmmGpioLib.inf
+#  MdePkg/Library/BasePciLibCf8/BasePciLibCf8.inf
+#  PurleyPlatPkg/Library/PlatformHooksLib/PlatformHooksLib.inf
+#  MdePkg/Library/BaseLib/BaseLib.inf
+#  IntelFrameworkModulePkg/Library/PeiDxeDebugLibReportStatusCode/PeiDxeDebugLibReportStatusCode.inf
+#  MdePkg/Library/BaseMemoryLibRepStr/BaseMemoryLibRepStr.inf
+#  MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
+#  MdePkg/Library/DxePcdLib/DxePcdLib.inf
+#  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+#  MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+#  MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
+#  MdePkg/Library/UefiLib/UefiLib.inf
+#  MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
+#  CpRcPkg/Library/DxeMmPciBaseLib/DxeMmPciBaseLib.inf
+#  MdePkg/Library/DxeHobLib/DxeHobLib.inf
+#  PurleyPlatPkg/Override/PcAtChipsetPkg/Library/AcpiTimerLib/DxeAcpiTimerLib.inf
+#  MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf
+#  MdePkg/Library/BaseS3BootScriptLibNull/BaseS3BootScriptLibNull.inf
+#  PurleySktPkg/Override/IA32FamilyCpuPkg/Library/CpuConfigLib/CpuConfigLib.inf
+#  MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
+#  PurleySktPkg/Library/ProcessorPowerManagement/CpuPpmLib.inf
+
+#[Depex.X64]
+#  (gEfiSmmConfigurationProtocolGuid	   AND gEfiMpServiceProtocolGuid AND gEfiCpuCsrAccessGuid AND gEfiIioSystemProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gEfiPcdProtocolGuid) AND (gUsraProtocolGuid) AND (gEfiBdsArchProtocolGuid AND gEfiCpuArchProtocolGuid AND gEfiMetronomeArchProtocolGuid AND gEfiMonotonicCounterArchProtocolGuid AND gEfiRealTimeClockArchProtocolGuid AND gEfiResetArchProtocolGuid AND gEfiRuntimeArchProtocolGuid AND gEfiSecurityArchProtocolGuid AND gEfiTimerArchProtocolGuid AND gEfiVariableWriteArchProtocolGuid AND gEfiVariableArchProtocolGuid AND gEfiWatchdogTimerArchProtocolGuid)
+
+
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+#  Create Event Guid C Name:  Event Type: EVENT_TYPE_PERIODIC_TIMER
+#
+#  HOB Guid C Name: gEfiHtBistHobGuid Hob Type: GUID_EXTENSION
+#
+
+#[BuildOptions.X64]
+## @AsBuilt
+##   MSFT:DEBUG_VS2015x86_X64_ASLPP_FLAGS = /nologo /E /C /FIAutoGen.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_ASLDLINK_FLAGS = /NODEFAULTLIB /ENTRY:ReferenceAcpiTable /SUBSYSTEM:CONSOLE
+##   MSFT:DEBUG_VS2015x86_X64_GENFW_FLAGS = 
+##   MSFT:DEBUG_VS2015x86_X64_SLINK_FLAGS = /NOLOGO /LTCG
+##   MSFT:DEBUG_VS2015x86_X64_OBJCOPY_FLAGS = objcopy not needed for
+##   MSFT:DEBUG_VS2015x86_X64_ASM_FLAGS = /nologo /c /WX /W3 /Cx /Zd /Zi
+##   MSFT:DEBUG_VS2015x86_X64_ASMLINK_FLAGS = /nologo /tiny
+##   MSFT:DEBUG_VS2015x86_X64_CC_FLAGS = /nologo /c /WX /GS- /W4 /Gs32768 /D UNICODE /O1b2s /GL /Gy /FIAutoGen.h /EHs-c- /GR- /GF /Zi /Gm -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1  /wd4819
+##   MSFT:DEBUG_VS2015x86_X64_VFR_FLAGS = -n
+##   MSFT:DEBUG_VS2015x86_X64_ASLCC_FLAGS = /nologo /c /FIAutoGen.h /TC /Dmain=ReferenceAcpiTable -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_APP_FLAGS = /nologo /E /TC -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_NASM_FLAGS = -Ox -f win64 -g
+##   MSFT:DEBUG_VS2015x86_X64_OPTROM_FLAGS = -e
+##   MSFT:DEBUG_VS2015x86_X64_MAKE_FLAGS = /nologo
+##   MSFT:DEBUG_VS2015x86_X64_SYMRENAME_FLAGS = Symbol renaming not needed for
+##   MSFT:DEBUG_VS2015x86_X64_PP_FLAGS = /nologo /E /TC /FIAutoGen.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_VFRPP_FLAGS = /nologo /E /TC /DVFRCOMPILE /FI$(MODULE_NAME)StrDefs.h -D CRB_FLAG -D SERIAL_DBG_MSG=1 -D PLATFORM_VARIABLE_ATTRIBUTES=0x3    -DTRAD_FLAG=1   -DPCH_SERVER_BIOS_FLAG=1 -DSUS_WELL_RESTORE=1    -DSERVER_BIOS_FLAG=1    -D PURLEY_FLAG -D SSA_FLAG -D SSA_LOADER_FLAG $(EDKII_PPO_PLATFORM_OPTIONS)  -D MAX_SOCKET=2 -D LT_FLAG  -D SPARING_SCRATCHPAD_SUPPORT $(TRACE_HUB_DEBUG_BUILD_OPTIONS) $(TRACE_HUB_INIT_BUILD_OPTIONS) -D MEM_NVDIMM_EN -D NVMEM_FEATURE_EN -DENHANCED_WARNING_LOG=1   -D EFI_PCI_IOV_SUPPORT -D WHEA_SUPPORT -D SKX_HOST -D CLX_HOST -D MMCFG_BASE_ADDRESS=0x80000000 -D DISABLE_NEW_DEPRECATED_INTERFACES -DIE_SUPPORT=1 -DME_WS_SUPPORT=1 -D ME_TESTMENU_FLAG=1 -DSPS_SUPPORT=1 -DME_SUPPORT_FLAG=1
+##   MSFT:DEBUG_VS2015x86_X64_DLINK_FLAGS = /NOLOGO /NODEFAULTLIB /IGNORE:4001 /OPT:REF /OPT:ICF=10 /MAP /ALIGN:32 /SECTION:.xdata,D /SECTION:.pdata,D /Machine:X64 /LTCG /DLL /ENTRY:$(IMAGE_ENTRY_POINT) /SUBSYSTEM:EFI_BOOT_SERVICE_DRIVER /SAFESEH:NO /BASE:0 /DRIVER /DEBUG
+##   MSFT:DEBUG_VS2015x86_X64_ASL_FLAGS = 
+##   MSFT:DEBUG_VS2015x86_X64_NASMB_FLAGS = -f bin
 # ## @file
 # # Component description file for Pch Initialization driver
 # #
@@ -2593,7 +3187,7 @@
 # 
 [PatchPcd.X64]
   #SERVER_BIOS ## CONSUMES
-  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0xB8D18
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0xD6EB0
 
 # [Protocols.X64]
 #   ## PRODUCES
