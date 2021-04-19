@@ -67,7 +67,7 @@
 #   DISPOSABLE|SiInit.pdb
 # 
 [PatchPcd.IA32]
-  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0xD6C4
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress|0x0000000080000000|0x6A74
 
 # [Protocols.IA32]
 # 
