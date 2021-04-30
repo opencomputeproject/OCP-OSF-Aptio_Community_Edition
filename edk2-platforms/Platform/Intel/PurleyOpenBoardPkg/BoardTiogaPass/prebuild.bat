@@ -201,6 +201,20 @@ if %ERRORLEVEL% NEQ 0 EXIT /b %ERRORLEVEL%
 set AML_FILTER="\"PSYS\" .MCTL\" .FIX[0-9,A-Z]\""
 echo AML_FILTER=%AML_FILTER%
 call %PYTHON_HOME%\python.exe %WORKSPACE%\edk2-platforms\Platform\Intel\MinPlatformPkg\Tools\AmlGenOffset\AmlGenOffset.py -d --aml_filter %AML_FILTER% -o %WORKSPACE%\edk2-platforms\Platform\Intel\%BOARD_PKG%\Acpi\BoardAcpiDxe\AmlOffsetTable.c %OUTPUT_DIR%\X64\PurleyOpenBoardPkg\Acpi\BoardAcpiDxe\DSDT\OUTPUT\Dsdt\WFPPlatform.offset.h
+@REM Create copyright header for AML offset file
+( 
+  echo /** @file
+  echo   Copyright ^(c^) 2018 - 2019, Intel Corporation. All rights reserved.
+  echo   SPDX-License-Identifier: BSD-2-Clause-Patent
+  echo.
+  echo **/
+  echo.
+)> %OUTPUT_DIR%\TempCopyright.txt
+@REM Concatenate copyright and AmlOffsetTable, then delete temporary files
+copy /Y "%OUTPUT_DIR%\TempCopyright.txt" + "%WORKSPACE%\edk2-platforms\Platform\Intel\%BOARD_PKG%\Acpi\BoardAcpiDxe\AmlOffsetTable.c" "%OUTPUT_DIR%\AmlOffsetTable.c" > nul
+copy /Y "%OUTPUT_DIR%\AmlOffsetTable.c" "%WORKSPACE%\edk2-platforms\Platform\Intel\%BOARD_PKG%\Acpi\BoardAcpiDxe\AmlOffsetTable.c" > nul
+del /f %OUTPUT_DIR%\TempCopyright.txt > nul
+del /f %OUTPUT_DIR%\AmlOffsetTable.c > nul
 echo.
 echo GenOffset done
 
