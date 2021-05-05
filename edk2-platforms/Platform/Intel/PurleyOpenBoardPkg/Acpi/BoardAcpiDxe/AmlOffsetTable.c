@@ -1,14 +1,14 @@
 /** @file
   Copyright (c) 2018 - 2019, Intel Corporation. All rights reserved.<BR>
   SPDX-License-Identifier: BSD-2-Clause-Patent
- 
+
 **/
 
 /*
- * 
+ *
  * Intel ACPI Component Architecture
- * 
- * 
+ *
+ *
  */
 #ifndef __AML_OFFSET_TABLE_H
 #define __AML_OFFSET_TABLE_H
