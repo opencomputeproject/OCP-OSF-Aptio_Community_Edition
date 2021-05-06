@@ -8,7 +8,7 @@
 
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = PurleySktPkg
+  PACKAGE_NAME                   = PurleyRefreshSiliconPkg
   PACKAGE_GUID                   = DD44D851-9A3E-46E8-A2Ef-D794D014ECC1
   PACKAGE_VERSION                = 0.91
 

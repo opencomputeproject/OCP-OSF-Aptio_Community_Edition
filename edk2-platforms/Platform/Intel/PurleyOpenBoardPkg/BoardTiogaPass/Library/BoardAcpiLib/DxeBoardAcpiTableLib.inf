@@ -40,11 +40,11 @@
   MdeModulePkg/MdeModulePkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
 
 [Pcd]
   gOemSkuTokenSpaceGuid.PcdAcpiGnvsAddress
-  
+
 [Sources]
   DxeTiogaPassAcpiTableLib.c
   DxeBoardAcpiTableLib.c

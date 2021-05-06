@@ -35,7 +35,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
 
 
 ################################################################################

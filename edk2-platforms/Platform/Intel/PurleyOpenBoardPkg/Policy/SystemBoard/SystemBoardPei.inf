@@ -20,10 +20,10 @@
 [Packages]
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
 
 [LibraryClasses]
   BaseLib
@@ -71,7 +71,7 @@
   gEfiPeiSystemBoardPpiGuid         ## PRODUCES
   gEfiPeiSmbus2PpiGuid
   gPchPlatformPolicyPpiGuid
-  
+
 [Depex]
   gEfiPeiPcdPpiGuid AND
   gEfiPeiReadOnlyVariable2PpiGuid

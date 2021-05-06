@@ -27,8 +27,8 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec   #SERVER_BIOS
-  PurleyRcPkg/RcPkg.dec         #SERVER_BIOS
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec   #SERVER_BIOS
+  PurleyRefreshSiliconPkg/RcPkg.dec                      #SERVER_BIOS
 
 [Sources]
   PchGbeLib.c

@@ -25,13 +25,13 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  MdeModulePkg/MdeModulePkg.dec  
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  
+
 [LibraryClasses]
   UefiDriverEntryPoint
   IoLib

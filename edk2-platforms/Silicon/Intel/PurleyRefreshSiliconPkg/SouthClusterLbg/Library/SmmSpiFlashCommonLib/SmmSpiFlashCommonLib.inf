@@ -33,7 +33,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
 
 [Pcd]
   gEfiPchTokenSpaceGuid.PcdFlashAreaBaseAddress  ## CONSUMES

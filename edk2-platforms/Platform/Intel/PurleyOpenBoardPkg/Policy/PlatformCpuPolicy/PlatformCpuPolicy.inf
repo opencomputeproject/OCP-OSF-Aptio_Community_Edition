@@ -21,10 +21,10 @@
   UefiCpuPkg/UefiCpuPkg.dec
   MdePkg/MdePkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
-  PurleySktPkg/Override/IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/Override/IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
 
 [LibraryClasses]
   UefiDriverEntryPoint

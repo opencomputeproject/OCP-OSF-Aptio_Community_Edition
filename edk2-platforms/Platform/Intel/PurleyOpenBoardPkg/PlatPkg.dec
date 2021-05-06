@@ -77,9 +77,9 @@
       Guid/SetupVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
-      LewisburgPkg/PchRcPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
       PurleyOpenBoardPkg/PlatPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdPchRcConfigurationData|{0x0}|PCH_RC_CONFIGURATION|0x000F0002 {          # PCH_RC_CONFIGURATION                 <== PCH_RC_CONFIGURATION_NAME|gEfiPchRcVariableGuid
@@ -87,9 +87,9 @@
       Guid/PchRcVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
-      LewisburgPkg/PchRcPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
       PurleyOpenBoardPkg/PlatPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketIioConfigData|{0x0}|SOCKET_IIO_CONFIGURATION|0x000F0003 {             # SOCKET_IIO_CONFIGURATION             <== SOCKET_IIO_CONFIGURATION_NAME|gEfiSocketIioVariableGuid
@@ -97,48 +97,48 @@
       Guid/SocketIioVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketCommonRcConfigData|{0x0}|SOCKET_COMMONRC_CONFIGURATION|0x000F0004 {        # SOCKET_COMMONRC_CONFIGURATION        <== SOCKET_COMMONRC_CONFIGURATION_NAME|gEfiSocketCommonRcVariableGuid
     <HeaderFiles>
-      Guid/SocketCommonRcVariable.h  
+      Guid/SocketCommonRcVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketMpLinkConfigData|{0x0}|SOCKET_MP_LINK_CONFIGURATION|0x000F0005 {          # SOCKET_MP_LINK_CONFIGURATION         <== SOCKET_MP_LINK_CONFIGURATION_NAME|gEfiSocketMpLinkVariableGuid
     <HeaderFiles>
       Guid/SocketMpLinkVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketMemoryConfigData|{0x0}|SOCKET_MEMORY_CONFIGURATION|0x000F0006 {          # SOCKET_MEMORY_CONFIGURATION          <== SOCKET_MEMORY_CONFIGURATION_NAME|gEfiSocketMemoryVariableGuid
     <HeaderFiles>
       Guid/SocketMemoryVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketPowerManagementConfigData|{0x0}|SOCKET_POWERMANAGEMENT_CONFIGURATION|0x000F0007 { # SOCKET_POWERMANAGEMENT_CONFIGURATION <== SOCKET_POWERMANAGEMENT_CONFIGURATION_NAME|gEfiSocketPowermanagementVarGuid
     <HeaderFiles>
       Guid/SocketPowermanagementVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
   gOemSkuTokenSpaceGuid.PcdSocketProcessorCoreConfigData|{0x0}|SOCKET_PROCESSORCORE_CONFIGURATION|0x000F0008 {   # SOCKET_PROCESSORCORE_CONFIGURATION   <== SOCKET_PROCESSORCORE_CONFIGURATION_NAME|gEfiSocketProcessorCoreVarGuid
     <HeaderFiles>
       Guid/SocketProcessorCoreVariable.h
     <Packages>
       MdePkg/MdePkg.dec
-      PurleyRcPkg/RcPkg.dec
-      PurleySktPkg/SocketPkg.dec
+      PurleyRefreshSiliconPkg/RcPkg.dec
+      PurleyRefreshSiliconPkg/SocketPkg.dec
   }
 
 [PcdsDynamic, PcdsDynamicEx]

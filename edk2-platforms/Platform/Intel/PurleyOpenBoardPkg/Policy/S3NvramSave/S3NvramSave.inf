@@ -23,7 +23,7 @@
 [Sources]
   S3NvramSave.h
   S3NvramSave.c
-  
+
 [LibraryClasses]
   UefiDriverEntryPoint
   MemoryAllocationLib
@@ -40,7 +40,7 @@
 [Guids]
   gEfiMemoryConfigDataGuid
   gEfiMemoryConfigDataHobGuid
-  
+
 [FixedPcd]
   gEfiCpRcPkgTokenSpaceGuid.PcdMaxCpuSocketCount
 
@@ -49,9 +49,9 @@
   MdeModulePkg/MdeModulePkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
-  
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+
 [Depex]
   gEfiVariableArchProtocolGuid      AND
   gEfiVariableWriteArchProtocolGuid AND

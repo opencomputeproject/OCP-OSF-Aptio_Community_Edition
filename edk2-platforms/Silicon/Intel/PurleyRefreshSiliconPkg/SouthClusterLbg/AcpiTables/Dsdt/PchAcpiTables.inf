@@ -31,4 +31,4 @@ VERSION_STRING       = 1.0
 
 [Packages]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec             #PCH_SPT
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec             #PCH_SPT

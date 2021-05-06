@@ -21,9 +21,9 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  LewisburgPkg/PchRcPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
 
 [LibraryClasses]

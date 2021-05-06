@@ -55,10 +55,10 @@
 #
 [Packages.IA32]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  PurleyRcPkg/RcPkg.dec
-  PurleySktPkg/Override/IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/Override/IA32FamilyCpuPkg/IA32FamilyCpuPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
 
 # [Binaries.IA32]
@@ -226,38 +226,38 @@
 # #  MdeModulePkg/Library/PeiDxeDebugLibReportStatusCode/PeiDxeDebugLibReportStatusCode.inf
 # #  MdePkg/Library/BasePrintLib/BasePrintLib.inf
 # #  MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
-# #  PurleyRcPkg/Library/UsraRegisterFilterLibNull/UsraRegisterFilterLibNull.inf
-# #  PurleySktPkg/Library/USRATraceLib/USRATraceLib.inf
-# #  PurleySktPkg/Library/PcieAddressLib/PcieAddressLib.inf
-# #  PurleySktPkg/Library/CsrToPcieLib/CsrToPciePeiLib.inf
+# #  PurleyRefreshSiliconPkg/Library/UsraRegisterFilterLibNull/UsraRegisterFilterLibNull.inf
+# #  PurleyRefreshSiliconPkg/Library/USRATraceLib/USRATraceLib.inf
+# #  PurleyRefreshSiliconPkg/Library/PcieAddressLib/PcieAddressLib.inf
+# #  PurleyRefreshSiliconPkg/Library/CsrToPcieLib/CsrToPciePeiLib.inf
 # #  MdePkg/Library/BaseS3BootScriptLibNull/BaseS3BootScriptLibNull.inf
-# #  PurleyRcPkg/Library/UsraAccessLib/UsraAccessLib.inf
-# #  PurleyRcPkg/Library/MmPciBaseLib/MmPciBaseLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchInfoLib/PeiDxeSmmPchInfoLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchP2sbLib/PeiDxeSmmPchP2sbLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchPcrLib/PeiDxeSmmPchPcrLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchSbiAccessLib/PeiDxeSmmPchSbiAccessLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchCycleDecodingLib/PeiDxeSmmPchCycleDecodingLib.inf
+# #  PurleyRefreshSiliconPkg/Library/UsraAccessLib/UsraAccessLib.inf
+# #  PurleyRefreshSiliconPkg/Library/MmPciBaseLib/MmPciBaseLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchInfoLib/PeiDxeSmmPchInfoLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchP2sbLib/PeiDxeSmmPchP2sbLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchPcrLib/PeiDxeSmmPchPcrLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchSbiAccessLib/PeiDxeSmmPchSbiAccessLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchCycleDecodingLib/PeiDxeSmmPchCycleDecodingLib.inf
 # #  MdePkg/Library/BasePciCf8Lib/BasePciCf8Lib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchPcieRpLib/PeiDxeSmmPchPcieRpLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmGpioLib/PeiDxeSmmGpioLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchPmcLib/PeiDxeSmmPchPmcLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchPcieRpLib/PeiDxeSmmPchPcieRpLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmGpioLib/PeiDxeSmmGpioLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchPmcLib/PeiDxeSmmPchPmcLib.inf
 # #  MdePkg/Library/BasePciLibCf8/BasePciLibCf8.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchHsioLib/PeiDxeSmmPchHsioLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiDxeSmmPchWdtCommonLib/PeiDxeSmmPchWdtCommonLib.inf
-# #  LewisburgPkg/LibraryPrivate/BasePchSpiCommonLib/BasePchSpiCommonLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiDxeSmmPchSmbusCommonLib/PeiDxeSmmPchSmbusCommonLib.inf
-# #  LewisburgPkg/LibraryPrivate/BasePchResetCommonLib/BasePchResetCommonLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiDxeSmmPchInitCommonLib/PeiDxeSmmPchInitCommonLib.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchSerialIoLib/PeiDxeSmmPchSerialIoLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiPchSmmControlLib/PeiPchSmmControlLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiDxeSmmGpioPrivateLib/PeiDxeSmmGpioPrivateLib.inf
-# #  LewisburgPkg/LibraryPrivate/PeiDxeSmmPchPciExpressHelpersLib/PeiDxeSmmPchPciExpressHelpersLib.inf
-# #  LewisburgPkg/Library/BaseTraceHubInitLibNull/BaseTraceHubInitLibNull.inf
-# #  LewisburgPkg/Library/PeiDxeSmmPchGbeLib/PeiDxeSmmPchGbeLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchHsioLib/PeiDxeSmmPchHsioLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiDxeSmmPchWdtCommonLib/PeiDxeSmmPchWdtCommonLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/BasePchSpiCommonLib/BasePchSpiCommonLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiDxeSmmPchSmbusCommonLib/PeiDxeSmmPchSmbusCommonLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/BasePchResetCommonLib/BasePchResetCommonLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiDxeSmmPchInitCommonLib/PeiDxeSmmPchInitCommonLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchSerialIoLib/PeiDxeSmmPchSerialIoLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiPchSmmControlLib/PeiPchSmmControlLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiDxeSmmGpioPrivateLib/PeiDxeSmmGpioPrivateLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiDxeSmmPchPciExpressHelpersLib/PeiDxeSmmPchPciExpressHelpersLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/BaseTraceHubInitLibNull/BaseTraceHubInitLibNull.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/Library/PeiDxeSmmPchGbeLib/PeiDxeSmmPchGbeLib.inf
 # #  PcAtChipsetPkg/Library/AcpiTimerLib/PeiAcpiTimerLib.inf
 # #  MdePkg/Library/PeimEntryPoint/PeimEntryPoint.inf
-# #  LewisburgPkg/LibraryPrivate/PeiPchInitLib/PeiPchInitLib.inf
+# #  PurleyRefreshSiliconPkg/SouthClusterLbg/LibraryPrivate/PeiPchInitLib/PeiPchInitLib.inf
 #
 # [Depex.IA32]
 # #  (gEfiPeiMemoryDiscoveredPpiGuid) AND (gEfiPeiPcdPpiGuid) AND ()

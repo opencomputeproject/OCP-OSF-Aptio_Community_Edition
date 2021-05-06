@@ -35,8 +35,8 @@
   MinPlatformPkg/MinPlatformPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  PurleyRcPkg/RcPkg.dec
-  PurleySktPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
 
 [Sources]
   PeiTiogaPassInitPostMemLib.c

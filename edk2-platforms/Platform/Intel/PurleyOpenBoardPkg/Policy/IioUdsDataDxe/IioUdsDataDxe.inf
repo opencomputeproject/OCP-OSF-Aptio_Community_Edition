@@ -22,9 +22,9 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
 
 [LibraryClasses]
   HobLib

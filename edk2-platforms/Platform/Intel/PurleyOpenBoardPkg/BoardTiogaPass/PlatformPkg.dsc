@@ -25,9 +25,9 @@
   DEFINE BOARD_NAME            = BoardTiogaPass
   DEFINE BOARD_PKG             = PurleyOpenBoardPkg
   DEFINE SILICON_BIN_PKG       = PurleySiliconBinPkg
-  DEFINE RC_PKG                = PurleyRcPkg
-  DEFINE SKT_PKG               = PurleySktPkg
-  DEFINE PCH_PKG               = LewisburgPkg
+  DEFINE RC_PKG                = PurleyRefreshSiliconPkg
+  DEFINE SKT_PKG               = PurleyRefreshSiliconPkg
+  DEFINE PCH_PKG               = PurleyRefreshSiliconPkg/SouthClusterLbg
   DEFINE DXE_ARCH              = X64
   DEFINE PEI_ARCH              = IA32
 

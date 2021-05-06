@@ -39,8 +39,8 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  LewisburgPkg/PchRcPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
 
 [Sources]
   PchReset.c

@@ -15,16 +15,16 @@
 
 [Sources]
   Dsdt/WFPPlatform.asl
-  
+
 [Packages]
   MdePkg/MdePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
 
-[BuildOptions]  
+[BuildOptions]
   # add -vr and -so to generate offset.h
   *_*_*_ASL_FLAGS = -oi -vr -so
 

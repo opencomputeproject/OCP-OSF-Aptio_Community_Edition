@@ -38,9 +38,9 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  LewisburgPkg/PchRcPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
 
 [FixedPcd]
 

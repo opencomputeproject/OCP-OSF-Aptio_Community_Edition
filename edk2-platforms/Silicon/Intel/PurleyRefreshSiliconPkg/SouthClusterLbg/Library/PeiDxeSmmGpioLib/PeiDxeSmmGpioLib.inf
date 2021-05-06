@@ -34,8 +34,8 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  PurleyRcPkg/RcPkg.dec
-  LewisburgPkg/PchRcPkg.dec                 #SERVER_BIOS
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec                 #SERVER_BIOS
 
 
 [Sources]

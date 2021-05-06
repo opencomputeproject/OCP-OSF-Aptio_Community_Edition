@@ -36,9 +36,9 @@
   MinPlatformPkg/MinPlatformPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  PurleyRcPkg/RcPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   PurleyOpenBoardPkg/PlatPkg.dec
 
 [Sources]

@@ -8,7 +8,7 @@
 
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = PurleyRcPkg
+  PACKAGE_NAME                   = PurleyRefreshSiliconPkg
   PACKAGE_GUID                   = 7DE2B07E-0E4A-4eba-B7B6-CE1E8D2B8408
   PACKAGE_VERSION                = 0.1
 
@@ -31,16 +31,16 @@
   SiliconAccessLib|Include/Library/UsraAccessApi.h
 
   ##  @libraryclass  Provides services to convert CSR to PCIE address library.
-  CsrToPcieLib|PurleyRcPkg/Include/Library/CsrToPcieAddress.h
+  CsrToPcieLib|PurleyRefreshSiliconPkg/Include/Library/CsrToPcieAddress.h
 
   ##  @libraryclass  Provides services to PCIE address library.
-  PcieAddrLib|PurleyRcPkg/Include/Library/PcieAddress.h
+  PcieAddrLib|PurleyRefreshSiliconPkg/Include/Library/PcieAddress.h
 
   ##  @libraryclass  Provides services to get PCI Express Address Base library.
-  MmPciLib|PurleyRcPkg/Include/Library/MmPciBaseLib.h
+  MmPciLib|PurleyRefreshSiliconPkg/Include/Library/MmPciBaseLib.h
 
   ##  @libraryclass  Provides services to get the silicon access library.
-  UsraLib|PurleyRcPkg/Include/Protocol/SiliconRegAccess.h
+  UsraLib|PurleyRefreshSiliconPkg/Include/Protocol/SiliconRegAccess.h
 
 [Guids]
 

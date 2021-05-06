@@ -22,11 +22,11 @@
 
 [Packages]
   PurleyOpenBoardPkg/PlatPkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  LewisburgPkg/PchRcPkg.dec
+  PurleyRefreshSiliconPkg/SouthClusterLbg/PchRcPkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
 
@@ -40,7 +40,7 @@
   HobLib
   PcdLib
   BoardAcpiTableLib
-  
+
 [Protocols]
   gEfiMpServiceProtocolGuid
   gEfiIioUdsProtocolGuid
@@ -66,7 +66,7 @@
   gEfiAcpiTableProtocolGuid AND
   gEfiMpServiceProtocolGuid
 
-[BuildOptions]  
+[BuildOptions]
   # add -vr and -so to generate offset.h
   *_*_*_ASL_FLAGS = -oi -vr -so
 

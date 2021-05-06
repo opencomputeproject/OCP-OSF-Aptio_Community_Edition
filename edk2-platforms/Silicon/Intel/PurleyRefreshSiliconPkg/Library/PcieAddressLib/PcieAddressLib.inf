@@ -35,8 +35,8 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  PurleySktPkg/SocketPkg.dec
-  PurleyRcPkg/RcPkg.dec
+  PurleyRefreshSiliconPkg/SocketPkg.dec
+  PurleyRefreshSiliconPkg/RcPkg.dec
 
 ################################################################################
 #
