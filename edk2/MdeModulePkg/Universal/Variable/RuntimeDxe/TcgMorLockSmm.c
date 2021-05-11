@@ -18,9 +18,9 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/BaseMemoryLib.h>
 #include "Variable.h"
 
-//#include <Protocol/VariablePolicy.h>
-//#include <Library/VariablePolicyHelperLib.h>
-//#include <Library/VariablePolicyLib.h>
+#include <Protocol/VariablePolicy.h>
+#include <Library/VariablePolicyHelperLib.h>
+#include <Library/VariablePolicyLib.h>
 
 typedef struct {
   CHAR16                                 *VariableName;
@@ -347,11 +347,10 @@ SetVariableCheckHandlerMor (
   }
 
   // Permit deletion when policy is disabled.
-/*
   if (!IsVariablePolicyEnabled() && ((Attributes == 0) || (DataSize == 0))) {
     return EFI_SUCCESS;
   }
-*/
+
   //
   // MorLock variable
   //
@@ -423,10 +422,8 @@ MorLockInitAtEndOfDxe (
 {
   UINTN      MorSize;
   EFI_STATUS MorStatus;
-//  EFI_STATUS              Status;
-//  VARIABLE_POLICY_ENTRY   *NewPolicy;
-  EFI_STATUS TcgStatus;
-  VOID       *TcgInterface;
+  EFI_STATUS              Status;
+  VARIABLE_POLICY_ENTRY   *NewPolicy;
 
   if (!mMorLockInitializationRequired) {
     //
@@ -464,20 +461,7 @@ MorLockInitAtEndOfDxe (
     // can be deduced from the absence of the TCG / TCG2 protocols, as edk2's
     // MOR implementation depends on (one of) those protocols.
     //
-    TcgStatus = gBS->LocateProtocol (
-                       &gEfiTcgProtocolGuid,
-                       NULL,                 // Registration
-                       &TcgInterface
-                       );
-    if (EFI_ERROR (TcgStatus)) {
-      TcgStatus = gBS->LocateProtocol (
-                         &gEfiTcg2ProtocolGuid,
-                         NULL,                  // Registration
-                         &TcgInterface
-                         );
-    }
-//    if (VariableHaveTcgProtocols ()) {
-    if (!EFI_ERROR (TcgStatus)) {
+    if (VariableHaveTcgProtocols ()) {
       //
       // The MOR variable originates from the platform firmware; set the MOR
       // Control Lock variable to report the locking capability to the OS.
@@ -512,7 +496,6 @@ MorLockInitAtEndOfDxe (
   // The MOR variable is absent; the platform firmware does not support it.
   // Lock the variable so that no other module may create it.
   //
-  /*
   NewPolicy = NULL;
   Status = CreateBasicVariablePolicy( &gEfiMemoryOverwriteControlDataGuid,
                                       MEMORY_OVERWRITE_REQUEST_VARIABLE_NAME,
@@ -532,12 +515,7 @@ MorLockInitAtEndOfDxe (
   if (NewPolicy != NULL) {
     FreePool( NewPolicy );
   }
-  */
-  VariableLockRequestToLock (
-    NULL,                                   // This
-    MEMORY_OVERWRITE_REQUEST_VARIABLE_NAME,
-    &gEfiMemoryOverwriteControlDataGuid
-    );
+
   //
   // Delete the MOR Control Lock variable too (should it exists for some
   // reason) and prevent other modules from creating it.
@@ -552,13 +530,6 @@ MorLockInitAtEndOfDxe (
     );
   mMorLockPassThru = FALSE;
 
-  VariableLockRequestToLock (
-    NULL,                                       // This
-    MEMORY_OVERWRITE_REQUEST_CONTROL_LOCK_NAME,
-    &gEfiMemoryOverwriteRequestControlLockGuid
-    );
-	
-/*
   NewPolicy = NULL;
   Status = CreateBasicVariablePolicy( &gEfiMemoryOverwriteRequestControlLockGuid,
                                       MEMORY_OVERWRITE_REQUEST_CONTROL_LOCK_NAME,
@@ -578,5 +549,4 @@ MorLockInitAtEndOfDxe (
   if (NewPolicy != NULL) {
     FreePool( NewPolicy );
   }
-*/
 }

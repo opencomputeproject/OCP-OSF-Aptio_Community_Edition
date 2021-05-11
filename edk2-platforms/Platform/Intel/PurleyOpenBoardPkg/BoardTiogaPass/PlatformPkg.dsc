@@ -183,7 +183,11 @@ TestPointCheckLib|MinPlatformPkg/Test/Library/TestPointCheckLibNull/TestPointChe
 
 [Components.X64]
 
-!include MinPlatformPkg/Include/Dsc/CoreDxeInclude.dsc
+#TiogaPass Override START : Added Board Specific changes in core drivers
+ #!include MinPlatformPkg/Include/Dsc/CoreDxeInclude.dsc
+ !include CoreDxeInclude.dsc 
+#TiogaPass Override END
+
 !include AdvancedFeaturePkg/Include/Dsc/CoreAdvancedDxeInclude.dsc
 
   $(SILICON_BIN_PKG)/FvLateSilicon/$(TARGET)/FvLateSilicon.inf

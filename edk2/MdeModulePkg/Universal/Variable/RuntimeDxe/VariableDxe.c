@@ -298,13 +298,13 @@ OnReadyToBoot (
   VOID                                    *Context
   )
 {
-//  EFI_STATUS        Status;
+  EFI_STATUS        Status;
 
   if (!mEndOfDxe) {
     MorLockInitAtEndOfDxe ();
 
-//    Status = LockVariablePolicy ();
-//    ASSERT_EFI_ERROR (Status);
+    Status = LockVariablePolicy ();
+    ASSERT_EFI_ERROR (Status);
     //
     // Set the End Of DXE bit in case the EFI_END_OF_DXE_EVENT_GROUP_GUID event is not signaled.
     //
@@ -343,12 +343,12 @@ OnEndOfDxe (
   VOID                                    *Context
   )
 {
-//  EFI_STATUS    Status;
+  EFI_STATUS    Status;
 
   DEBUG ((EFI_D_INFO, "[Variable]END_OF_DXE is signaled\n"));
   MorLockInitAtEndOfDxe ();
-//  Status = LockVariablePolicy ();
-//  ASSERT_EFI_ERROR (Status);
+  Status = LockVariablePolicy ();
+  ASSERT_EFI_ERROR (Status);
   mEndOfDxe = TRUE;
   mVarCheckAddressPointer = VarCheckLibInitializeAtEndOfDxe (&mVarCheckAddressPointerCount);
   //

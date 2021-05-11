@@ -293,7 +293,10 @@ FvNameGuid         = CDBB7B35-6833-4ed6-9AB2-57D2ACDDF6F0
   #  DXE Apriori file example, more DXE module added later.
   ##
 
-!include MinPlatformPkg/Include/Fdf/CoreUefiBootInclude.fdf
+#TiogaPass Override START : Added Board Specific changes in core drivers
+ #!include MinPlatformPkg/Include/Fdf/CoreUefiBootInclude.fdf
+ !include CoreUefiBootInclude.fdf
+#TiogaPass Override END
 
 INF  PurleyOpenBoardPkg/Policy/S3NvramSave/S3NvramSave.inf
 

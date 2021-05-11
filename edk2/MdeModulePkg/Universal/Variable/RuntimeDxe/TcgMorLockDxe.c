@@ -18,9 +18,9 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/BaseMemoryLib.h>
 #include "Variable.h"
 
-//#include <Protocol/VariablePolicy.h>
-//#include <Library/VariablePolicyHelperLib.h>
-extern EDKII_VARIABLE_LOCK_PROTOCOL     mVariableLock;
+#include <Protocol/VariablePolicy.h>
+#include <Library/VariablePolicyHelperLib.h>
+
 /**
   This service is an MOR/MorLock checker handler for the SetVariable().
 
@@ -80,11 +80,6 @@ MorLockInit (
     );
 
   //
-  // Need set this variable to be read-only to prevent other module set it.
-  //
-  VariableLockRequestToLock (&mVariableLock, MEMORY_OVERWRITE_REQUEST_CONTROL_LOCK_NAME, &gEfiMemoryOverwriteRequestControlLockGuid);
-
-  //
   // The MOR variable can effectively improve platform security only when the
   // MorLock variable protects the MOR variable. In turn MorLock cannot be made
   // secure without SMM support in the platform firmware (see above).
@@ -101,11 +96,6 @@ MorLockInit (
     0,                                      // DataSize
     NULL                                    // Data
     );
-  VariableLockRequestToLock (
-    &mVariableLock,
-    MEMORY_OVERWRITE_REQUEST_VARIABLE_NAME,
-    &gEfiMemoryOverwriteControlDataGuid
-    );
 
   return EFI_SUCCESS;
 }
@@ -120,7 +110,6 @@ MorLockInitAtEndOfDxe (
   VOID
   )
 {
-/*
   EFI_STATUS                        Status;
   EDKII_VARIABLE_POLICY_PROTOCOL    *VariablePolicy;
 
@@ -156,5 +145,4 @@ MorLockInitAtEndOfDxe (
   }
 
   return;
-  */
 }

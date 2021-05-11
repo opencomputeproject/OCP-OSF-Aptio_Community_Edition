@@ -47,24 +47,6 @@ PciDevicePresent (
   //
   Address = EFI_PCI_ADDRESS (Bus, Device, Func, 0);
 
-//
-// PURLEY_OVERRIDE_BEGIN
-//
-
-//5331460_OVERRIDE_STAR
-//
-// It is necessary to skip SPI controller from Enumeration process otherwise SPI access runing DXE/DXE SMM
-// will causes failures writting to SPI. This is a WA for LBG since currently OS hidde is not working.
-//
-  if(( Bus == 0x0) && ( Device == 0x1F) && (Func == 0x05)){
-    DEBUG ((EFI_D_INFO, "DEBUG - Address - 0x%x  BUS %x DEV %x Func %x SKIP\n", Address, Bus, Device, Func));
-    return EFI_NOT_FOUND;
-  }
-// 5331460_OVERRIDE_END
-//
-// PURLEY_OVERRIDE_END
-//
-
   //
   // Read the Vendor ID register
   //
