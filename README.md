@@ -1,4 +1,4 @@
-# ** Open Source BIOS for OCP TiogaPass **
+# ** Aptio OpenEdition for TiogaPass **
 
 The Minimum Platform is a software architecture that guides uniform delivery of Intel platforms enabling firmware solutions for basic boot functionality with extensibility built-in.  This project incorporates support for the OCP derived Tioga Pass platform.
 
@@ -135,3 +135,11 @@ DESC).`**
 * Installed and booted to Ubuntu 18.04 on M.2 NVME slot.
 * Verified Mellanox card detection during POST and OS.
 
+### **Planned Activities**
+* Sync with latest EDKII platforms master
+* Publish PurleyOpenBoardPkg to TianoCore github
+*	Add Linux boot support
+
+
+### **Additional Support and Customizations**
+*	To get dedicated support or additional features or customizations for Aptio OpenEdition, feel free to email sales@ami.com
