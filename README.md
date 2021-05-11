@@ -90,8 +90,6 @@ return back to the minimum platform caller.
 
  git clone https://github.com/opencomputeproject/Aptio-OE.git
 
-**NOTE:** Planning to create submodules for edk2/ekd2-Platforms/edk-non-osi repo for the future release. To clone, please use the --recurse-submodules parameter (e.g. git clone --recurse-submodules \<repo address\>).
-
 ### Build
 
 **Building with the batch scripts**
