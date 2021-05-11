@@ -1,4 +1,4 @@
-# AMI Tioga Pass OpenBMC
+# Aptio OE for Tioga Pass
 ## Governance
 
 ## Goals
