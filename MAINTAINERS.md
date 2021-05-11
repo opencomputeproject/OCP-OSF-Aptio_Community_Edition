@@ -1,5 +1,5 @@
 
-# This file describes the maintainers for Aptio Tioga Pass OE
+# This file describes the maintainers for Aptio OE for Tioga Pass
 
 Name = "Manickavasakam Karpagavinayagam"
 
