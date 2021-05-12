@@ -1,76 +1,24 @@
-# Contributor Covenant Code of Conduct
+**OCP Code of Conduct**
 
-## Our Pledge
+This code of conduct applies to all spaces managed by OCP. This includes our website, the Wiki pages, OCP Github, the mailing lists, the project community calls, workshops, webinars or events, social media communities, and any other forums created by the Foundation or Project Leadership which the community uses for communication and exchange of information. In addition, violations of this code outside these spaces may affect a person's ability to participate within them.
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, sex characteristics, gender identity and expression,
-level of experience, education, socio-economic status, nationality, personal
-appearance, race, religion, or sexual identity and orientation.
+If a participant believes someone is violating the code of conduct, The Foundation ask that it be reported immediately by emailing conduct@opencomputeproject.org.
 
-## Our Standards
-
-Examples of behavior that contributes to creating a positive environment
-include:
-
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
-
-Examples of unacceptable behavior by participants include:
-
-* The use of sexualized language or imagery and unwelcome sexual attention or
- advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
- address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
- professional setting
-
-## Our Responsibilities
-
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
-
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
-
-## Scope
-
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
-
-## Enforcement
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at sonic-codeofconduct@googlegroups.com. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
-
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
-
-[homepage]: https://www.contributor-covenant.org
-
-For answers to common questions about this code of conduct, see
-https://www.contributor-covenant.org/faq
+ - **All participants must be friendly and patient.**
+ 
+ - **All participants must be welcoming**. The OCP Community strives to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, color, immigration status, social and economic class, educational level, sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.
+ 
+ - **All participants must be considerate.** The work will be used by other people, and the work in turn will depend on the work of others. Any decision that is made will affect users and colleagues, and participants should take those consequences into account when making decisions. This is a world-wide community, so communication might not be done in someone else's primary language.
+ 
+ - **All participants must be respectful.** Not everyone will agree all the time, but disagreement is no excuse for poor behavior and poor manners. It’s important to remember that a community where people feel uncomfortable or threatened is not a productive one. Participants of the OCP Community should be respectful when dealing with other members as well as with people outside the OCP Community.
+ 
+ - **All participants must be careful in the words that they choose.** This is a community of professionals, and professional conduct is key to success. Insults or shaming of other participants, harassment and other exclusionary behavior are not acceptable. This includes, but is not limited to:
+	 - Violent threats or language directed against another person.
+	 - Discriminatory jokes and language.
+	 - Posting sexually explicit or violent material.
+	 - Posting (or threatening to post) other people's personally  identifying information ("doxing").
+	 - Personal insults, especially those using racist or sexist terms.
+	 - Unwelcome sexual attention.
+	 - Advocating for, or encouraging, any of the above behavior.
+	 - Repeated harassment of others. In general, if someone asks you to stop, then stop.
+ - **Disagreements are the perfect opportunity for growth and learning lessons.** Disagreements, both social and technical, happen all the time and the OCP Community is no exception. It is important that disagreements are resolved constructively and differing views are shared professionally. The strength of OCP comes from its varied community, people from a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint doesn’t mean that they’re wrong. Instead, focus on helping to resolve issues.
