@@ -7,3 +7,6 @@
 [submodule "FSP"]
 	path = FSP
 	url = https://github.com/IntelFsp/FSP.git
+[submodule "edk2"]
+	path = edk2
+	url = https://github.com/tianocore/edk2.git
