@@ -88,7 +88,8 @@ return back to the minimum platform caller.
   
 ### Download the required components
 
- git clone https://github.com/opencomputeproject/Aptio-OE.git
+ To download the project, clone the repository along with all the submodules and checkout required TAG using the following command:
+ git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with TAG name)
 
 ### Build
 
@@ -113,11 +114,12 @@ DESC).`**
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on tag [edk2-stable202011](https://github.com/tianocore/edk2/tree/edk2-stable202011).
+* [EDK2](https://github.com/tianocore/edk2) source based on commit hash 9abc60f9f722d891b3cedb0205fd6c9c0e2af54b.
 * FSP binaries derived from Purley Refresh RC version RC610D02.
 * AST2500 UEFI option ROM v1.11.03 (released 12/29/2020).
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on branch [devel-MinPlatform](https://github.com/tianocore/edk2-platforms/tree/devel-MinPlatform), plus additional PurleyRefreshSiliconPkg changes.
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit ID [f9b9957d6609caf32cde8edd868967f569eb3d55](https://github.com/tianocore/edk2-non-osi/tree/f9b9957d6609caf32cde8edd868967f569eb3d55).
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash 4b8483b74963b63312a2b08fd1c307cea47307b6.
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash de63002b5de696f6d6ebc91dc80fa8fd6e47c507.
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash f5ce887fb45279f2b6557107c819e35a12547c87.
 
 ### **Validation Details**
 
@@ -133,11 +135,12 @@ DESC).`**
 * Installed and booted to Ubuntu 18.04 on M.2 NVME slot.
 * Verified Mellanox card detection during POST and OS.
 
+
+### **New Features**
+* Add Linux boot support
+
 ### **Planned Activities**
 * Sync with latest EDKII platforms master
-* Publish PurleyOpenBoardPkg to TianoCore github
-*	Add Linux boot support
-
 
 ### **Additional Support and Customizations**
 *	To get dedicated support or additional features or customizations for Aptio OpenEdition, feel free to email sales@ami.com
