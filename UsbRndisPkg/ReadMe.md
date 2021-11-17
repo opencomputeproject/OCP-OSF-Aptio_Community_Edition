@@ -1,9 +1,8 @@
 # UsbRndisPkg
 
 ​	The package provides support for UsbRndis feature which is mainly used for REDFISH BIOS-BMC communication. 
-Package designed in way that it is compatible and work well with edk2 drivers.
 
-
+  
 
 ## How to include UsbRndisPkg to the project?
 
