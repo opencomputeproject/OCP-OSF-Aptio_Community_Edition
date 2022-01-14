@@ -1,6 +1,6 @@
-# ** Aptio OpenEdition for TiogaPass **
+# Aptio OpenEdition Firmware  
 
-The Minimum Platform is a software architecture that guides uniform delivery of Intel platforms enabling firmware solutions for basic boot functionality with extensibility built-in.  This project incorporates support for the OCP derived Tioga Pass platform.
+The Minimum Platform is a software architecture that guides uniform delivery of Intel platforms enabling firmware solutions for basic boot functionality with extensibility built-in.  This project incorporates support for the OCP derived Tioga Pass platform and Junction City Platform.
 
 Package maintainers are listed in Maintainers.txt.
 
@@ -51,6 +51,7 @@ A UEFI firmware implementation using MinPlatformPkg is constructed using the fol
 
 ## Board Support
 * The `PurleyOpenBoardPkg` contains board implementations for Purley systems.
+* The `WhitleyOpenBoardPkg` contains board implementations for Whitley systems.
 
 ## Board Package Organization
 The board package follows the standard EDK II package structure with the following additional elements and guidelines:
@@ -80,22 +81,28 @@ return back to the minimum platform caller.
   - The validated version of iasl compiler that can build MinPurley is 20180629.
 * [NASM assembler](https://www.nasm.us/):  nasm.exe available from: http://www.nasm.us/
   - Install into ```C:\NASM``` to match default tools_def.txt configuration.
-* [Python 2.7.6](https://www.python.org/download/releases/2.7.6/):  Available from: https://www.python.org/download/releases/2.7.6/
-  - Install into ```C:\Python27``` to match default tools_def.txt configuration.
-  - Add C:\Python27 to your path
-  - Other versions of 2.7 may also work fine.
+* [Python 3.8.10](https://www.python.org/downloads/release/python-3810/):  Available from: https://www.python.org/downloads/release/python-3810/
+  - Install into ```C:\Python38``` to match default tools_def.txt configuration.
+  - Add C:\Python38 to your path
+  - Other versions of 3.8 may also work fine.
 
+### **Supported Hardware**
+
+| Machine Name                          | Supported Chipsets                         | BoardPkg                     | Board Name         |
+----------------------------------------|--------------------------------------------|------------------------------|--------------------|
+| Junction City                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
+| TiogaPass                             | Purley                                     | PurleyOpenBoardPkg           | BoardTiogaPass     |
   
 ### Download the required components
 
  To download the project, clone the repository along with all the submodules and checkout required TAG using the following command:
  git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with TAG name)
 
-### Build
+### TiogaPass Build Information
 
 **Building with the batch scripts**
 
-For PurleyOpenBoardPkg
+**For PurleyOpenBoardPkg**
 1. Open command window, go to the workspace directory, e.g. c:\Purley.
 2. Type "cd edk2-platforms\Platform\Intel\PurleyOpenBoardPkg\BoardTiogaPass".
 3. Type "GitEdk2MinTiogaPass.bat" to setup GIT environment.
@@ -104,22 +111,43 @@ For PurleyOpenBoardPkg
 5. Final BIOS image will be Build\PurleyOpenBoardPkg\BoardTiagoPass\DEBUG_VS2015x86\FV\PLATFORM.fd or Build\PurleyOpenBoardPkg\BoardTiagoPass\RELEASE_VS2015x86\FV\PLATFORM.fd, depending on bld batch script input.
 6. This BIOS image needs to be merged with SPS FW.
 
-The validated version of iasl compiler that can build MinPurley is 20180629. Older versions may generate ACPI build
+The validated version of iasl compiler that can build is 20180629. Older versions may generate ACPI build
 errors.
 
-**`Users with access to the Intel proprietary FITC tool and ME ingredients can build full images for flash  (BIOS + ME +
+**`Users can also flash the UEFI firmware image to the highest area of the flash region directly.`** **`Users with access to the Intel proprietary FITC tool and ME ingredients can build full images for flash  (BIOS + ME +
 DESC).`**
 
-**`Users can also flash the UEFI firmware image to the highest area of the flash region directly.`**
+### Junction City  Build Information
+
+**Building with the python script**
+
+1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
+2. Type "cd edk2-platforms/Platform/Intel
+3. Type "python build_bios.py -p JunctionCity"
+4. On successful build, IFWI (Integrated Firmware Image) JUNCTIONCITY.bin and BIOS JUNCTIONCITY.fd rom files are created.
+
+* build_bios.py arguments:
+
+  | Argument              | Function                            |
+  | ----------------------|-------------------------------------|
+  | -h, --help            | show this help message and exit     |
+  | --platform, -p        | the platform to build               |
+  | --DEBUG, -d           | debug flag                          |
+  | --RELEASE, -r         | release flag                        |
+  | --cleanall            | cleans all                          |
+  
+
+
+
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on commit hash 9abc60f9f722d891b3cedb0205fd6c9c0e2af54b.
+* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202111.
 * FSP binaries derived from Purley Refresh RC version RC610D02.
 * AST2500 UEFI option ROM v1.11.03 (released 12/29/2020).
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash 4b8483b74963b63312a2b08fd1c307cea47307b6.
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash de63002b5de696f6d6ebc91dc80fa8fd6e47c507.
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash f5ce887fb45279f2b6557107c819e35a12547c87.
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash d611e847a9f4dba8092f5a24e9623ba39ad71dc0.
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash c1075e9ddd647fa7f7cb17b312f6bf8246952e09.
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  da956c11973763d1b2c1563b927e23a90d17a180.
 
 ### **Validation Details**
 
@@ -129,18 +157,38 @@ DESC).`**
 * This firmware project has only been tested on the Tioga Pass hardware.
 * This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
 * Booted to UEFI shell.
-* Installed and booted to UEFI Windows 2016 on M.2 NVME slot.
-* Installed and booted to UEFI Windows 2019 on M.2 NVME slot and with SATA HDD.
-* Installed and booted to UEFI RHEL 7.3 on SATA HDD.
-* Installed and booted to Ubuntu 18.04 on M.2 NVME slot.
+* Booted to UEFI Windows Server 2022 on SATA HDD.
+* Booted to UEFI RHEL 7.3 on SATA HDD.
+* Booted to Ubuntu 18.04 on M.2 NVME slot.
 * Verified Mellanox card detection during POST and OS.
+* LINUX Boot Support (PcdLinuxBootEnable needs to be enabled) verified by booting to Ubuntu 18.04 on M.2 NVME slot
 
+### **Linux Boot Support Validation Details**
 
+* linux.efi is a dummy file.
+* Dummy file needs to be replaced by building the Linux Kernel with an Integrated Initrd.
+
+1.  Follow u-root https://github.com/u-root/u-root#readme to compile an initrd
+2.  Follow directions on http://osresearch.net/Building/ to integrate initrd and compile the heads kernel
+3.  Copy bzimage with integrated initrd to LinuxBoot/LinuxBinaries/linux.efi
+
+**WhitleyOpenBoardPkg**
+* This firmware project has only been tested on the Junction City hardware.
+* This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
+* Booted to UEFI shell.
+* Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
+* Booted to UEFI Windows Server 2019 using SATA HDD.
+* Booted to UEFI RHEL 8.3 using SATA HDD and U2 SSD.
+* Booted to Ubuntu 18.04 on SATA slot and U2 SSD.
+* Verified PCIE LAN card detection during POST and OS.
+* Verified TPM offboard chip detection
+  
+  
 ### **New Features**
-* Add Linux boot support
+* None
 
 ### **Planned Activities**
-* Sync with latest EDKII platforms master
+* Sync with latest EDKII and EDKII platforms
 
 ### **Additional Support and Customizations**
 *	To get dedicated support or additional features or customizations for Aptio OpenEdition, feel free to email sales@ami.com
