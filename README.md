@@ -90,13 +90,33 @@ return back to the minimum platform caller.
 
 | Machine Name                          | Supported Chipsets                         | BoardPkg                     | Board Name         |
 ----------------------------------------|--------------------------------------------|------------------------------|--------------------|
-| Junction City                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
-| TiogaPass                             | Purley                                     | PurleyOpenBoardPkg           | BoardTiogaPass     |
+| [Junction City](#junction-city--build-information)                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
+| [TiogaPass](#tiogapass-build-information)                            | Purley                                     | PurleyOpenBoardPkg           | BoardTiogaPass     |
   
 ### Download the required components
 
  To download the project, clone the repository along with all the submodules and checkout required TAG using the following command:
  git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with TAG name)
+
+### Junction City Build Information
+
+**Building with the python script**
+
+1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
+2. Type "cd edk2-platforms/Platform/Intel
+3. Type "python build_bios.py -p JunctionCity"
+4. On successful build, IFWI (Integrated Firmware Image) JUNCTIONCITY.bin and BIOS JUNCTIONCITY.fd rom files are created.
+
+* build_bios.py arguments:
+
+  | Argument              | Function                            |
+  | ----------------------|-------------------------------------|
+  | -h, --help            | show this help message and exit     |
+  | --platform, -p        | the platform to build               |
+  | --DEBUG, -d           | debug flag                          |
+  | --RELEASE, -r         | release flag                        |
+  | --cleanall            | cleans all                          |
+
 
 ### TiogaPass Build Information
 
@@ -117,37 +137,16 @@ errors.
 **`Users can also flash the UEFI firmware image to the highest area of the flash region directly.`** **`Users with access to the Intel proprietary FITC tool and ME ingredients can build full images for flash  (BIOS + ME +
 DESC).`**
 
-### Junction City  Build Information
-
-**Building with the python script**
-
-1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
-2. Type "cd edk2-platforms/Platform/Intel
-3. Type "python build_bios.py -p JunctionCity"
-4. On successful build, IFWI (Integrated Firmware Image) JUNCTIONCITY.bin and BIOS JUNCTIONCITY.fd rom files are created.
-
-* build_bios.py arguments:
-
-  | Argument              | Function                            |
-  | ----------------------|-------------------------------------|
-  | -h, --help            | show this help message and exit     |
-  | --platform, -p        | the platform to build               |
-  | --DEBUG, -d           | debug flag                          |
-  | --RELEASE, -r         | release flag                        |
-  | --cleanall            | cleans all                          |
-  
-
-
 
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202111.
+* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202202
 * FSP binaries derived from Purley Refresh RC version RC610D02.
 * AST2500 UEFI option ROM v1.11.03 (released 12/29/2020).
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash d611e847a9f4dba8092f5a24e9623ba39ad71dc0.
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash c1075e9ddd647fa7f7cb17b312f6bf8246952e09.
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  da956c11973763d1b2c1563b927e23a90d17a180.
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash df5e094ef347d12f48c306268c674df40a1357da
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 6996a45d7f4014fd4aa0f1eb4cbe97d8a3c5957a
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  2cedeba57f6f7c604bea715065e7a4dca8ffa271
 
 ### **Validation Details**
 
