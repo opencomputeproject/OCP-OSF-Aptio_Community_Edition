@@ -71,7 +71,12 @@ return back to the minimum platform caller.
 ### Pre-requisites
 
 * [GIT client](https://git-scm.com/downloads): Available from https://git-scm.com/downloads
-* [VS2015 Build Tools from Microsoft Visual Studio 2019.](https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fvisualstudio.microsoft.com%2Fdownloads%2F%23build-tools-for-visual-studio-2019&data=04%7C01%7Cjoshuas%40ami.com%7Cc5cd5c9371da416b07b308d9101cc01a%7C27e97857e15f486cb58e86c2b3040f93%7C1%7C0%7C637558537940708425%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=ZDuDUYUBS10Eoi9niUM6opxVFvrrdLdXbOf4aRBRGeA%3D&reserved=0)
+* [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2019-and-other-products) <br>
+   Login with user credentials and refer the below to download the VS2019
+   
+   ![image](https://user-images.githubusercontent.com/80769446/170539401-dd2ba633-1e2f-4103-a137-49132a484c5f.png)
+
+
   - Visual Studio 2015 build tools from Visual Studio 2019.  See image below for recommended install configuration.
     - **Please note that the VS2015 Build Tools are not enabled by default in the Visual Studio 2019 install.**
   - Visual Studio 2015 can be used instead.
