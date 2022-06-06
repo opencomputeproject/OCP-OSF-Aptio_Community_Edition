@@ -10,11 +10,11 @@ Github = manickavasakamk
 Mailinglist = AMI_Project@groups.io
 
 
-Name = "Manish Jha"
+Name = "Sureshkumar Ponnusamy"
 
-Email = "manishj@ami.com"
+Email = "sureshkumarp@ami.com"
 
-Github = manish11mj
+Github = sureshkumarpami
 
 Mailinglist = AMI_Project@groups.io
 

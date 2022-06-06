@@ -1,0 +1,18 @@
+#Please enter the absoulte path
+#Make sure there is a space after : in each config settings
+
+CROSS_COMPILE : ''
+
+# Option to select UEFI only build or full image build
+# Options {yes ,no}
+#     yes -   UEFI Build only,
+#     no -    Full Image build. For full image build, ATF file is required. Configure the ATF_PATH
+UEFI_BUILD_ONLY : yes
+
+ATF_PATH : 
+
+# Option to generate SCP capsules
+# Options {yes, no}
+#  yes - SCP capsules will be generated. Configure the SCP path
+GEN_SCP_CAPSULES : no 
+SCP_PATH :
