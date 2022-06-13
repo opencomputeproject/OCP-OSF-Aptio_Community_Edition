@@ -9,11 +9,11 @@ git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.gi
 * The Cross Compiler has to be downloaded from the ampere and configure it in Jade/Config.yml
 * sudo apt-get install make gcc build-essential libssl-dev gawk uuid-dev
 * sudo apt-get install python3.8
-* sudo apt-get m4 bison flex
+* sudo apt-get install m4 bison flex
 * To build UEFI image only :
-    * Set ìUEFI_BUILD_ONLYî to "yes" in Jade/Config.yml
+    * Set ‚ÄúUEFI_BUILD_ONLY‚Äù to "yes" in Jade/Config.yml
 * To build Full SPI NOR image :
-    * Set ìUEFI_BUILD_ONLYî to "no" in Jade/Config.yml
+    * Set ‚ÄúUEFI_BUILD_ONLY‚Äù to "no" in Jade/Config.yml
     * Download the ATF binary from SOC vendor and set the ATF_PATH in config.yml
     * Board setting file needs to be placed under edk2-platforms/Platform/Ampere/JadePkg
 
