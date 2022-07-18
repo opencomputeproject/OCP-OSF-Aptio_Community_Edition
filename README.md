@@ -85,6 +85,7 @@ return back to the minimum platform caller.
   - Install into ```C:\ASL``` to match default tools_def.txt configuration.
   - The validated version of iasl compiler that can build MinPurley is 20180629.
 * [NASM assembler](https://www.nasm.us/):  nasm.exe available from: http://www.nasm.us/
+  - NASM 2.15.05 is the recommended minimum version.
   - Install into ```C:\NASM``` to match default tools_def.txt configuration.
 * [Python 3.8.10](https://www.python.org/downloads/release/python-3810/):  Available from: https://www.python.org/downloads/release/python-3810/
   - Install into ```C:\Python38``` to match default tools_def.txt configuration.
@@ -96,7 +97,9 @@ return back to the minimum platform caller.
 | Machine Name                          | Supported Chipsets                         | BoardPkg                     | Board Name         |
 ----------------------------------------|--------------------------------------------|------------------------------|--------------------|
 | [Junction City](#junction-city--build-information)                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
-| [TiogaPass](#tiogapass-build-information)                            | Purley                                     | PurleyOpenBoardPkg           | BoardTiogaPass     |
+| [Aowanda](#Aowanda-build-information) | IceLake-SP (Xeon Scalable)         | WhitleyOpenBoardPkg           | Aowanda     |
+| [MtJade](#Aowanda-build-information) | Ampere Altra         | Jade         | MtJade     |
+
   
 ### Download the required components
 
@@ -123,61 +126,44 @@ return back to the minimum platform caller.
   | --cleanall            | cleans all                          |
 
 
-### TiogaPass Build Information
+### Aowanda Build Information
 
-**Building with the batch scripts**
+**Building with the python script**
 
-**For PurleyOpenBoardPkg**
-1. Open command window, go to the workspace directory, e.g. c:\Purley.
-2. Type "cd edk2-platforms\Platform\Intel\PurleyOpenBoardPkg\BoardTiogaPass".
-3. Type "GitEdk2MinTiogaPass.bat" to setup GIT environment.
-4. Type "bld" to build Purley Tioga Pass board UEFI firmware image, "bld release" for release build, "bld clean" to
-   remove intermediate files.
-5. Final BIOS image will be Build\PurleyOpenBoardPkg\BoardTiagoPass\DEBUG_VS2015x86\FV\PLATFORM.fd or Build\PurleyOpenBoardPkg\BoardTiagoPass\RELEASE_VS2015x86\FV\PLATFORM.fd, depending on bld batch script input.
-6. This BIOS image needs to be merged with SPS FW.
+1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
+2. Type "cd edk2-platforms/Platform/Intel
+3. Type "python build_bios.py -p Aowanda"
+4. On successful build, IFWI (Integrated Firmware Image) AOWANDA.bin and BIOS AOWANDA.fd rom files are created.
 
-The validated version of iasl compiler that can build is 20180629. Older versions may generate ACPI build
-errors.
+* build_bios.py arguments:
 
-**`Users can also flash the UEFI firmware image to the highest area of the flash region directly.`** **`Users with access to the Intel proprietary FITC tool and ME ingredients can build full images for flash  (BIOS + ME +
-DESC).`**
+  | Argument              | Function                            |
+  | ----------------------|-------------------------------------|
+  | -h, --help            | show this help message and exit     |
+  | --platform, -p        | the platform to build               |
+  | --DEBUG, -d           | debug flag                          |
+  | --RELEASE, -r         | release flag                        |
+  | --cleanall            | cleans all                          |
 
 
+### MtJade Build Information
+
+Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI-MtJade-202206 branch
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202202
-* FSP binaries derived from Purley Refresh RC version RC610D02.
-* AST2500 UEFI option ROM v1.11.03 (released 12/29/2020).
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash df5e094ef347d12f48c306268c674df40a1357da
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 6996a45d7f4014fd4aa0f1eb4cbe97d8a3c5957a
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  2cedeba57f6f7c604bea715065e7a4dca8ffa271
+* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202205
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash f653a22385f502a021dced5fe174ab03b7c2be29
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 61662e8596dd9a64e3372f9a3ba6622d2628607c
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  6d184188ca4915197df84549b412c48dd381165a
 
 ### **Validation Details**
 
 * All firmware projects can only build on Windows with the validated configuration below.
 
-**PurleyOpenBoardPkg**
-* This firmware project has only been tested on the Tioga Pass hardware.
-* This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
-* Booted to UEFI shell.
-* Booted to UEFI Windows Server 2022 on SATA HDD.
-* Booted to UEFI RHEL 7.3 on SATA HDD.
-* Booted to Ubuntu 18.04 on M.2 NVME slot.
-* Verified Mellanox card detection during POST and OS.
-* LINUX Boot Support (PcdLinuxBootEnable needs to be enabled) verified by booting to Ubuntu 18.04 on M.2 NVME slot
-
-### **Linux Boot Support Validation Details**
-
-* linux.efi is a dummy file.
-* Dummy file needs to be replaced by building the Linux Kernel with an Integrated Initrd.
-
-1.  Follow u-root https://github.com/u-root/u-root#readme to compile an initrd
-2.  Follow directions on http://osresearch.net/Building/ to integrate initrd and compile the heads kernel
-3.  Copy bzimage with integrated initrd to LinuxBoot/LinuxBinaries/linux.efi
-
 **WhitleyOpenBoardPkg**
-* This firmware project has only been tested on the Junction City hardware.
+
+**This firmware project has only been tested on the Junction City hardware**.
 * This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
 * Booted to UEFI shell.
 * Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
@@ -186,6 +172,15 @@ DESC).`**
 * Booted to Ubuntu 18.04 on SATA slot and U2 SSD.
 * Verified PCIE LAN card detection during POST and OS.
 * Verified TPM offboard chip detection
+
+**This firmware project has only been tested on the Aowanda AD1S01 hardware**.
+* This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
+* Booted to UEFI shell.
+* Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
+* Booted to UEFI RHEL 8.3 using SATA on M.2 NVME Slot.
+* Verified onboard PCIE LAN card detection in POST and OS.
+* Verified TPM offboard chip detection in POST and OS.
+* All the above testing is done using AMI MEGARAC SPX FW version 0.14.0 Remote KVM redirection
   
   
 ### **New Features**
