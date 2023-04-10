@@ -152,10 +152,10 @@ Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202205
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash f653a22385f502a021dced5fe174ab03b7c2be29
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 61662e8596dd9a64e3372f9a3ba6622d2628607c
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  6d184188ca4915197df84549b412c48dd381165a
+* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202302
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash 07f5955badcaa07e885ea8ed329584d3c458641b
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 41876073afb7c7309018223baa1a6f8108bf23f0
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  3ae8ca82ee519ca4f5f60a59ca7d4f8cec7b402d
 
 ### **Validation Details**
 
@@ -169,7 +169,7 @@ Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI
 * Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
 * Booted to UEFI Windows Server 2019 using SATA HDD.
 * Booted to UEFI RHEL 8.3 using SATA HDD and U2 SSD.
-* Booted to Ubuntu 18.04 on SATA slot and U2 SSD.
+* Booted to Ubuntu 18.04 on SATA slot.
 * Verified PCIE LAN card detection during POST and OS.
 * Verified TPM offboard chip detection
 
@@ -179,7 +179,6 @@ Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI
 * Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
 * Booted to UEFI RHEL 8.3 using SATA on M.2 NVME Slot.
 * Verified onboard PCIE LAN card detection in POST and OS.
-* Verified TPM offboard chip detection in POST and OS.
 * All the above testing is done using AMI MEGARAC SPX FW version 0.14.0 Remote KVM redirection
   
   
