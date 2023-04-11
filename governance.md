@@ -1,59 +1,5 @@
 
-## OCP Software Sub-Projects Phases
-
-OCP will recognize a new Software Sub-project in three phases.
-
-a.  **Incubation Phase** 
-
-The Incubation Phase shall allow the OCP community to build support, identify Software Sub-Project leadership, enlist new collaborators and committers and adopt a governance policy. 
-
-A Software Sub-Project enters into the Incubation Phase when the following criteria is met:
-
-|  Steps|Criteria for Completion  |
-|--|--|
-|Recognized Need|Formal recommendation to IC or Foundation Staff.|
-|Support|Min of 2 OCP Corporate Members who will contribute to the Software Sub-Project and become key stakeholders.|
-|Tenets|Software Sub-Project need meets 3 out of the 4 OCP Tenets.|
-|Leadership|Corporate Member(s) who are identified as Volunteer Leader(s) to serve as Software Sub-Project Lead (SPL).|
-|Approval|Formal recommendation to IC or Foundation Staff
-
-The Incubation Team (Foundation Staff, PL(s) and key stakeholders) will create a support plan for the Incubation Software Sub-Project to include the following:
-
- - Resource allocation/development time. 
- - Requirements and their prioritizations. 
- - Infrastructure to support the Software Sub-Project. 
- - Marketing investment to ensure that the Incubation Software Sub-Project gains support and contributors after launch.
- 
-b. **Impact Phase** 
-
-The Software Sub-Project is expected to enter the Impact Phase within 12 months or whenever the below criteria is met. Incubation Software Sub-Projects that do not progress to Impact Phase within 12 months must be extended by the Foundation in writing, otherwise they will be terminated.
-|  Steps|Criteria for Completion  |
-|--|--|
-|Support|2 or more OCP Corporate Members who have made contributions to the Software Sub Project.|
-|Charter|Charter has been created, aligned with the top-level Project Charter and approved by the IC via a vote.|
-|Leadership|Initial SPL appointments are made by the PLs and approved by Foundation.|
-|Approval|Review of all of the above criteria by the IC and Foundation.
-
-c. **Termination Phase** 
-
-Periodically, projects may become obsolete or need to terminate for a number of reasons. Some examples to terminate may be: 
-
- - The community and the volunteer leaders feel that there is no activity around the current charter.
- - The software community is no longer active and there are no contributions either in the pipeline or on the horizon.
- - The Software Sub-Project has no initiatives in progress, no
-   development on past contributions and there are no contributors willing to commit any resources.
- - Another project or the IC recommends termination.
-
-A Software Sub-Project will be terminated by formal vote of the Project Leads and endorsed by the IC. Prior to vote, the community will be notified of pending decisions and have an opportunity to make recommendations to the IC before the vote. 
-
-Once a Software Sub-Project has been terminated, the following actions will occur: 
-
- - The Software Sub-Project page and wiki will be completely removed from the OCP website within 3 months after the Sub Project is marked as terminated.
- - All Sub-Project calls will be cancelled after the 3 month mark.
- - All subscribers to the mailing list will be notified after the      Sub-Project is marked as terminated and the mailing list will be   
-   disbanded.
-
-## Software Project Governance Policy
+## Project Governance Policy
  1. **Introduction**
 The Software Project is an open source software project led by contributors, code committers, and optionally a technical steering committee (TSC). The Software Project is administered by the OCP Foundation and the IC, which has reviewed and adopted (by majority vote) the Software Project charter and its governance policy (if applicable). This governance model is based on the best practices and values of the open source culture and pursues the goals set by the OCP Foundation. The Software Project functions under the auspices of OCP. Each Software Project shall author a Project Charter that shall be accepted by a majority vote of the IC.
 
@@ -86,7 +32,7 @@ Specification issue types are listed below:
 - *Spec Change*: These track specific spec changes and ideas until they are complete. They can evolve from "Proposal" and "Discussion" items, or they can be submitted individually depending on the size. Each spec change should be placed into a milestone.
 
 ## Software Community & Membership
-The Software Project requires no admission processes, contracts, or membership fees. Any individual or organization who are OCP members, can use and contribute to a Software Project. We welcome any contributions that lead to the success of the project - including software development, documentation, testing, delivery and advocacy.
+The Software Project requires no admission processes, contracts, or membership fees. Any individual or organization can use and contribute to a Software Project. We welcome any contributions that lead to the success of the project - including software development, documentation, testing, delivery and advocacy.
 
 ## Software Compliance Program
 The Software Project may also provide a compliance or branding program for individuals or organizations to register as participants, or to register products, board support packages (BSPs), or software layers as Project Compatible. Any compliance or branding programs must be approved by the OCP Foundation. The compliance or branding program is intended to promote the use and adoption of the open sourced software, regardless of an individual or corporate affiliation with OCP. Participants in the compliance program, at the discretion of the Foundation and with their permission, may be listed on the [OCP Marketplace](http://www.opencompute.org/products/), OCP Integrated solutions and any OCP portal pages or on the [OCP GitHub](https://github.com/opencomputeproject) pages.
@@ -96,7 +42,7 @@ The Software Project is developed and designed using a collaborative effort by a
 
 **Roles and Responsibilities**
 
- ● *PLs* (see Sec 1- Volunteer Leaders) are responsible for the success of the Software Project and to align with the approved charter. The PL is a volunteer position, initially appointed by OCP and approved by the IC. After initial appointment, the PL position will be elected in accordance with OCP Governance. The PLs will be accountable for the following: 
+ ● *PLs*  are responsible for the success of the Software Project and to align with the approved charter. The PL is a volunteer position, initially appointed by OCP and approved by the IC. After initial appointment, the PL position will be elected in accordance with OCP Governance or the project specific governance policy. The PLs will be accountable for the following: 
  
 	 ○ Wiki Maintenance 
 	 ○ Meeting agenda and minutes 
@@ -130,7 +76,7 @@ Specification Maintainers are responsible for organizing activities around devel
 
 ●  *Technical Steering Committee (TSC)* `Optional`- TSC may be formed to provide leadership and resolve technical differences that may arise from time to time. The decision to create or dissolve a TSC must be approved by the OCP Foundation
 
- -  The TSC will be responsible for oversight of the open source    project and assure the Software Project aligns with the approved charter. 
+ -  The TSC will be responsible for oversight of the open source project and assure the Software Project aligns with the approved charter. 
  
  -  The TSC members are initially the Software Project’s code Committers when the Software Project exits the “Incubation Phase” and enters the “Impact Phase”. The Committers will determine the Project’s code repository. 
  
@@ -142,7 +88,7 @@ Specification Maintainers are responsible for organizing activities around devel
 	- Amend, adjust, refine and/or eliminate the roles of contributors, and committers, and create new roles, and publicly document any TSC roles, as it sees fit.
 
 - The TSC shall elect a chair who will preside over meetings of the TSC. The TSC shall elect a new chair every 12 months. A current or previous chairperson is eligible to serve any number of terms as chair.
-- The TSC shall review its membership every 12 months, in the month following the election of the TSC chair. Membership on the TSC is limited to OCP Corporate Tiered Members and code committers (or persons employed by a code committing company). Members are added or removed by majority vote of the TSC. An existing TSC member that has not committed code within the prior 12 months shall be disqualified from the TSC.
+- The TSC shall review its membership every 12 months, in the month following the election of the TSC chair. Membership on the TSC is limited to code committers (or persons employed by a code committing company). Members are added or removed by majority vote of the TSC. An existing TSC member that has not committed code within the prior 12 months may be disqualified from the TSC.
 - The TSC will be responsible for all technical aspects or oversight relating to the Software Project. When such responsibilities involve vital functions performed by the OCP Foundation, the TSC shall seek support and ratification. These responsibilities may include (but not limited to) the following: 
 	- Maintain a roadmap of planned feature additions or subtractions, with expected timeline for feature release.
 	-  Approve Software Project or system proposals (including, but not limited to, incubation, deprecation and changes to a Sub-Project’s scope);
