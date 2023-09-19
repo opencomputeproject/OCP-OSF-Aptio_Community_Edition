@@ -152,10 +152,10 @@ Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI
 
 ### **Binary and Reference Code Details**
 
-* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202305
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash 87c40ac89b97eccac690762536db5376af15bb65
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash f0bb00937ad6bfdf92d9c7fea9f7277c160d82e9
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  3beceb01f90dbdbe7781c7fa43ecc928cd68d2f0
+* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202308
+* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash bb6841e3fd1c60b3f8510b4fc0a380784e05d326
+* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 8c09bd0955338db38813e0d8ae1faa634f545f73
+* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  46a88ff1e9ed45bb9bfcfa4654d292d60b30f442
 
 ### **Validation Details**
 
