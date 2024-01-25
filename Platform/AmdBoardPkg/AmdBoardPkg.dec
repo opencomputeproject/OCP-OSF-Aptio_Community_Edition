@@ -93,7 +93,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdXhciUsb31OcPinSelect|0xFFFFFFFF|UINT32|0x0003F341
   gAmdBoardPkgTokenSpaceGuid.PcdXhciUsb20OcPinSelect|0xFFFFFFFFFFFFFFFF|UINT64|0x0003F340
   gAmdBoardPkgTokenSpaceGuid.PcdXhciSsid|0x00000000|UINT32|0x0003FF07
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdApicMode|0xFF|UINT8|0x000CC006
   gAmdBoardPkgTokenSpaceGuid.PcdAmdApicMode|0x02|UINT8|0x000CC006
   gAmdBoardPkgTokenSpaceGuid.PcdAmdS3LibTableSize|0x4000|UINT64|0x00027003
   gAmdBoardPkgTokenSpaceGuid.PcdUsbSspOemConfigurationTable|{0x0}|VOID*|0x0003F382
@@ -121,7 +120,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCoreDisCcd10|0|UINT16|0x000CC01E
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCoreDisCcd11|0|UINT16|0x000CC01F
   gAmdBoardPkgTokenSpaceGuid.PcdAmdIbrsEn|FALSE|BOOLEAN|0x000CC022  
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnvironmentFlag|0|UINT32|0x00027004                                   # Record Environment Flag for internal usage only
   gAmdBoardPkgTokenSpaceGuid.PcdAmdBranchSampling|FALSE|BOOLEAN|0x000CC026   
   gAmdBoardPkgTokenSpaceGuid.PcdAmdVmplEnable|TRUE|BOOLEAN|0x000CC027   
   gAmdBoardPkgTokenSpaceGuid.PcdAmdGameMode|FALSE|BOOLEAN|0x000CC020   
@@ -133,7 +131,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuWdtSeverity|0xFF|UINT8|0x000CC092   
 
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCStateMode|1|UINT8|0x000CC001
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuWdtTimeout|0xFFFF|UINT16|0x000CC201
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuWdtTimeout|0x100|UINT16|0x000CC201
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuWdtEn|TRUE|BOOLEAN|0x000CC200
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSnpMemSize|0|UINT32|0x000CC603
@@ -142,10 +139,8 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCcdMode|0|UINT8|0x000CC00A
   gAmdBoardPkgTokenSpaceGuid.PcdAmdDownCoreMode|0|UINT8|0x000CC008
   gAmdBoardPkgTokenSpaceGuid.PcdCfgSevSnpSupport|FALSE|BOOLEAN|0x0004F0F3
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieAerReportMechanism|1|UINT8|0x0004F21D
   gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieAerReportMechanism|2|UINT8|0x0004F21D
   gAmdBoardPkgTokenSpaceGuid.PcdCfgEarlyTrainTwoPcieLinks|FALSE|BOOLEAN|0x0004F01C
-  # gAmdBoardPkgTokenSpaceGuid.PcdCfgRxMarginPersistenceMode|1|UINT8|0x0004F22D
   gAmdBoardPkgTokenSpaceGuid.PcdCfgRxMarginPersistenceMode|0|UINT8|0x0004F22D
   gAmdBoardPkgTokenSpaceGuid.PcdEsmTargetSpeed|16|UINT8|0x0004F226
   gAmdBoardPkgTokenSpaceGuid.PcdEsmEnableAllRootPorts|FALSE|BOOLEAN|0x0004F227  
@@ -190,25 +185,19 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdHardwarePrefetchMode|0|UINT8|0x000CC005
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSoftwarePrefetchMode|0|UINT8|0x000CC093
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSmee|FALSE|BOOLEAN|0x000CC604
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdRedirectForReturnDis|0xFF|UINT8|0x000CC007  
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdOpcacheCtrl|0xFF|UINT8|0x000CC095                     # MSR_C001_1021[5]
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdStreamingStoresCtrl|0xFF|UINT8|0x000CC096   
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnSpecStFill|TRUE|BOOLEAN|0x000CC029  
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableFSRM|FALSE|BOOLEAN|0x000CC02A    
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableERMS|FALSE|BOOLEAN|0x000CC02B                   # Enhanced REP MOVSB/STOSB (For Zen3 and Zen4)
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableERMS|TRUE|BOOLEAN|0x000CC02B                   # Enhanced REP MOVSB/STOSB (For Zen3 and Zen4)
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableRMSS|FALSE|BOOLEAN|0x000CC02E 
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableRMSS|TRUE|BOOLEAN|0x000CC02E 
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableSvmAVIC|FALSE|BOOLEAN|0x000CC02C                # GN. Enable SVM AVIC
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableSvmAVIC|TRUE|BOOLEAN|0x000CC02C                # GN. Enable SVM AVIC
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdIbsHardwareEn|FALSE|BOOLEAN|0x000CC02D                # For core Cerberus B0, set MSR_C001_1020[54]
+  gAmdBoardPkgTokenSpaceGuid.AmdReserved1|0xFF|UINT8|0x000CC007
+  gAmdBoardPkgTokenSpaceGuid.AmdReserved3|0xFF|UINT8|0x000CC096
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnSpecStFill|TRUE|BOOLEAN|0x000CC029
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableFSRM|FALSE|BOOLEAN|0x000CC02A
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableERMS|TRUE|BOOLEAN|0x000CC02B                 # Enhanced REP MOVSB/STOSB
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableRMSS|TRUE|BOOLEAN|0x000CC02E
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableSvmAVIC|TRUE|BOOLEAN|0x000CC02C              # GN. Enable SVM AVIC
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCcxEnableAvx512|0xFF|UINT8|0x000CC032
   gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableSvmX2AVIC|TRUE|BOOLEAN|0x000CC031
   gAmdBoardPkgTokenSpaceGuid.PcdAmdMonMwaitDis|0xFF|UINT8|0x000CC802
   gAmdBoardPkgTokenSpaceGuid.PcdAmdEdpcEnable|0|UINT8|0x0004F21E
   gAmdBoardPkgTokenSpaceGuid.PcdCfgDxioFrequencyVetting|FALSE|BOOLEAN|0x00041525
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdSmallHammerConfiguration|0xFF|UINT8|0x000CC033        # Small Hammer Configuration (For Zen4)
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdSmallHammerConfiguration|0x01|UINT8|0x000CC033        # Small Hammer Configuration (For Zen4)
+  gAmdBoardPkgTokenSpaceGuid.DisableWcSpecConfig|0x01|UINT8|0x000CC033
   gAmdBoardPkgTokenSpaceGuid.PcdAmdFchCfgSmbus0BaseAddress|0x0B00|UINT16|0x0002F001
   gAmdBoardPkgTokenSpaceGuid.PcdAmdFchCfgSioPmeBaseAddress|0xE00|UINT16|0x0002F003
   gAmdBoardPkgTokenSpaceGuid.PcdAmdFchCfgAcpiPm1EvtBlkAddr|0x400|UINT16|0x0002F004
@@ -237,7 +226,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdTimerTickTrack|0x00|UINT8|0x0003F022
   gAmdBoardPkgTokenSpaceGuid.PcdClockInterruptTag|0x00|UINT8|0x0003F023
   gAmdBoardPkgTokenSpaceGuid.PcdAmdAcpiS3Support|TRUE|BOOLEAN|0x000CC089
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdFabricCdma|FALSE|BOOLEAN|0x0004F364
   gAmdBoardPkgTokenSpaceGuid.PcdCxlTxOptimizeDirectOutEn|FALSE|BOOLEAN|0x00041435
   gAmdBoardPkgTokenSpaceGuid.PcdReportErrorsToRcec|TRUE|BOOLEAN|0x00041429
   gAmdBoardPkgTokenSpaceGuid.PcdSyncHeaderByPass|TRUE|BOOLEAN|0x0004142A
@@ -251,7 +239,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdCxlMemValidation|FALSE|BOOLEAN|0x00041432
   gAmdBoardPkgTokenSpaceGuid.PcdCxlTempGen5AdvertAltPtcl|FALSE|BOOLEAN|0x00041433
   gAmdBoardPkgTokenSpaceGuid.PcdCxlCamemRxOptimization|FALSE|BOOLEAN|0x00041434
-  # gAmdBoardPkgTokenSpaceGuid.PcdCppcSciBitMap|0|UINT32|0x000A6020
   gAmdBoardPkgTokenSpaceGuid.PcdCppcSciBitMap|0xC5B47BF|UINT32|0x000A6020
   gAmdBoardPkgTokenSpaceGuid.PcdSmuFeatureControlDefines|0x0|UINT32|0x00041201   # SmuFeatureControlDefines == 0    ///< default SMU features are enabled in SMU drvier
   gAmdBoardPkgTokenSpaceGuid.PcdSmbusSsid|0x00000000|UINT32|0x0003FF01
@@ -274,7 +261,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdSdphostBypassDataPack|FALSE|BOOLEAN|0x0003F214
   gAmdBoardPkgTokenSpaceGuid.PcdSdphostDisNpmwrProtect|FALSE|BOOLEAN|0x0003F215
   gAmdBoardPkgTokenSpaceGuid.PcdResetCpuOnSyncFlood|TRUE|BOOLEAN|0x000FC007
-  # gAmdBoardPkgTokenSpaceGuid.PcdSyncFloodToApml|FALSE|BOOLEAN|0x0004F213
   gAmdBoardPkgTokenSpaceGuid.PcdSyncFloodToApml|TRUE|BOOLEAN|0x0004F213
   gAmdBoardPkgTokenSpaceGuid.PcdSataSetMaxGen2|FALSE|BOOLEAN|0x0003F102
   gAmdBoardPkgTokenSpaceGuid.PcdSataClkMode|0x01|UINT8|0x0003F103
@@ -318,7 +304,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdAgesaPstatePolicy|0|UINT8|0x000CC094
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSplitRmpTable|0|UINT8|0x000CC609
   gAmdBoardPkgTokenSpaceGuid.PcdAmdDisableWcSpecConfig|0|UINT8|0x000CC60A
-  # gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuSpeculativeStoreMode|0xFF|UINT8|0x000CC803
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuSpeculativeStoreMode|0x00|UINT8|0x000CC803
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpuPauseDelay|0xFF|UINT8|0x000CC804
   gAmdBoardPkgTokenSpaceGuid.PcdAmdStatisticalCorrectPredictor|FALSE|BOOLEAN|0x000CC608
@@ -365,7 +350,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdRxMarginEnabled|TRUE|BOOLEAN|0x0004F016
   gAmdBoardPkgTokenSpaceGuid.PcdAmdNbioReportEdbErrors|FALSE|BOOLEAN|0x0004F02C
   gAmdBoardPkgTokenSpaceGuid.PcdAmdPreSilCtrl0|0|UINT32|0x00027007
-  # gAmdBoardPkgTokenSpaceGuid.PcdMPIOAncDataSupport|FALSE|BOOLEAN|0x00041600
   gAmdBoardPkgTokenSpaceGuid.PcdMPIOAncDataSupport|TRUE|BOOLEAN|0x00041600
   gAmdBoardPkgTokenSpaceGuid.PcdAfterResetDelay|0|UINT16|0x0004F221
   gAmdBoardPkgTokenSpaceGuid.PcdCfgEarlyLink|FALSE|BOOLEAN|0x0004129A
@@ -433,8 +417,8 @@
   gAmdBoardPkgTokenSpaceGuid.FchRTDeviceEnableMap|0x00000000|UINT32|0x0003FF81
   gAmdBoardPkgTokenSpaceGuid.PcdAmdMCTPEnable|FALSE|BOOLEAN|0x000500A4
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSmmLock|TRUE|BOOLEAN|0x000CC013
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdStartupAllAPsSingleThread|FALSE|BOOLEAN|0x01000013                    # False by default
-    gAmdBoardPkgTokenSpaceGuid.PcdAmdAdvertiseEqToHighRateSupport|FALSE|BOOLEAN|0x000A650C
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdStartupAllAPsSingleThread|FALSE|BOOLEAN|0x01000013
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdAdvertiseEqToHighRateSupport|FALSE|BOOLEAN|0x000A650C
   gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieSpeedControl|0xF|UINT8|0x000500B2
   gAmdBoardPkgTokenSpaceGuid.PcdCfgPrecodeRequestEnable|FALSE|BOOLEAN|0x0004103E
   gAmdBoardPkgTokenSpaceGuid.PcdAmdDlfExEn|TRUE|BOOLEAN|0x0004F017
@@ -461,7 +445,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdPcieEcrcEnablement|TRUE|BOOLEAN|0x0004F20A
   gAmdBoardPkgTokenSpaceGuid.PcdCfgAutoSpeedChangeEnable|0|UINT8|0x00041036
   gAmdBoardPkgTokenSpaceGuid.PcdCfgSriovEnDev0F1|FALSE|BOOLEAN|0x00051010
-  # gAmdBoardPkgTokenSpaceGuid.PcdCfgAriEnDev0F1|FALSE|BOOLEAN|0x00051011
   gAmdBoardPkgTokenSpaceGuid.PcdCfgAriEnDev0F1|TRUE|BOOLEAN|0x00051011
   gAmdBoardPkgTokenSpaceGuid.PcdCfgAerEnDev0F1|FALSE|BOOLEAN|0x00051012
   gAmdBoardPkgTokenSpaceGuid.PcdCfgAcsEnDev0F1|FALSE|BOOLEAN|0x00051013

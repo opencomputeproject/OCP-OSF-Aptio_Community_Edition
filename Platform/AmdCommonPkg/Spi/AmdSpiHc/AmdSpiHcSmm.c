@@ -12,7 +12,7 @@
 #include <Library/BaseMemoryLib.h>
 #include <Library/SmmServicesTableLib.h>
 #include <Library/PciLib.h>
-//#include <Library/PlatformPspRomArmorWhitelistLib.h>
+//#include <Library/PlatformPspRomArmorAllowlistLib.h>
 #include <Protocol/SpiSmmHc.h>
 #include <Protocol/SpiHcAdditional.h>
 #include <Protocol/AmdSpiSmmHcState.h>
@@ -48,7 +48,7 @@ AmdSpiHcEventNotify (
   //SPI_HOST_CONTROLLER_INSTANCE  *Instance;
   EFI_SMM_VARIABLE_PROTOCOL     *SmmVariable;
   EFI_SPI_HC_PROTOCOL           *SpiHc;
-  //SPI_WHITE_LIST                *SpiWhitelist;
+  //SPI_ALLOW_LIST                *SpiAllowlist;
   AMD_SPI_HC_NV_DATA            AmdSpiHcNvData;
   UINTN                         VariableSize;
 
@@ -89,19 +89,19 @@ AmdSpiHcEventNotify (
     //} else {
     //  return EFI_DEVICE_ERROR;
     //}
-    if (AmdSpiHcNvData.WhitelistEnable == 1) {
-      // Retrieve allocated Whitelist table
-      Status = GetPspRomArmorWhitelist (&SpiWhitelist);
+    if (AmdSpiHcNvData.AllowlistEnable == 1) {
+      // Retrieve allocated Allowlist table
+      Status = GetPspRomArmorAllowlist (&SpiAllowlist);
       if (EFI_ERROR (Status)) {
-        if (SpiWhitelist != NULL) {
-          FreePool (SpiWhitelist);
+        if (SpiAllowlist != NULL) {
+          FreePool (SpiAllowlist);
         }
         return Status;
       }
-      // Send Whitelist to PSP
-      //Status = PspEnforceWhitelist (SpiWhitelist);
-      //if (SpiWhitelist != NULL) {
-      //  FreePool (SpiWhitelist);
+      // Send Allowlist to PSP
+      //Status = PspEnforceAllowlist (SpiAllowlist);
+      //if (SpiAllowlist != NULL) {
+      //  FreePool (SpiAllowlist);
      // }
     }
   }*/

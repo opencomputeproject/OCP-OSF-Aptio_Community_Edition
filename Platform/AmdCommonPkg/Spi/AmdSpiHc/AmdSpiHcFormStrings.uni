@@ -17,9 +17,9 @@
 
 #string STR_AMD_ROM_ARMOR_HELP              #language en-US "Enable or Disable AMD Rom_Armor"
 
-#string STR_AMD_ROM_ARMOR_WHITELIST_PROMPT  #language en-US "AMD ROM Armor Whitelist"
+#string STR_AMD_ROM_ARMOR_ALLOWLIST_PROMPT  #language en-US "AMD ROM Armor Allowlist"
 
-#string STR_AMD_ROM_ARMOR_WHITELIST_HELP    #language en-US "Enable or Disable AMD Rom_Armor Whitelist"
+#string STR_AMD_ROM_ARMOR_ALLOWLIST_HELP    #language en-US "Enable or Disable AMD Rom_Armor Allowlist"
 
 #string STR_ENABLE                          #language en-US "Enable"
 #string STR_DISABLE                         #language en-US "Disable"

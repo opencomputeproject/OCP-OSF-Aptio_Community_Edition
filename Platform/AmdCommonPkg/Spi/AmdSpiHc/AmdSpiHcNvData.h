@@ -21,13 +21,13 @@ extern CHAR16  mAmdSpiHcNvDataVar[];
 #define AMD_SPI_HC_VARSTORE_ID  0x0001
 
 #define KEY_ROM_ARMOR_ENABLE            0x2000
-#define KEY_ROM_ARMOR_WHITELIST_ENABLE  0x2001
+#define KEY_ROM_ARMOR_ALLOWLIST_ENABLE  0x2001
 
 #pragma pack(1)
 
 typedef struct _AMD_SPI_HC_NV_DATA {
   UINT8 RomArmorEnable;
-  UINT8 WhitelistEnable;
+  UINT8 AllowlistEnable;
 } AMD_SPI_HC_NV_DATA;
 
 #pragma pack()

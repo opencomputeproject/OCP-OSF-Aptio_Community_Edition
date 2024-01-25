@@ -187,13 +187,5 @@ def set_build_defines(command):
     command.extend(
         ["-D", "CBS_INCLUDE=" + arguments.args.selected_build_attributes["cbs"].upper()]
     )
-    if arguments.args.selected_build_attributes["build"] == "INTERNAL":
-        command.extend(["-D", "INTERNAL_IDS"])
-    command.extend(
-        ["-D", "SIMNOW_SUPPORT=" + arguments.args.selected_build_attributes["simnow"]]
-    )
-    command.extend(
-        ["-D", "EMULATION=" + arguments.args.selected_build_attributes["emulation"]]
-    )
 
 

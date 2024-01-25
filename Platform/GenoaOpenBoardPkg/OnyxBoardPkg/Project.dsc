@@ -11,7 +11,6 @@
 # PLATFORM_CRB
 # AMD_PROCESSOR
 # CBS_INCLUDE
-# INTERNAL_IDS
 # SIMNOW_SUPPORT
 # EMULATION
 # *****************************************************************************
@@ -25,11 +24,7 @@
   PLATFORM_VERSION               = 0.01
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/$(PLATFORM_NAME)_$(PROCESSOR_NAME)
-!ifdef $(INTERNAL_IDS)
-  OUTPUT_DIRECTORY               = $(OUTPUT_DIRECTORY)_INTERNAL
-!else
   OUTPUT_DIRECTORY               = $(OUTPUT_DIRECTORY)_EXTERNAL
-!endif
   SUPPORTED_ARCHITECTURES        = IA32|X64
   BUILD_TARGETS                  = DEBUG|RELEASE|NOOPT
   SKUID_IDENTIFIER               = DEFAULT
@@ -79,11 +74,6 @@
   #            2. APCB_TOKEN_UID_FCH_CONSOLE_OUT_SERIAL_PORT_VALUE = 0
   #            3. BMC configured to use eSPI virtual UART 0x3F8
   DEFINE SERIAL_PORT            = "BMC_SOL_IO"
-
-  #
-  # Simnow Options
-  #
-  DEFINE SIMNOW_PORT80_DEBUG   = FALSE
 
   DEFINE USB_SUPPORT           = TRUE
   DEFINE SATA_SUPPORT          = TRUE
@@ -255,11 +245,7 @@
   #  BIT0 - Enable Progress Code.
   #  BIT1 - Enable Error Code.
   #  BIT2 - Enable Debug Code.
-  !ifdef $(INTERNAL_IDS)
-    gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x07
-  !else
     gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
-  !endif
   #
   # Debug Masks
   #
@@ -830,20 +816,12 @@
   gAmdBoardPkgTokenSpaceGuid.PcdEgressPoisonSeverityLo|0
   gAmdBoardPkgTokenSpaceGuid.PcdEgressPoisonSeverityHi|0
   gAmdBoardPkgTokenSpaceGuid.PcdXhciECCDedErrRptEn|TRUE
-  !ifdef $(INTERNAL_IDS)
-    gAmdBoardPkgTokenSpaceGuid.PcdAmdCcxSingleBitErrLogging|TRUE
-  !endif
   gAmdBoardPkgTokenSpaceGuid.PcdAmdS3LibTableSize|0x100000
   gAmdBoardPkgTokenSpaceGuid.PcdAmdPspAntiRollbackLateSplFuse|TRUE
   gAmdBoardPkgTokenSpaceGuid.PcdUsbSspOemConfigurationTable|{0x0D, 0x02, 0x50, 0x00, 0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01, 0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01, 0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01, 0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01, 0x00, 0xFF, 0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01,0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01,0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01,0x03, 0x03, 0x03, 0x03, 0x00, 0x01, 0x06, 0x03, 0x01, 0x00, 0x00}
 
   gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuSupport|TRUE
-  !if $(SIMNOW_SUPPORT) == TRUE
-    # DMA Remap not working in UEFI SimNow
-    gAmdBoardPkgTokenSpaceGuid.PcdIvInfoDmaReMap|FALSE
-  !else
-    gAmdBoardPkgTokenSpaceGuid.PcdIvInfoDmaReMap|FALSE
-  !endif
+  gAmdBoardPkgTokenSpaceGuid.PcdIvInfoDmaReMap|FALSE
 
   # Enable CState
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCStateMode|1
@@ -1361,17 +1339,6 @@ SmmCorePlatformHookLib|AmdCommonPkg/Library/SmmCorePlatformHookLib/SmmCorePlatfo
   GCC:RELEASE_*_*_CC_FLAGS     = -D MDEPKG_NDEBUG
   INTEL:RELEASE_*_*_CC_FLAGS   = /D MDEPKG_NDEBUG
   MSFT:RELEASE_*_*_CC_FLAGS    = /D MDEPKG_NDEBUG
-
-  !ifdef $(INTERNAL_IDS)
-    GCC:*_*_*_CC_FLAGS     = -D INTERNAL_IDS
-    INTEL:*_*_*_CC_FLAGS   = /D INTERNAL_IDS
-    MSFT:*_*_*_CC_FLAGS    = /D INTERNAL_IDS
-    MSFT:*_*_*_VFRPP_FLAGS = /D INTERNAL_IDS
-    MSFT:*_*_*_ASLCC_FLAGS = /D INTERNAL_IDS
-    MSFT:*_*_*_ASLPP_FLAGS = /D INTERNAL_IDS
-    MSFT:*_*_*_PP_FLAGS    = /D INTERNAL_IDS
-    MSFT:*_*_*_APP_FLAGS   = /D INTERNAL_IDS
-  !endif
 
   # openSIL flag
     GCC:*_*_*_CC_FLAGS     = -D OPENSIL

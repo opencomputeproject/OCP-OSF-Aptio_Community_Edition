@@ -118,8 +118,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdCfgDxioFrequencyVetting
   gAmdBoardPkgTokenSpaceGuid.PcdAmdDisableWcSpecConfig
   gAmdBoardPkgTokenSpaceGuid.PcdAmdEnableSvmAVIC
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdIbsHardwareEn
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdOpcacheCtrl
   gAmdBoardPkgTokenSpaceGuid.PcdAmdEnSpecStFill
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCpbMode
   gAmdBoardPkgTokenSpaceGuid.PcdAmdGameMode
@@ -127,7 +125,6 @@
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCc6Ctrl
   gAmdBoardPkgTokenSpaceGuid.PcdAmdCStateIoBaseAddress
   gAmdBoardPkgTokenSpaceGuid.PcdAmdIbrsEn
-  gAmdBoardPkgTokenSpaceGuid.PcdAmdEnvironmentFlag
   gAmdBoardPkgTokenSpaceGuid.PcdAmdBranchSampling
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSnpMemCover
   gAmdBoardPkgTokenSpaceGuid.PcdAmdSnpMemSize

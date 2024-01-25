@@ -20,8 +20,8 @@
  */
 #define PSP_MAX_SPI_CMD_SUPPORT           (4)      ///< Max number of SPI command support
 #define PSP_MAX_SPI_DATA_BUFFER_SIZE     (72)      ///< Max SPI Command Data Buffer Size
-#define PSP_MAX_WHITE_LIST_CMD_NUM       (32)      ///< Max White list allowed command array number support
-#define PSP_MAX_WHITE_LIST_REGION_NUM    (16)      ///< Max White list allowed region array number support
+#define PSP_MAX_ALLOW_LIST_CMD_NUM       (32)      ///< Max Allow list allowed command array number support
+#define PSP_MAX_ALLOW_LIST_REGION_NUM    (16)      ///< Max Allow list allowed region array number support
 
 #define SPI_CHIP_SELECT_ALL               (0)      ///< Allowed on all chip selects
 #define SPI_CHIP_SELECT_1                 (1)      ///< Chip Select 1
@@ -37,7 +37,7 @@
 #define SPI_COMMAND_NOT_PROCEDDED         (0)      ///< 0 = Command not examined/processed
 #define SPI_COMMAND_COMPLETED             (1)      ///< 1 = Command completed successfully
 #define SPI_COMMAND_EXECUTION_ERROR       (2)      ///< 2 = Execution Error (i.e. timeout)
-#define SPI_COMMAND_NOT_ALLOWED           (3)      ///< 3 = Command not allowed by Whitelist
+#define SPI_COMMAND_NOT_ALLOWED           (3)      ///< 3 = Command not allowed by Allowlist
 #define SPI_COMMAND_MALFORMED             (4)      ///< 4 = Command malformed
 
 /*----------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ typedef struct {
                            //      0 = Command not examined/processed
                            //      1 = Command completed successfully
                            //      2 = Execution Error (i.e. timeout)
-                           //      3 = Command not allowed by Whitelist
+                           //      3 = Command not allowed by Allowlist
                            //      4 = Command malformed
                            //      5-15 = reserved for future use
                            //
@@ -129,7 +129,7 @@ typedef struct {
                            //   0x0000 - PSP has not finished the request
                            //   0x0001 - PSP ran Command0 successfully, and is now idle
                            //   0x0111 - PSP ran Command0/1/2 successfully and is now idle
-                           //   0x0031 - PSP ran Command0, but Command1 was blocked by whitelist
+                           //   0x0031 - PSP ran Command0, but Command1 was blocked by allowlist
 
   SPI_COMMAND SpiCommand[PSP_MAX_SPI_CMD_SUPPORT];     // Spi command array
 } SPI_COMMUNICATION_BUFFER;
@@ -168,20 +168,20 @@ typedef struct {
                            // 67108864). NOTE: When setting this field, carefully examine your
                            // device's datasheet.
                            //
-} WHITE_LIST_ALLOWED_COMMAND;
+} ALLOW_LIST_ALLOWED_COMMAND;
 
 
 typedef struct  { // 8 bytes
   UINT32 StartAddress;        // LSB must be 0x00, bit31 identifies a chipselect: 0=CS1, 1=CS2
   UINT32 EndAddress;          // LSB must be 0xFF, StartAddress must be less than EndAddress
-} WHITE_LIST_ALLOWED_REGION;
+} ALLOW_LIST_ALLOWED_REGION;
 
 typedef struct {
   UINT8 AllowedCmdCount;
   UINT8 AllowedRegionCount;
-  WHITE_LIST_ALLOWED_COMMAND WhitelistAllowedCommands[PSP_MAX_WHITE_LIST_CMD_NUM];
-  WHITE_LIST_ALLOWED_REGION  WhitelistAllowedRegions[PSP_MAX_WHITE_LIST_REGION_NUM];
-} SPI_WHITE_LIST;
+  ALLOW_LIST_ALLOWED_COMMAND AllowlistAllowedCommands[PSP_MAX_ALLOW_LIST_CMD_NUM];
+  ALLOW_LIST_ALLOWED_REGION  AllowlistAllowedRegions[PSP_MAX_ALLOW_LIST_REGION_NUM];
+} SPI_ALLOW_LIST;
 
 
 #pragma pack (pop)
@@ -212,17 +212,17 @@ PspEnterSmmOnlyMode (
 );
 
 /**
- * Loads the whitelist into the PSP.
+ * Loads the allowlist into the PSP.
  *
- * @param[in]       SpiWhitelist              SPI white list structure buffer pointer.
+ * @param[in]       SpiAllowlist              SPI allow list structure buffer pointer.
  *
  * @retval EFI_SUCCESS      Initial success
  * @retval Others           Error happens during initialize
  */
 EFI_STATUS
 EFIAPI
-PspEnforceWhitelist (
-  IN     SPI_WHITE_LIST  *SpiWhitelist
+PspEnforceAllowlist (
+  IN     SPI_ALLOW_LIST  *SpiAllowlist
   );
 
 /**

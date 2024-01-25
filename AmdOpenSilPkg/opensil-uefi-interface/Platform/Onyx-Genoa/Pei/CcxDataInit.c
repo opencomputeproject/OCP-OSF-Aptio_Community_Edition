@@ -62,7 +62,6 @@ SetCcxData (
   CcxData->CcxInputBlock.AmdCoreDisCcd[6]               = PcdGet16(PcdAmdCoreDisCcd6);
   CcxData->CcxInputBlock.AmdCoreDisCcd[7]               = PcdGet16(PcdAmdCoreDisCcd7);
   CcxData->CcxInputBlock.AmdIbrsEn                      = PcdGetBool(PcdAmdIbrsEn);
-  CcxData->CcxInputBlock.AmdEnvironmentFlag             = PcdGet32(PcdAmdEnvironmentFlag);
   CcxData->CcxInputBlock.AmdBranchSampling              = PcdGetBool(PcdAmdBranchSampling);
   CcxData->CcxInputBlock.AmdSnpMemCover                 = PcdGet8(PcdAmdSnpMemCover);
   CcxData->CcxInputBlock.AmdVmplEnable                  = PcdGetBool(PcdAmdVmplEnable);
@@ -78,7 +77,6 @@ SetCcxData (
   CcxData->CcxInputBlock.AmdCpbMode                     = PcdGet8(PcdAmdCpbMode);
   CcxData->CcxInputBlock.EnSpecStFill                   = PcdGetBool(PcdAmdEnSpecStFill);
   CcxData->CcxInputBlock.EnableSvmAVIC                  = PcdGetBool(PcdAmdEnableSvmAVIC);
-  CcxData->CcxInputBlock.IbsHardwareEn                  = PcdGetBool(PcdAmdIbsHardwareEn);
   CcxData->CcxInputBlock.EnableSvmX2AVIC                = PcdGetBool(PcdAmdEnableSvmX2AVIC);
   CcxData->CcxInputBlock.MonMwaitDis                    = PcdGet8(PcdAmdMonMwaitDis);
   CcxData->CcxInputBlock.AmdFixedMtrr250                = PcdGet64(PcdAmdFixedMtrr250);
