@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!--
+/*****************************************************************************
+ * Copyright (C) 2019-2023 Advanced Micro Devices, Inc. All rights reserved.
+ *
+ *******************************************************************************/
+-->
+<DIRS AddressMode = "1">
+  <PSP_DIR Level="1" Base="0x146000" Size="0x200000" SpiBlockSize="0x1000">
+    <IMAGE_ENTRY Type="0x0" File="AmdPubKey.tkn"/>
+    <POINT_ENTRY Type="0x1" Address="0x387400" Size="0x34000"/>
+    <IMAGE_ENTRY Type="0x3" File="TypeId0x03_PspRecBl.esbin"/>
+    <IMAGE_ENTRY Type="0x8" SubProgram="0x1" File="TypeId0x08_SmuFirmware.ecsbin"/>
+    <IMAGE_ENTRY Type="0xA" File="TypeId0x0A_PspAblPubKey.stkn"/>
+    <VALUE_ENTRY Type="0xB" Value="0x01"/>
+    <IMAGE_ENTRY Type="0x12" SubProgram="0x1" File="TypeId0x12_SmuFirmware2.sbin"/>
+    <IMAGE_ENTRY Type="0x13" File="TypeId0x13_SduFw.esbin"/>
+    <IMAGE_ENTRY Type="0x21" File="TypeId0x21_PspAmdIkek.bin"/>
+    <IMAGE_ENTRY Type="0x22" File="SecureEmptyToken.bin"/>
+    <IMAGE_ENTRY Type="0x24" SubProgram="0x1" File="TypeId0x24_RegisterAccessPolicy.esbin"/>
+    <IMAGE_ENTRY Type="0x2a" SubProgram="0x1" File="TypeId0x2a_Mp5.ecsbin"/>
+    <IMAGE_ENTRY Type="0x30" File="TypeId0x30_AgesaBootLoaderU.ecsbin"/>
+    <POINT_ENTRY Type="0x40" Address="0x387000" Size="0x400"/>
+    <IMAGE_ENTRY Type="0x42" File="TypeId0x42_PhyFw.esbin"/>
+    <IMAGE_ENTRY Type="0x44" File="TypeId0x44_USB_PHY.esbin"/>
+    <IMAGE_ENTRY Type="0x47" File="TypeId0x47_PspDrtmUapp.esbin"/>
+    <IMAGE_ENTRY Type="0x50" File="TypeId0x50_PspKeyDataBase.sbin"/>
+    <IMAGE_ENTRY Type="0x55" File="TypeId0x55_SPLTable.sbin"/>
+    <IMAGE_ENTRY Type="0x5D" File="TypeId0x5DMpioFw.cesbin"/>
+    <IMAGE_ENTRY Type="0x76" File="TypeId0x76_DfRib.ecsbin"/>
+    <IMAGE_ENTRY Type="0x8C" File="TypeId0x8C_MPDMATF.esbin"/>
+    <IMAGE_ENTRY Type="0x91" File="TypeId0x91_GmiPhyFw.esbin"/>
+    <IMAGE_ENTRY Type="0x92" File="TypeId0x92_Page.esbin"/>
+  </PSP_DIR>
+  <BIOS_DIR Level="1" Base="0x346000" Size="0x40000" SpiBlockSize=" 0x1000">
+    <IMAGE_ENTRY Type="0x68" Instance="0x00" SubProgram="0x0" File="APCB_Genoa_D4_DefaultRecovery.bin" Size="0x3400"/>
+    <IMAGE_ENTRY Type="0x68" Instance="0x08" SubProgram="0x0" File="APCB_Genoa_D4_Updatable.bin"/>
+    <IMAGE_ENTRY Type="0x68" Instance="0x09" SubProgram="0x0" File="APCB_Genoa_D4_EventLog.bin"/>
+    <POINT_ENTRY Type="0x61" Address="0x0" Size="0x0" Destination="0x4000000"/>
+    <POINT_ENTRY Type="0x62" Address="0xD00000" Destination="0x76D00000" Size="0x300000">
+     <TypeAttrib Compressed="0x0" Copy="0x1" ReadOnly="0x0" RegionType="0x0" ResetImage="0x1"/>
+    </POINT_ENTRY>
+    <IMAGE_ENTRY Type="0x64" Instance="0x03" SubProgram="0x0" File="Appb_Ddr5_0x64_3_Rdimm_Imem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x03" SubProgram="0x0" File="Appb_Ddr5_0x65_3_Rdimm_Dmem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x04" SubProgram="0x0" File="Appb_Ddr5_0x64_4_Rdimm_Imem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x04" SubProgram="0x0" File="Appb_Ddr5_0x65_4_Rdimm_Dmem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x09" SubProgram="0x0" File="Appb_Ddr5_0x64_9_Rdimm_Imem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x09" SubProgram="0x0" File="Appb_Ddr5_0x65_9_Rdimm_Dmem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x0A" SubProgram="0x0" File="Appb_Ddr5_0x64_A_Rdimm_Imem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x0A" SubProgram="0x0" File="Appb_Ddr5_0x65_A_Rdimm_Dmem2.ecsbin"/>
+    <POINT_ENTRY Type="0x70" Address="0x5BB000" Size="0x400"/>
+  </BIOS_DIR>
+  <PSP_DIR Level="2" Base="0x387000" Size="0x234000" SpiBlockSize="0x1000">
+    <IMAGE_ENTRY Type="0x1" File="TypeId0x01_PspBl.esbin" Size="0x34000"/>
+    <IMAGE_ENTRY Type="0x8" SubProgram="0x1" File="TypeId0x08_SmuFirmware.ecsbin"/>
+    <IMAGE_ENTRY Type="0x9" File="TypeId0x09_PspDebugUnlockToken.stkn"/>
+    <IMAGE_ENTRY Type="0xA" File="TypeId0x0A_PspAblPubKey.stkn"/>
+    <VALUE_ENTRY Type="0xB" Value="0x01"/>
+    <IMAGE_ENTRY Type="0x12" SubProgram="0x1" File="TypeId0x12_SmuFirmware2.sbin"/>
+    <IMAGE_ENTRY Type="0x13" File="TypeId0x13_SduFw.esbin"/>
+    <IMAGE_ENTRY Type="0x21" File="TypeId0x21_PspAmdIkek.bin"/>
+    <IMAGE_ENTRY Type="0x22" File="SecureEmptyToken.bin"/>
+    <IMAGE_ENTRY Type="0x24" SubProgram="0x1" File="TypeId0x24_RegisterAccessPolicy.esbin"/>
+    <IMAGE_ENTRY Type="0x2a" SubProgram="0x1" File="TypeId0x2a_Mp5.ecsbin"/>
+    <IMAGE_ENTRY Type="0x30" File="TypeId0x30_AgesaBootLoaderU.ecsbin"/>
+    <IMAGE_ENTRY Type="0x38" File="PspSevEmptyData.bin"/>
+    <IMAGE_ENTRY Type="0x39" File="TypeId0x39_SevFw.esbin"/>
+    <IMAGE_ENTRY Type="0x42" File="TypeId0x42_PhyFw.esbin"/>
+    <IMAGE_ENTRY Type="0x44" File="TypeId0x44_USB_PHY.esbin"/>
+    <IMAGE_ENTRY Type="0x47" File="TypeId0x47_PspDrtmUapp.esbin"/>
+    <IMAGE_ENTRY Type="0x50" File="TypeId0x50_PspKeyDataBase.sbin"/>
+    <IMAGE_ENTRY Type="0x55" File="TypeId0x55_SPLTable.sbin"/>
+    <IMAGE_ENTRY Type="0x5D" File="TypeId0x5DMpioFw.cesbin"/>
+    <IMAGE_ENTRY Type="0x76" File="TypeId0x76_DfRib.ecsbin"/>
+    <IMAGE_ENTRY Type="0x8C" File="TypeId0x8C_MPDMATF.esbin"/>
+    <IMAGE_ENTRY Type="0x91" File="TypeId0x91_GmiPhyFw.esbin"/>
+    <IMAGE_ENTRY Type="0x92" File="TypeId0x92_Page.esbin"/>
+  </PSP_DIR>
+  <BIOS_DIR Level="2" Base="0x5BB000" Size="0xE0000" SpiBlockSize=" 0x1000">
+    <IMAGE_ENTRY Type="0x68" Instance="0x00" SubProgram="0x0" File="APCB_Genoa_D4_DefaultRecovery.bin" Size="0x3400"/>
+    <IMAGE_ENTRY Type="0x68" Instance="0x08" SubProgram="0x0" File="APCB_Genoa_D4_Updatable.bin"/>
+    <IMAGE_ENTRY Type="0x68" Instance="0x09" SubProgram="0x0" File="APCB_Genoa_D4_EventLog.bin"/>
+    <IMAGE_ENTRY Type="0x60" Instance="0x00" SubProgram="0x0" File="APCB_Genoa_D4_Updatable.bin" Size="0x1000"/>
+    <IMAGE_ENTRY Type="0x60" Instance="0x01" SubProgram="0x0" File="APCB_Genoa_D4_EventLog.bin" Size="0x1000"/>
+    <POINT_ENTRY Type="0x61" Address="0x0" Size="0x0" Destination="0x4000000"/>
+    <POINT_ENTRY Type="0x62" Address="0xD00000" Destination="0x76D00000" Size="0x300000">
+     <TypeAttrib Compressed="0x0" Copy="0x1" ReadOnly="0x0" RegionType="0x0" ResetImage="0x1"/>
+    </POINT_ENTRY>
+    <IMAGE_ENTRY Type="0x63" Instance="0x00" SubProgram="0x0" File="APOB_NV.bin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x03" SubProgram="0x0" File="Appb_Ddr5_0x64_3_Rdimm_Imem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x03" SubProgram="0x0" File="Appb_Ddr5_0x65_3_Rdimm_Dmem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x04" SubProgram="0x0" File="Appb_Ddr5_0x64_4_Rdimm_Imem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x04" SubProgram="0x0" File="Appb_Ddr5_0x65_4_Rdimm_Dmem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x09" SubProgram="0x0" File="Appb_Ddr5_0x64_9_Rdimm_Imem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x09" SubProgram="0x0" File="Appb_Ddr5_0x65_9_Rdimm_Dmem1.ecsbin"/>
+    <IMAGE_ENTRY Type="0x64" Instance="0x0A" SubProgram="0x0" File="Appb_Ddr5_0x64_A_Rdimm_Imem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x65" Instance="0x0A" SubProgram="0x0" File="Appb_Ddr5_0x65_A_Rdimm_Dmem2.ecsbin"/>
+    <IMAGE_ENTRY Type="0x66" Instance="0x00" File="UcodePatch_B0.bin"/>
+    <IMAGE_ENTRY Type="0x66" Instance="0x01" File="UcodePatch_B1.bin"/>
+    <IMAGE_ENTRY Type="0x69" File="AST2600_OEMLogo.bin"/>
+  </BIOS_DIR>
+</DIRS>

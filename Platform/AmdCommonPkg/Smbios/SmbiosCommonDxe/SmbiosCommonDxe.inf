@@ -1,0 +1,70 @@
+#;*****************************************************************************
+#; Copyright (C) 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+### @file
+# Component description file for the SMBIOS common module.
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmbiosCommon
+  FILE_GUID                      = 2546E2B4-8629-47C3-A294-91E244936CBE
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SmbiosCommonEntryPoint
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  SmbiosCommon.h
+  SmbiosCommonEntryPoint.c
+  Type38IpmiDeviceInformation.c
+  Type9SystemSlotInfoFunction.c
+  Type8PortConnectorInfoFunction.c
+  Type11OemStringsFunction.c
+  Type12SystemCfgOptionsFunction.c
+  Type13BiosLanguageInfoFunction.c
+  Type41OnboardDevExtInfoFunction.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  MemoryAllocationLib
+  PcdLib
+  UefiDriverEntryPoint
+  UefiLib
+  SmbiosMiscLib
+  PciSegmentLib
+  HobLib
+
+[Protocols]
+  gEfiSmbiosProtocolGuid                       # PROTOCOL ALWAYS_CONSUMED
+  gEfiPciEnumerationCompleteProtocolGuid       # CONSUMES
+
+[Pcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiInterfaceType
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiKCSPort
+  gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultPlatformLangCodes  ## CONSUMES
+  gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultPlatformLang       ## CONSUMES
+  gAmdCommonPkgTokenSpaceGuid.PcdType11OemStringsCount              ## CONSUMES
+  gAmdCommonPkgTokenSpaceGuid.PcdType11OemStrings                   ## CONSUMES
+  gAmdCommonPkgTokenSpaceGuid.PcdType12SystemCfgOptionsCount        ## CONSUMES
+  gAmdCommonPkgTokenSpaceGuid.PcdType12SystemCfgOptions             ## CONSUMES
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdNumberOfPhysicalSocket        ## CONSUMES
+
+[Depex]
+  gEfiSmbiosProtocolGuid

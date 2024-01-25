@@ -1,0 +1,39 @@
+#*****************************************************************************
+#*
+#* Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#*
+#*****************************************************************************
+
+[Defines]
+  INF_VERSION     = 0x00010005
+  BASE_NAME       = PspDirectoryLib
+  FILE_GUID       = 1DB69A43-44A9-47FF-9414-11D47C9DF2E8
+  MODULE_TYPE     = BASE
+  VERSION_STRING  = 1.0
+  LIBRARY_CLASS   = PspDirectoryLib
+  CONSTRUCTOR     = PspDirectoryLibConstructor
+
+[Sources]
+  PspDirectory.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  PcdLib
+  PrintLib
+  BaseLib
+  DebugLib
+  HobLib
+  libAMDxUSL
+  libAMDxSIM
+
+[Pcd]
+  gAmdBoardPkgTokenSpaceGuid.PcdPspDirUsing16MAddress
+
+[Guids]
+  gAmdPspDirHobGuid

@@ -1,0 +1,47 @@
+#;*****************************************************************************
+#;
+#; Copyright (C) 2016-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+
+[defines]
+  INF_VERSION                   = 0x00010005
+  BASE_NAME                     = AmdMemoryHobInfoPeim
+  FILE_GUID                     = 79BA7128-D5EF-4B41-912C-5F80DC9E1B24
+  MODULE_TYPE                   = PEIM
+  VERSION_STRING                = 1.0
+  ENTRY_POINT                   = InitializeAmdMemoryInfoHobPeim
+
+[sources.common]
+  AmdMemoryHobInfoPeim.c
+
+[LibraryClasses]
+  PeimEntryPoint
+  BaseLib
+  PeiServicesLib
+  HobLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+
+[Guids]
+  gAmdMemoryInfoHobGuid   
+
+[Pcd]
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMemMaxSocketSupportedV2
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMemMaxDiePerSocketV2
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMemMaxChannelPerDieV2
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMemMaxDimmPerChannelV2
+  
+[Ppis]
+  gAmdMemoryInfoHobPpiGuid       #PRODUCED
+  gOpenSilxPrfServicePpiGuid     #CONSUMED
+
+[Depex]
+  gOpenSilxPrfServicePpiGuid
+

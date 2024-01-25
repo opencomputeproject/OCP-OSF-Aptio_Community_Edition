@@ -1,0 +1,47 @@
+##
+# Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#
+##
+
+[defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmmDispatcher
+  FILE_GUID                      = 0CB73FAC-2B95-40AF-A586-0834C066C16A
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  ENTRY_POINT                    = SmmDispatcherEntry
+
+[sources]
+  SmmDispatcher.c
+  SmmDispatcher.h
+  SmmSwDispatcher.c
+  SmmSwDispatcher.h
+
+[LibraryClasses]
+  UefiRuntimeServicesTableLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  BaseMemoryLib
+  DebugLib
+  SmmServicesTableLib
+  MemoryAllocationLib
+  SmmMemLib
+  IoLib
+
+[Guids]
+
+[Protocols]
+  gEfiSmmSwDispatch2ProtocolGuid            #PRODUCED
+  gEfiSmmBase2ProtocolGuid                  #CONSUMED
+  gEfiSmmCpuProtocolGuid                    #CONSUMED
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[Depex]
+  gEfiSmmBase2ProtocolGuid AND
+  gEfiSmmCpuProtocolGuid
+
+

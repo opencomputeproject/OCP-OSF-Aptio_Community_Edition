@@ -1,0 +1,25 @@
+// /*****************************************************************************
+//  *
+//  * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+//  *
+//  *****************************************************************************/
+
+#langdef en-US  "English"
+#langdef x-UEFI-ns "UefiNameSpace"
+
+#string STR_FORM_SET_TITLE                  #language en-US "AMD SPI Host Controller"
+
+#string STR_FORM_SET_HELP                   #language en-US "Configure AMD SPI Host Controller driver"
+
+#string STR_AMD_SPI_HC_MAIN_TITLE           #language en-US "AMD SPI Host Controller"
+
+#string STR_AMD_ROM_ARMOR_PROMPT            #language en-US "AMD ROM Armor"
+
+#string STR_AMD_ROM_ARMOR_HELP              #language en-US "Enable or Disable AMD Rom_Armor"
+
+#string STR_AMD_ROM_ARMOR_WHITELIST_PROMPT  #language en-US "AMD ROM Armor Whitelist"
+
+#string STR_AMD_ROM_ARMOR_WHITELIST_HELP    #language en-US "Enable or Disable AMD Rom_Armor Whitelist"
+
+#string STR_ENABLE                          #language en-US "Enable"
+#string STR_DISABLE                         #language en-US "Disable"

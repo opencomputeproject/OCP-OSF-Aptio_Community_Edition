@@ -1,0 +1,21 @@
+{
+  "win": {
+    "firmwares": {"artifactory": [
+      "Platform/Firmwares/Genoa/genoa_fws.xml",
+      "Platform/Firmwares/Genoa/Psp_fws.xml"
+    ]},
+    "tools": {"artifactory": ["Platform/PlatformTools/Buildtools.xml"]},
+    "platbins": {"artifactory": ["Platform/PlatformTools/PlatformBinaries.xml"]},
+    "certs": {"artifactory": ["Platform/PlatformTools/Certificates.xml"]},
+    "bins": {"group": ["firmwares", "platbins", "tools", "certs"]}
+  },
+  "linux": {
+    "firmwares": {"artifactory": [
+      "Platform/Firmwares/Genoa/genoa_fws.xml",
+      "Platform/Firmwares/Genoa/Psp_fws.xml"
+    ]},
+    "platbins": {"artifactory": ["Platform/PlatformTools/PlatformBinaries.xml"]},
+    "certs": {"artifactory": ["Platform/PlatformTools/Certificates.xml"]},
+    "bins": {"group": ["firmwares", "platbins", "certs"]}
+  }
+}

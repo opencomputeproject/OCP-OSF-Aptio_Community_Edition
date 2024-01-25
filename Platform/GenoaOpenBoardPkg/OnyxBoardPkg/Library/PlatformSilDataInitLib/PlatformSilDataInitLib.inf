@@ -1,0 +1,195 @@
+##
+#  Copyright (c) 2023, American Megatrends International LLC.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+#
+# This file includes code originally published under the following license.
+#
+## @file
+#
+# Copyright (c) 2017 - 2020 Intel Corporation. All rights reserved.<BR>
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformSilDataInitLib
+  FILE_GUID                      = 39F0C873-15A7-4FEB-BFF5-B75F06805434
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SilDataInitLib
+
+[Sources]
+  PlatformMpioDataInit.c
+  PlatformFabricDataInit.c
+
+[LibraryClasses]
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[Ppis]
+
+[Guids]
+
+[Pcd]
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgHdAudioEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdEsmEnableAllRootPorts
+  gAmdBoardPkgTokenSpaceGuid.PcdEsmTargetSpeed
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgRxMarginPersistenceMode
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSkipPspMessage
+  gAmdBoardPkgTokenSpaceGuid.PcdOpnSpare
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgEarlyTrainTwoPcieLinks
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkTraining
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkSocket
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkLaneNum
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkDie
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSevSnpSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSkipPspMessage
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdEdpcEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgDxioFrequencyVetting
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgDxioClockGating
+  gAmdBoardPkgTokenSpaceGuid.PcdPcieDxioTimingControlEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdPCIELinkReceiverDetectionPolling
+  gAmdBoardPkgTokenSpaceGuid.PcdPCIELinkResetToTrainingTime
+  gAmdBoardPkgTokenSpaceGuid.PcdPCIELinkL0Polling
+  gAmdBoardPkgTokenSpaceGuid.PcdPCIeExactMatchEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdDxioPhyValid
+  gAmdBoardPkgTokenSpaceGuid.PcdDxioPhyProgramming
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSkipPspMessage
+  gAmdBoardPkgTokenSpaceGuid.PcdDxioSaveRestoreModes
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdAllowCompliance
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdHotPlugHandlingMode
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisEnableMode
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisSkipInterval
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisSkpIntervalSel
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisCfgType
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisAutoDetectMode
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisAutodetectFactor
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisLowerSkpOsGenSup
+  gAmdBoardPkgTokenSpaceGuid.PcdSrisLowerSkpOsRcvSup
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdCxlOnAllPorts
+  gAmdBoardPkgTokenSpaceGuid.PcdCxlCorrectableErrorLogging
+  gAmdBoardPkgTokenSpaceGuid.PcdCxlUnCorrectableErrorLogging
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAEREnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgMcCapEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgRcvErrEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkSocket
+  gAmdBoardPkgTokenSpaceGuid.PcdEarlyBmcLinkLaneNum
+  gAmdBoardPkgTokenSpaceGuid.PcdSurpriseDownFeature
+  gAmdBoardPkgTokenSpaceGuid.PcdLcMultAutoSpdChgOnLastRateEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdRxMarginEnabled
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPcieCVTestWA
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPcieAriSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNbioCTOtoSC
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNbioCTOIgnoreError
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNbioSsid
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuSsid
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPspccpSsid
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNtbccpSsid
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNbifF0Ssid
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNtbSsid
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieSubsystemDeviceID
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieSubsystemVendorID
+  gAmdBoardPkgTokenSpaceGuid.PcdGppAtomicOps
+  gAmdBoardPkgTokenSpaceGuid.PcdGfxAtomicOps
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdNbioReportEdbErrors
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPreSilCtrl0
+  gAmdBoardPkgTokenSpaceGuid.PcdMPIOAncDataSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdAfterResetDelay
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgEarlyLink
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdCfgExposeUnusedPciePorts
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgForcePcieGenSpeed
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSataPhyTuning
+  gAmdBoardPkgTokenSpaceGuid.PcdPcieLinkComplianceModeAllPorts
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMCTPEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdSbrBrokenLaneAvoidanceSup
+  gAmdBoardPkgTokenSpaceGuid.PcdAutoFullMarginSup
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPciePresetMask8GtAllPort
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPciePresetMask16GtAllPort
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPciePresetMask32GtAllPort
+  gAmdBoardPkgTokenSpaceGuid.PcdPcieLinkAspmAllPort
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdMCTPMasterSeg
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdMCTPMasterID
+  gAmdBoardPkgTokenSpaceGuid.PcdSyncHeaderByPass
+  gAmdBoardPkgTokenSpaceGuid.PcdCxlTempGen5AdvertAltPtcl
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieAerReportMechanism
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdAbove4GMmioSizePerRbForNonPciDevice
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMmioAbove4GLimit
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMmioSizePerRbForNonPciDevice
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdBottomMmioReservedForPrimaryRb
+  #gAmdBoardPkgTokenSpaceGuid.PcdAmdFabricCdma
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdAdvertiseEqToHighRateSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPcieSpeedControl
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPrecodeRequestEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdDlfExEn
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdDlfCapEn
+  gAmdBoardPkgTokenSpaceGuid.PcdRccDev0ExtendedFmtSupported
+  gAmdBoardPkgTokenSpaceGuid.PcdIOHCClkGatingSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgNbifMgcgClkGating
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSstunlClkGating
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSyshubMgcgClkGating
+  gAmdBoardPkgTokenSpaceGuid.PcdTPHCompleterEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIoApicMMIOAddressReservedEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIoApicIdPreDefineEn
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIoApicIdBase
+  gAmdBoardPkgTokenSpaceGuid.PcdNbifMgcgHysteresis
+  gAmdBoardPkgTokenSpaceGuid.PcdSyshubMgcgHysteresis
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIohcNonPCIBarInitDbg
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIohcNonPCIBarInitFastReg
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIohcNonPCIBarInitFastRegCtl
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuMMIOAddressReservedEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdApicMode
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuAvicSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdIommuL1ClockGatingEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdIommuL2ClockGatingEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdIOHCPgEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdNbioGlobalCgOverride
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgIommuSupport
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgACSEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPCIeLTREnable
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdMaskDpcCapability
+  gAmdBoardPkgTokenSpaceGuid.PcdPcieEcrcEnablement
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAutoSpeedChangeEnable
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgSriovEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAriEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAerEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAcsEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgAtsEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPasidEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPwrEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgRtrEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdCfgPriEnDev0F1
+  gAmdBoardPkgTokenSpaceGuid.PcdAtcEnable|FALSE
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsEnRccDev0|FALSE
+  gAmdBoardPkgTokenSpaceGuid.PcdAerEnRccDev0|FALSE
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsSourceValStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsTranslationalBlockingStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2pReqStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2pCompStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsUpstreamFwdStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2PEgressStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsDirectTranslatedStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsSsidEnStrap5
+  gAmdBoardPkgTokenSpaceGuid.PcdDlfEnStrap1
+  gAmdBoardPkgTokenSpaceGuid.PcdPhy16gtStrap1
+  gAmdBoardPkgTokenSpaceGuid.PcdMarginEnStrap1
+  gAmdBoardPkgTokenSpaceGuid.PcdPriEnPageReq
+  gAmdBoardPkgTokenSpaceGuid.PcdPriResetPageReq
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsSourceVal
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsTranslationalBlocking
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2pReq
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2pComp
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsUpstreamFwd
+  gAmdBoardPkgTokenSpaceGuid.PcdAcsP2PEgress
+  gAmdBoardPkgTokenSpaceGuid.PcdRccDev0E2EPrefix
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdPspRecoveryFlagDetectEnable

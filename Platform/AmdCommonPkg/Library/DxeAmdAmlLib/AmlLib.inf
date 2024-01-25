@@ -1,0 +1,53 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+#
+[Defines]
+  INF_VERSION                   = 0x00010005
+  BASE_NAME                     = AmlLib
+  FILE_GUID                     = 8F62C8D1-B67F-4AFB-9179-54384F1A6163
+  MODULE_TYPE                   = DXE_DRIVER
+  VERSION_STRING                = 1.0
+  LIBRARY_CLASS                 = DXE_DRIVER UEFI_DRIVER HOST_APPLICATION
+#  CONSTRUCTOR                  = ?
+
+[Sources.common]
+  InternalAmlObjects.h
+  InternalAmlObjects.c
+  InternalAmlLib.h
+  AmlAssistFunctions.c
+  AmlObjectsDebug.c
+  AmlNameString.c
+  AmlDataObjects.c
+  AmlNamespaceModifierObjects.c
+  AmlPkgLength.c
+  AmlNamedObject.c
+  AmlTable.c
+  AmlType1Opcodes.c
+  AmlType2Opcodes.c
+  AmlResourceDescriptor.c
+  AmlExpressionOpcodes.c
+  AmlArgObjects.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  AmlLib
+
+[Protocols]
+
+[Pcd]
+
+[Depex]
+  TRUE
+
+[BuildOptions]
+#  MSFT:*_*_*_CC_FLAGS = /FAcs

@@ -1,0 +1,43 @@
+#
+# @file  libF19M10xSIM.inf
+# @brief SIL xSIM Genoa UEFI module
+#
+# Copyright 2021 Advanced Micro Devices, Inc. All rights reserved.
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = libAMDxSIM
+  FILE_GUID                      = 2F389AD1-B0A9-4219-9345-9B9D9C53C296
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = libAMDxSIM
+
+[BuildOptions]
+# Set the compiler to include the platform OpenSil config file
+   MSFT:*_*_*_CC_FLAGS     =  /FIOpenSil/configs/$(SIL_PLATFORM_NAME)_SilCfg.h
+   GCC:*_*_*_CC_FLAGS      =  -includeOpenSIL/configs/$(SIL_PLATFORM_NAME)_SilCfg.h
+
+[Sources]
+  OpenSIL/Include/xSIM-api.h
+  OpenSIL/xSIM/xSIM.c
+  OpenSIL/xSIM/xSIM.h
+  OpenSIL/xSIM/SoC/F19M10/IpBlkListF19M10Tp1.c
+  OpenSIL/xSIM/SoC/F19M10/IpBlkListF19M10Tp2.c
+  OpenSIL/xSIM/SoC/F19M10/IpBlkListF19M10Tp3.c
+  OpenSIL/xSIM/IpHandler.h
+
+
+[Sources.IA32]
+
+
+[Sources.X64]
+
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  SilEfiLib
+  libAMDxUSL

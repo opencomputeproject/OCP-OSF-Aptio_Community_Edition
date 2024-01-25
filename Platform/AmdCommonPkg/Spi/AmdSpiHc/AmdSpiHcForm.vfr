@@ -1,0 +1,57 @@
+// /*****************************************************************************
+// *
+// * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+// *
+// *****************************************************************************/
+
+#include "AmdSpiHcNvData.h"
+
+//
+// EFI Variable attributes
+//
+#define EFI_VARIABLE_NON_VOLATILE       0x00000001
+#define EFI_VARIABLE_BOOTSERVICE_ACCESS 0x00000002
+#define EFI_VARIABLE_RUNTIME_ACCESS     0x00000004
+#define EFI_VARIABLE_READ_ONLY          0x00000008
+
+#define AMD_SPI_HC_MAIN_FORM_ID 1
+
+formset
+  guid = AMD_SPI_HC_FORMSET_GUID,
+  title = STRING_TOKEN (STR_FORM_SET_TITLE),
+  help = STRING_TOKEN (STR_FORM_SET_HELP),
+  classguid = EFI_HII_PLATFORM_SETUP_FORMSET_GUID,
+
+  efivarstore AMD_SPI_HC_NV_DATA,
+    varid = AMD_SPI_HC_VARSTORE_ID,
+    attribute = EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS,
+    name = AMD_SPI_HC_NV_DATA,
+    guid = AMD_SPI_HC_FORMSET_GUID;
+
+  // Define main AMD SPI host controller setup form
+  form formid = AMD_SPI_HC_MAIN_FORM_ID,
+    title = STRING_TOKEN (STR_AMD_SPI_HC_MAIN_TITLE);
+
+    oneof varid   = AMD_SPI_HC_NV_DATA.RomArmorEnable,
+      questionid  = KEY_ROM_ARMOR_ENABLE,
+      prompt      = STRING_TOKEN(STR_AMD_ROM_ARMOR_PROMPT),
+      help        = STRING_TOKEN(STR_AMD_ROM_ARMOR_HELP),
+      flags       = INTERACTIVE,
+        option text = STRING_TOKEN(STR_DISABLE), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;
+        option text = STRING_TOKEN(STR_ENABLE), value = 1, flags = RESET_REQUIRED;
+    endoneof;
+
+    suppressif ideqval AMD_SPI_HC_NV_DATA.RomArmorEnable == 0;
+      oneof varid   = AMD_SPI_HC_NV_DATA.WhitelistEnable,
+        questionid  = KEY_ROM_ARMOR_WHITELIST_ENABLE,
+        prompt      = STRING_TOKEN(STR_AMD_ROM_ARMOR_WHITELIST_PROMPT),
+        help        = STRING_TOKEN(STR_AMD_ROM_ARMOR_WHITELIST_HELP),
+        flags       = INTERACTIVE,
+        option text = STRING_TOKEN(STR_DISABLE), value = 0, flags = DEFAULT | MANUFACTURING | RESET_REQUIRED;
+        option text = STRING_TOKEN(STR_ENABLE), value = 1, flags = RESET_REQUIRED;
+      endoneof;
+    endif;
+
+  endform;
+
+endformset;

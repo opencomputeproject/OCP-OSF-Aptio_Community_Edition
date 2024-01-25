@@ -1,0 +1,54 @@
+##
+#  Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#
+##
+
+#
+# @file  PspInitDxe.inf
+# @brief DXE driver to initialize PSP bar and enable relevant CPU features
+#
+#
+
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PspDxe
+  FILE_GUID                      = 4EFBB29F-8915-40BD-B9AE-B8B06A9F9A77
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = PspDxeInit
+
+[Sources]
+  AmdPspDxe.c
+  RdSeed.nasm
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses.common.DXE_DRIVER]
+  UefiLib
+
+[LibraryClasses]
+  DebugLib
+  PcdLib
+  libAMDxUSL
+  libAMDxSIM
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  HobLib
+
+
+[Guids]
+  gPeiOpenSilDataHobGuid
+
+[Pcd]
+  
+[Ppis]
+
+[Protocols]
+  gEfiMpServiceProtocolGuid
+
+[Depex]
+  gOpenSilxPrfProtocolGuid

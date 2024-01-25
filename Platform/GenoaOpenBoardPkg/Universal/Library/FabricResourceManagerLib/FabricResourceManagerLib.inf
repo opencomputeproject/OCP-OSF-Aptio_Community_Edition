@@ -1,0 +1,35 @@
+#;*****************************************************************************
+#;
+#; Copyright (C) 2008-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = FabricResourceManagerLib
+  FILE_GUID                      = F40D5DCB-3238-46B2-95A7-C24E7E76BAFC
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = FabricResourceManagerLib
+  CONSTRUCTOR                    = FabricResourceManagerLibConstructor
+
+[Sources]
+  FabricResourceManager.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  PciLib
+  libAMDxUSL
+  libAMDxSIM
+  HobLib
+
+[Guids]
+  gPeiOpenSilDataHobGuid
+
+

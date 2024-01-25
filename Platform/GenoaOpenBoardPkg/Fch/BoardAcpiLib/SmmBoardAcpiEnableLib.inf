@@ -1,0 +1,29 @@
+##
+#
+# ACPI enable/disable library instance
+#
+#  Copyright (c) 2023, American Megatrends International LLC.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION     = 0x00010017
+  BASE_NAME       = SmmBoardAcpiEnableLib
+  FILE_GUID       = 4C15F7D7-7A13-48DC-BC85-0A4D93831C25
+  VERSION_STRING  = 1.0
+  MODULE_TYPE     = BASE
+  LIBRARY_CLASS   = BoardAcpiEnableLib
+
+[LibraryClasses]
+  IoLib
+  libAMDxUSL
+  libAMDxSIM
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[Sources]
+  SmmBoardAcpiEnableLib.c

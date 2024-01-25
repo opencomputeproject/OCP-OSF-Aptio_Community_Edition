@@ -1,0 +1,43 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+
+[Defines]
+  INF_VERSION               = 0x00010019
+  BASE_NAME                 = BoardSpiBusSmm
+  FILE_GUID                 = EF86A49E-CD3C-445a-878E-7A738D2C7ED2
+  MODULE_TYPE               = DXE_SMM_DRIVER
+  VERSION_STRING            = 0.1
+  PI_SPECIFICATION_VERSION  = 0x0001000A
+  ENTRY_POINT               = BoardSpiBusEntry
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  SmmServicesTableLib
+  MemoryAllocationLib
+  DebugLib
+
+[Sources]
+  BoardSpiBusSmm.c
+  BoardSpiBus.c
+  BoardSpiBus.h
+  BoardSpiBusInstance.h
+
+[Protocols]
+  gEfiSpiSmmConfigurationProtocolGuid                           ## CONSUMES
+  gEfiSpiSmmHcProtocolGuid                                      ## CONSUMES
+
+[Guids]
+
+[Depex]
+  gEfiSpiSmmConfigurationProtocolGuid AND
+  gEfiSpiSmmHcProtocolGuid
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  BoardSpiBusExtra.uni

@@ -1,0 +1,31 @@
+#;*****************************************************************************
+#; Copyright (C) 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DxeBoardInitLib
+  FILE_GUID                      = 40D7AB2A-1F5C-4AAB-A3C8-01B8EC756C14
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BoardInitLib
+  CONSTRUCTOR                    = DxeBoardInitLibConstructor
+
+[LibraryClasses]
+  BaseLib
+  PcdLib
+  DebugLib
+
+[Packages]
+  MinPlatformPkg/MinPlatformPkg.dec
+  MdePkg/MdePkg.dec
+
+[Sources]
+  DxeBoardInitLib.c
+  ReservePcieExtendedConfigSpace.c
+  LegacyPic.c
+  WorkaroundForLinuxKernelTtyVtDriverBug.c
+
+[Pcd]

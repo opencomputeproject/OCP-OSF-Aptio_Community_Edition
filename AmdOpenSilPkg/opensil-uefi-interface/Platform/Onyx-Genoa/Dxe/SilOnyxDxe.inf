@@ -1,0 +1,55 @@
+#
+# @file  SilOnyxDxe.inf
+# @brief DXE driver made for OpenSIL SI calls
+#
+# Copyright 2021 Advanced Micro Devices, Inc. All rights reserved.
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SilOnyxDxe
+  FILE_GUID                      = 6350d448-1e63-4457-8cda-146167d6cd62
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = SilDxeEntryPoint
+
+[Sources]
+  SilDataInit.c
+  CcxDataInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses.common.DXE_DRIVER] 
+  UefiLib
+  SilDxeInit
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+  libAMDxUSL
+  libAMDxSIM
+  libAMDxPRF
+  HobLib
+  BaseMemoryLib
+  PspDirectoryLib
+
+[Guids]
+
+[Pcd]
+
+[Ppis]
+
+[Protocols]
+  gEfiPciIoProtocolGuid
+  gOpenSilxPrfProtocolGuid
+  gEfiMpServiceProtocolGuid
+
+[Depex]
+  TRUE
+

@@ -1,0 +1,48 @@
+#
+# @file  SilDxe.inf
+# @brief DXE driver made for OpenSIL SI calls
+#
+# Copyright 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SilDxe
+  FILE_GUID                      = AB2FFE1F-2ECF-4AD9-8C79-C372059DF62F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SilDxeInit
+
+[Sources]
+  SilDxe.c
+  SilDxe.h
+  xPrfServicesDxe.c
+  xPrfServicesDxe.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+
+[LibraryClasses.common.DXE_DRIVER]
+  UefiLib
+
+[LibraryClasses]
+  DebugLib
+  PcdLib
+  libAMDxUSL
+  libAMDxSIM
+  PspDirectoryLib
+
+[Guids]
+  gPeiOpenSilDataHobGuid
+
+[Pcd]
+  
+[Ppis]
+
+[Protocols]
+
+[Depex]
+  TRUE

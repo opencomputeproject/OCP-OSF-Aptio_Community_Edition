@@ -1,0 +1,107 @@
+#;*****************************************************************************
+#; Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = AmdCommonPkg
+  PACKAGE_GUID                   = 755D3D02-F2D8-49E4-955A-38480ACD7ED1
+  PACKAGE_VERSION                = 1.0
+
+[Includes]
+  Include
+
+[Guids]
+  gAmdCommonPkgTokenSpaceGuid     = { 0xF2F9A45B, 0x0FF9, 0x4ACE, { 0xAA, 0x78, 0xD3, 0xB9, 0xA7, 0x45, 0x55, 0xB9 }}
+  gPlatformTokenSpaceGuid         = { 0x5D2D9537, 0xD931, 0x465D, { 0xAC, 0xFC, 0x1D, 0xFE, 0x77, 0x2D, 0xC0, 0x62 }}
+  gAmdTscFrequencyGuid            = { 0x9bc17822, 0xf911, 0x4e18, { 0xb2, 0x12, 0xc9, 0xfb, 0x9e, 0x4e, 0x3b, 0x36 }}
+  gAmdMemoryInfoHobGuid           = {0x1bce3d14, 0xa5fe, 0x4a0b, {0x9a, 0x8d, 0x69, 0xca, 0x5d, 0x98, 0x38, 0xd3}}
+  gEfiSmmPeiSmramMemoryReserveGuid = {0x6dadf1d1, 0xd4cc, 0x4910, { 0xbb, 0x6e, 0x82, 0xb1, 0xfd, 0x80, 0xff, 0x3d}}
+  gEfiAmdAgesaSpecificWarmResetGuid = { 0x49883fe2, 0x915d, 0x42bc, { 0xa6, 0xfe, 0x71, 0xfd, 0x76, 0x0f, 0x39, 0x75 }}
+
+[Ppis]
+  gTopOfTemporaryRamPpiGuid       = { 0x2f3962b2, 0x57c5, 0x44ec, { 0x9e, 0xfc, 0xa6, 0x9f, 0xd3, 0x02, 0x03, 0x2b }}
+  gAmdMemoryInfoHobPpiGuid        = { 0xba16e587, 0x1d66, 0x41b7, { 0x9b, 0x52, 0xca, 0x4f, 0x2c, 0xad, 0xd, 0xc8 } }
+
+[Protocols]
+  gAmdSpiHcStateProtocolGuid      = {0x189566ab, 0x245, 0x43ae, {0x9d, 0x1, 0xd2, 0x21, 0x1c, 0xb9, 0x1a, 0xda}}
+  gAmdJedecSpiSmmIoProtocolGuid   = {0x5b041e43, 0xc2de, 0x4a6d, {0x8b, 0x31, 0x3a, 0xa2, 0xc6, 0xb5, 0xc9, 0xab}}
+  gAmdJedecSpiDxeIoProtocolGuid   = {0x0a669f20, 0xacfa, 0x4291, {0x9f, 0x4c, 0x66, 0x92, 0x19, 0x2b, 0xee, 0xde}}  # {0A669F20-ACFA-4291-9F4C-6692192BEEDE}
+  gFakeDeviceIoProtocolGuid     = {0x7fecf70, 0xd7ae, 0x4274, {0x9f, 0x70, 0x78, 0xc8, 0x36, 0x91, 0xd4, 0xfb}}
+
+[PcdsFeatureFlag]
+  # Used to specify if the driver should disable SPI Write Enable command
+  # outside of SMM.
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiWriteDisable                |TRUE|BOOLEAN|0x21000000
+
+[PcdsFixedAtBuild]
+  #
+  # Console
+  #
+  gPlatformTokenSpaceGuid.PcdFchUartPort|0|UINT8|0x40000000
+
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiRetryCount                  |0xFFFFFFFF|UINT32|0x00000000
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiNorRetryCount               |0xFFFFFFFF|UINT32|0x00000001
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiDelayMicroseconds           |0x0000000F|UINT32|0x00000002
+
+  gAmdCommonPkgTokenSpaceGuid.PcdFlashNvStorageBlockSize           |0x1000|UINT32|0x20000012
+  gAmdCommonPkgTokenSpaceGuid.PcdSecPeiSize                        |0x00000000|UINT32|0x20000013
+  gAmdCommonPkgTokenSpaceGuid.PcdTempRamBase                       |0x00030000|UINT32|0x20000016
+  gAmdCommonPkgTokenSpaceGuid.PcdTempRamSize                       |0x00020000|UINT32|0x20000017
+  gAmdCommonPkgTokenSpaceGuid.PcdBootFvBase                        |0x09B00000|UINT32|0x20000018
+  #
+  # PCIe Config Space
+  #
+  gAmdCommonPkgTokenSpaceGuid.PcdMmioCfgBusRange                   |0x00000008|UINT32|0x20000019   # 8 = 256MB, 7 = 128MB, and 6 = 64MB
+  gAmdCommonPkgTokenSpaceGuid.PcdPciExpressBaseAddressLow          |0xE0000000|UINT32|0x2000001C   # Lower 32 bit address of PCIe config base.
+  gAmdCommonPkgTokenSpaceGuid.PcdPciExpressBaseAddressHi           |0x00000000|UINT32|0x2000001D   # Upper 32 bit address of PCIe config base.
+  gAmdCommonPkgTokenSpaceGuid.PcdPciExpressLimitAddress            |0xEFFFFFFF|UINT64|0x2000001E   # End address for PCIe config space.
+
+  gAmdCommonPkgTokenSpaceGuid.PcdRom3FlashAreaBase                 |0x00000000|UINT64|0x2000001A
+  gAmdCommonPkgTokenSpaceGuid.PcdRom3FlashAreaSize                 |0x00000000|UINT64|0x2000001B
+
+  #
+  # IPMI Interface Type
+  #
+  # 0 - Unknown
+  # 1 - KCS
+  # 2 - SMIC
+  # 3 - BT
+  # 4 - SSIF
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiInterfaceType|0|UINT8|0xD1000020
+  #
+  # IPMI KCS PORT
+  #
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiKCSPort|0x0CA2|UINT16|0xD1000021
+
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvAdvancedBase|0x0000000000000000|UINT64|0xEE000001
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvOsBootBase|0x0000000000000000|UINT64|0xEE000003
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvUefiBootBase|0x0000000000000000|UINT64|0xEE000004
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvAdvancedSecurityBase|0x0000000000000000|UINT64|0xEE000005
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvAdvancedSecuritySize|0x00000000|UINT32|0xEE000006
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdFlashFvAdvancedSecurityOffset|0x00000000|UINT32|0xEE000007
+
+[PcdsDynamic, PcdsDynamicEx]
+  # SMBIOS
+  gAmdCommonPkgTokenSpaceGuid.PcdType11OemStringsCount|0|UINT8|0xD1000022
+  gAmdCommonPkgTokenSpaceGuid.PcdType11OemStrings|NULL|VOID*|0xD1000023
+  gAmdCommonPkgTokenSpaceGuid.PcdType12SystemCfgOptionsCount|0|UINT8|0xD1000024
+  gAmdCommonPkgTokenSpaceGuid.PcdType12SystemCfgOptions|NULL|VOID*|0xD1000025
+
+  #MPIO
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdMCTPMasterSeg|0|UINT8|0x000500B6
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdMCTPMasterID|0|UINT16|0x000500A5
+
+  #
+  # PCI HotPlug Resource Padding
+  #
+  # IO Resource padding in bytes, default 4KB
+  gAmdCommonPkgTokenSpaceGuid.PcdPciHotPlugResourcePadIO|0x00001000|UINT32|0x10000000
+  # PreFetch Memory padding in bytes, default 2MB
+  gAmdCommonPkgTokenSpaceGuid.PcdPciHotPlugResourcePadPMem|0x00200000|UINT32|0x10000001
+  # Non-PreFetch Memory padding in bytes, default 1MB
+  gAmdCommonPkgTokenSpaceGuid.PcdPciHotPlugResourcePadMem|0x00100000|UINT32|0x10000002
+  # PCI bus padding, number of bus to reserve, default 2 bus
+  gAmdCommonPkgTokenSpaceGuid.PcdPciHotPlugResourcePadBus|2|UINT8|0x10000003
+  gAmdCommonPkgTokenSpaceGuid.PcdFchFullHardReset|FALSE|BOOLEAN|0x0002F02A

@@ -1,0 +1,51 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+
+[Defines]
+  INF_VERSION               = 0x00010019
+  BASE_NAME                 = SpiNorFlashJedecSmm
+  FILE_GUID                 = 83705B89-CBF9-44f8-8546-E0124C682D08
+  MODULE_TYPE               = DXE_SMM_DRIVER
+  VERSION_STRING            = 0.1
+  PI_SPECIFICATION_VERSION  = 0x0001000A
+  ENTRY_POINT               = SpiNorFlashEntry
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  SmmServicesTableLib
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  TimerLib
+  DebugLib
+
+[Sources]
+  SpiNorFlashSmm.c
+  SpiNorFlash.c
+  SpiNorFlashSfdp.c
+  SpiNorFlashInstance.h
+  SpiNorFlash.h
+
+[Protocols]
+  gEfiSpiSmmNorFlashProtocolGuid                                ## PROCUDES
+  gAmdJedecSpiSmmIoProtocolGuid                                 ## CONSUMES
+
+[FixedPcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiNorRetryCount
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiDelayMicroseconds
+
+[Guids]
+
+[Depex]
+  gAmdJedecSpiSmmIoProtocolGuid
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  SpiNorFlashExtra.uni

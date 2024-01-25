@@ -1,0 +1,43 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+
+[Defines]
+  INF_VERSION               = 0x00010019
+  BASE_NAME                 = BoardSpiBusDxe
+  FILE_GUID                 = EF95CFE1-0D3A-4869-948B-FC36A3B13901
+  MODULE_TYPE               = DXE_DRIVER
+  VERSION_STRING            = 0.1
+  PI_SPECIFICATION_VERSION  = 0x0001000A
+  ENTRY_POINT               = BoardSpiBusEntry
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  DebugLib
+
+[Sources]
+  BoardSpiBusDxe.c
+  BoardSpiBus.c
+  BoardSpiBus.h
+  BoardSpiBusInstance.h
+
+[Protocols]
+  gEfiSpiConfigurationProtocolGuid                              ## CONSUMES
+  gEfiSpiHcProtocolGuid                                         ## CONSUMES
+
+[Guids]
+
+[Depex]
+  gEfiSpiConfigurationProtocolGuid AND
+  gEfiSpiHcProtocolGuid
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  BoardSpiBusExtra.uni

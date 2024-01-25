@@ -1,0 +1,9 @@
+//*****************************************************************************
+// Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+//
+//*****************************************************************************
+
+
+#string STR_MODULE_ABSTRACT             #language en-US "SMM Core Platform Hook Library instance"
+
+#string STR_MODULE_DESCRIPTION          #language en-US "SMM Core Platform Hook Library instance"

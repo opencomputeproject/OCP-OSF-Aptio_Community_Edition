@@ -1,0 +1,31 @@
+#;*****************************************************************************
+#; Copyright (C) 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmbiosMiscLib
+  FILE_GUID                      = 9f2700de-25a7-45b8-8d59-9bc43d05a1ec
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SmbiosMiscLib
+
+[Sources]
+  SmbiosType8PortConnectorInfo.c
+  SmbiosType41OnboardDevExtInfo.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+
+[Protocols]
+
+[Pcd]
+
+[Depex]
+  TRUE

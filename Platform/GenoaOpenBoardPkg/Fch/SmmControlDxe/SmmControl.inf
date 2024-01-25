@@ -1,0 +1,51 @@
+##
+#  Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#
+##
+
+[defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmmControl
+  FILE_GUID                      = F75660A1-83D4-4D75-86E7-14B769F01D62
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InstallSmmControlEntry
+
+[sources.common]
+  SmmControl.c
+  SmmControl.h
+
+[LibraryClasses.common.DXE_RUNTIME_DRIVER]
+  BaseLib
+  UefiLib
+  PrintLib
+  IoLib
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+  DxeServicesTableLib
+  UefiRuntimeLib
+  IoLib
+  libAMDxUSL
+  libAMDxSIM
+
+[Guids]
+  gEfiEventVirtualAddressChangeGuid     #CONSUMES #EVENT
+
+[Protocols]
+  gEfiSmmControl2ProtocolGuid           #PRODUCED
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+
+[Depex]
+  gEfiPciRootBridgeIoProtocolGuid AND
+  gEfiCpuIo2ProtocolGuid AND
+  gEfiCpuArchProtocolGuid
+
+

@@ -1,0 +1,77 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2019-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+#
+# This file includes code originally published under the following license.
+#
+### @file
+#  Component information file for Minimal DSDT module
+#
+# Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
+#
+# This program and the accompanying materials are licensed and made available under
+# the terms and conditions of the BSD License which accompanies this distribution.
+# The full text of the license may be found at
+# http://opensource.org/licenses/bsd-license.php
+#
+# THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+# WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+###
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BoardAcpiDxe
+  FILE_GUID                      = 8EB04370-482C-4505-AA27-7EB226A5729F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InstallAcpiBoard
+
+[Sources.common]
+  BoardAcpiDxe.c
+  MinDsdt.asl
+  PciSsdt.asl
+  AmdPci.asi
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MinPlatformPkg/MinPlatformPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  BaseLib
+  DebugLib
+  PcdLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  PrintLib
+  AcpiSdtParserLib
+  BoardAcpiTableLib
+
+[Protocols]
+  gEfiAcpiTableProtocolGuid                     ## CONSUMES
+  gEfiFirmwareVolume2ProtocolGuid               ## CONSUMES
+
+[FixedPcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseAddress
+  gAmdCommonPkgTokenSpaceGuid.PcdPciExpressLimitAddress
+  gEfiMdePkgTokenSpaceGuid.PcdPciExpressBaseSize
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiInterfaceType
+  gAmdCommonPkgTokenSpaceGuid.PcdIpmiKCSPort
+  gAmdBoardPkgTokenSpaceGuid.PcdFchUart0Irq
+  gAmdBoardPkgTokenSpaceGuid.PcdFchUart1Irq
+  gAmdBoardPkgTokenSpaceGuid.PcdFchUart2Irq
+  gAmdBoardPkgTokenSpaceGuid.PcdFchUart3Irq
+  gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaBaseAddress
+  gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize
+
+[Depex]
+  gEfiAcpiTableProtocolGuid AND
+  gEfiFirmwareVolume2ProtocolGuid
+

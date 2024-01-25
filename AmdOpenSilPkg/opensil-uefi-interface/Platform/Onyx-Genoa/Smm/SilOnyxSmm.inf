@@ -1,0 +1,42 @@
+#;*****************************************************************************
+#;
+#; Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+
+[defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SilOnyxSmm
+  FILE_GUID                      = 940E1CA7-9EA3-4939-AE29-2B4E26C6CCF3
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  PI_SPECIFICATION_VERSION       = 0x0001000A
+  VERSION_STRING                 = 1.1
+  ENTRY_POINT                    = SilSmmEntryPoint
+
+[sources]
+  SilDataInitSmm.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  SmmServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  SilSmmInit
+
+[Pcd]
+
+[Guids]
+
+[Protocols]
+  gOpenSilxPrfSmmProtocolGuid                #PRODUCED
+
+[Depex]
+  TRUE
+
+[FixedPcd]
+
+
+

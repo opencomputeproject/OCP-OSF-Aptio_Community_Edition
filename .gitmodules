@@ -4,3 +4,9 @@
 [submodule "edk2"]
 	path = edk2
 	url = https://github.com/tianocore/edk2.git
+[submodule "Platform/AmdPspFw"]
+	path = Platform/AmdPspFw
+	url = https://github.com/openSIL/amd_firmwares.git
+[submodule "AmdOpenSilPkg/opensil-uefi-interface/OpenSIL"]
+	path = AmdOpenSilPkg/opensil-uefi-interface/OpenSIL
+	url = https://github.com/openSIL/openSIL.git

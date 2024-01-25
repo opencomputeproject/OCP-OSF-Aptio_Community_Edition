@@ -1,0 +1,68 @@
+#/*****************************************************************************
+# *
+# * Copyright (C) 2018-2023 Advanced Micro Devices, Inc. All rights reserved.
+# *
+# *****************************************************************************/
+
+[Defines]
+  INF_VERSION               = 0x00010019
+  BASE_NAME                 = AmdSpiHcProtocolDxe
+  FILE_GUID                 = 1E463F9D-4CFB-4396-A784-68C350BADCF1
+  MODULE_TYPE               = DXE_DRIVER
+  VERSION_STRING            = 0.1
+  PI_SPECIFICATION_VERSION  = 0x0001000A
+  ENTRY_POINT               = AmdSpiHcProtocolEntry
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  MemoryAllocationLib
+  PciLib
+  IoLib
+  PcdLib
+  TimerLib
+  DebugLib
+  UefiLib
+  BaseMemoryLib
+  HiiLib
+  BaseLib
+
+[Sources]
+  AmdSpiHcDxe.c
+  AmdSpiHc.c
+  AmdSpiHcNull.c
+  AmdSpiHc.h
+  AmdSpiHcInstance.h
+  AmdSpiHcInternal.c
+  AmdSpiHcInternal.h
+  AmdSpiHcHiiConfigAccess.c
+  AmdSpiHcForm.vfr
+  AmdSpiHcFormStrings.uni
+
+[Protocols]
+  gEfiSpiHcProtocolGuid
+  gEfiDxeMmReadyToLockProtocolGuid
+  gEfiHiiConfigAccessProtocolGuid
+
+[FeaturePcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiWriteDisable
+
+[FixedPcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiRetryCount
+  gAmdCommonPkgTokenSpaceGuid.PcdAmdSpiDelayMicroseconds
+
+[Guids]
+
+[Depex]
+  TRUE
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  AmdSpiHcExtra.uni

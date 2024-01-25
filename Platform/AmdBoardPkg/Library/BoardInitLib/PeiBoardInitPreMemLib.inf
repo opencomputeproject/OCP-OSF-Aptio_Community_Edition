@@ -1,0 +1,61 @@
+#;*****************************************************************************
+#; Copyright (C) 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+#;
+#;******************************************************************************
+#
+# This file includes code originally published under the following license.
+#
+## @file
+#
+# Copyright (c) 2017 - 2020 Intel Corporation. All rights reserved.<BR>
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PeiBoardInitPreMemLib
+  FILE_GUID                      = 75079AD4-2D15-46D4-99B0-F66E2383C2B1
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BoardInitLib
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  PcdLib
+
+[Packages]
+  MinPlatformPkg/MinPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+
+[Sources]
+  PeiBoardInitPreMemLib.c
+  MemoryInitPei.c
+
+[Ppis]
+  gPeiPlatformMemorySizePpiGuid
+  gAmdMemoryInfoHobPpiGuid              ## ALWAYS_CONSUMED
+
+[Guids]
+  gAmdMemoryInfoHobGuid                     ## CONSUMER
+  gEfiMemoryOverwriteControlDataGuid        ## SOMETIMES_CONSUMED
+  gEfiSmmPeiSmramMemoryReserveGuid          ## CONSUMER
+
+[Pcd]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase      ## CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableBase64    ## CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingBase64  ## CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareBase64    ## CONSUMES
+
+[FixedPcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdBootFvBase                         ## CONSUMES
+  gAmdCommonPkgTokenSpaceGuid.PcdSecPeiSize                         ## CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize      ## CONSUMES
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize    ## CONSUMES

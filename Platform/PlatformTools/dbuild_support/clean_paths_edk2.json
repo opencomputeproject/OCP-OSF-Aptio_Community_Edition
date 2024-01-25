@@ -1,0 +1,20 @@
+{
+  "directory": {
+    "always": [
+      "Build",
+      "edk2/BaseTools/Bin/Win32"
+    ],
+    "external": []
+  },
+  "glob": {
+    "always": [
+      ["edk2/BaseTools/Source/C", "**/*.obj"],
+      ["edk2/BaseTools/Source/C", "**/*.o"],
+      ["edk2/BaseTools/Source/C", "**/*.d"],
+      [".", "*.FD"],
+      [".", "*.tar.gz"]
+    ],
+    "internal": [],
+    "external": []
+  }
+}

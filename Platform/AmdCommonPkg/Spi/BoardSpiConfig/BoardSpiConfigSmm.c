@@ -1,0 +1,136 @@
+/******************************************************************************
+ * Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+ *
+ *
+ ***************************************************************************/
+
+#include <Base.h>
+#include <Library/DebugLib.h>
+#include <Library/SmmServicesTableLib.h>
+#include <Spi/AmdSpiHcChipSelectParameters.h>
+#include <Protocol/SpiSmmConfiguration.h>
+
+EFI_HANDLE mSpiConfigHandle = NULL;
+
+CONST EFI_SPI_PART Mx25u6435f = {
+  L"Macronix",                      // Vendor
+  L"MX25U6435F",                    // PartNumber
+  0,                                // MinClockHz
+  MHz(104),                         // MaxClockHz
+  FALSE                             // ChipSelectPolarity
+};
+
+EFI_SPI_PERIPHERAL mPeripherallist[] = {
+  {  // Flash Memory = SPI ROM
+    NULL,                           // *NextSpiPeripheral
+    L"Flash Memory",                // *FriendlyName
+    &gAmdJedecSpiSmmIoProtocolGuid, // *SpiPeripheralDriverGuid
+    &Mx25u6435f,                    // *SpiPart
+    MHz(33),                        // MaxClockHz
+    1,                              // ClockPolarity
+    0,                              // ClockPhase
+    0,                              // Attributes
+    NULL,                           // *ConfigurationData
+    NULL,                           // *SpiBus
+    NULL,                           // ChipSelect()
+    (VOID *)&ChipSelect1            // *ChipSelectParameter
+  }
+};
+
+EFI_DEVICE_PATH_PROTOCOL mDevicePath = {
+  0x01,
+  0xFF,
+  {0x4}
+};
+
+EFI_SPI_BUS mSpiBus1 = {
+    L"FCH SPI BUS",                 // FriendlyName
+    NULL,                           // Peripherallist
+    &mDevicePath,                   // ControllerPath
+    NULL,                           // Clock
+    NULL                            // ClockParameter
+};
+
+CONST EFI_SPI_BUS *CONST mSpiBusList[] = {
+  &mSpiBus1
+};
+
+EFI_SPI_CONFIGURATION_PROTOCOL mBoardSpiConfigProtocol = {
+  0x1,                              // BusCount
+  mSpiBusList                       // BusList
+};
+
+
+EFI_STATUS
+EFIAPI
+BuildSpiList (
+  )
+{
+  EFI_STATUS Status;
+  UINTN Index;
+  EFI_SPI_BUS **SpiBus;
+  EFI_SPI_PERIPHERAL **Peripheral;
+
+  DEBUG((DEBUG_INFO, "%a: Entry\n", __FUNCTION__));
+  Status = EFI_DEVICE_ERROR;
+  // Update all Peripherals for the single SpiBus
+  for (Index = 0;
+       Index < (sizeof (mPeripherallist) / sizeof (EFI_SPI_PERIPHERAL));
+       Index++) {
+    DEBUG((DEBUG_INFO, "%a: Setting up SpiPeripheral: %s, by %s, PN=%s\n",
+          __FUNCTION__,
+          mPeripherallist[Index].FriendlyName,
+          mPeripherallist[Index].SpiPart->Vendor,
+          mPeripherallist[Index].SpiPart->PartNumber));
+    // Put bus address in peripheral
+    SpiBus = (EFI_SPI_BUS **)&mPeripherallist[Index].SpiBus;
+    *SpiBus = &mSpiBus1;
+    if (Index > 0) {
+      // Fill NextSpiPeripheral
+      Peripheral =
+        (EFI_SPI_PERIPHERAL **)&mPeripherallist[Index - 1].NextSpiPeripheral;
+      *Peripheral = &mPeripherallist[Index];
+    }
+  }
+
+  // Put Peripheral list in bus
+  Peripheral = (EFI_SPI_PERIPHERAL **)&mSpiBus1.Peripherallist;
+  *Peripheral = &mPeripherallist[0];
+
+  Status = EFI_SUCCESS;
+  DEBUG((DEBUG_INFO, "%a: Exit Status=%r\n", __FUNCTION__, Status));
+  return Status;
+}
+/**
+  Entry point of the Board SPI Configuration driver.
+
+  @param ImageHandle  Image handle of this driver.
+  @param SystemTable  Pointer to standard EFI system table.
+
+  @retval EFI_SUCCESS       Succeed.
+  @retval EFI_DEVICE_ERROR  Fail to install EFI_SPI_SMM_HC_PROTOCOL protocol.
+**/
+EFI_STATUS
+EFIAPI
+BoardSpiConfigProtocolEntry (
+  IN EFI_HANDLE         ImageHandle,
+  IN EFI_SYSTEM_TABLE   *SystemTable
+  )
+{
+  EFI_STATUS      Status;
+
+  DEBUG((DEBUG_INFO, "%a - ENTRY\n", __FUNCTION__));
+
+  Status = BuildSpiList ();
+
+  Status = gSmst->SmmInstallProtocolInterface (
+                    &mSpiConfigHandle,
+                    &gEfiSpiSmmConfigurationProtocolGuid,
+                    EFI_NATIVE_INTERFACE,
+                    &mBoardSpiConfigProtocol
+                    );
+
+  DEBUG((DEBUG_INFO, "%a - EXIT (Status = %r)\n", __FUNCTION__, Status));
+
+  return Status;
+}

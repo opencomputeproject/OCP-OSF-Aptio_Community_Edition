@@ -1,0 +1,19 @@
+{
+  "genoa-onyx": {
+    "platform": "OnyxBoardPkg",
+    "sku": "1O",
+    "soc": "Genoa",
+    "soc2": "Genoa",
+    "soc_family": "0x19",
+    "platform_name": "Onyx",
+    "soc_sku": "Genoa",
+    "socket": "SP5",
+    "board": "Onyx",
+    "build": "EXTERNAL",
+    "secure": "False",
+    "simnow": "False",
+    "emulation": "False",
+    "cbs": "False",
+    "dir": "GenoaOpenBoardPkg"
+  }
+}

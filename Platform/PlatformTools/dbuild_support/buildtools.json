@@ -1,0 +1,62 @@
+{
+  "win": {
+    "BuildTools/BuildTools/MSVC": {
+      "prefix": "VS2019_PREFIX",
+      "prefix_startswith": "VS",
+      "prefix_endswith": "_PREFIX",
+      "variable_value_list": [
+        ["VS2019_PREFIX", "BuildTools/BuildTools/MSVC/14.29.30133/"],
+        ["VCINSTALLDIR", "BuildTools/BuildTools/MSVC/14.29.30133/bin/Hostx86/x86"],
+        ["PATH", "BuildTools/BuildTools/MSVC/14.29.30133/bin/Hostx86/x86"],
+        ["LIB", "BuildTools/BuildTools/MSVC/14.29.30133/lib/x86"],
+        ["INCLUDE", "BuildTools/BuildTools/MSVC/14.29.30133/Include"]
+      ],
+      "tagname": "VS2019"
+    },
+    "BuildTools/BuildTools/WindowsSDK": {
+      "prefix": "WINSDK10_PREFIX",
+      "variable_value_list": [
+        ["WINSDK10_PREFIX", "BuildTools/BuildTools/WindowsSDK/10/bin/10.0.19041.0/x86/"],
+        ["WINSDK_PATH_FOR_RC_EXE", "BuildTools/BuildTools/WindowsSDK/10/bin/10.0.19041.0/x86/"],
+        ["LIB", "BuildTools/BuildTools/WindowsSDK/10/Lib/10.0.19041.0/ucrt/x86/"],
+        ["LIB", "BuildTools/BuildTools/WindowsSDK/10/Lib/10.0.19041.0/um/x86/"],
+        ["INCLUDE", "BuildTools/BuildTools/WindowsSDK/10/Include/10.0.19041.0/ucrt"],
+        ["INCLUDE", "BuildTools/BuildTools/WindowsSDK/10/Include/10.0.19041.0/um"],
+        ["INCLUDE", "BuildTools/BuildTools/WindowsSDK/10/Include/10.0.19041.0/shared"]
+      ]
+    },
+    "BuildTools/BuildTools/ASL": {
+      "prefix": "IASL_PREFIX",
+      "variable_value_list": [
+        ["IASL_PREFIX", "BuildTools/BuildTools/ASL/20200110/"]
+      ]
+    },
+    "BuildTools/BuildTools/NASM": {
+      "prefix": "NASM_PREFIX",
+      "variable_value_list": [
+        ["NASM_PREFIX", "BuildTools/BuildTools/NASM/nasm-2.15.05/"]
+      ]
+    },
+    "BuildTools/BuildTools/Perl": {
+      "prefix": "PERL_PATH",
+      "variable_value_list": [
+        ["PERL_PATH", "BuildTools/BuildTools/Perl/bin"],
+        ["PATH", "BuildTools/BuildTools/Perl/bin"],
+        ["PATH", "BuildTools/BuildTools/Perl/c/bin"]
+      ]
+    }
+  },
+  "linux": {
+    "/usr/bin/gcc": {
+      "tagname": "GCC5",
+      "variable_value_list": [
+      ]
+    },
+    "/usr/bin/perl": {
+      "prefix": "PERL_PATH",
+      "variable_value_list": [
+        ["PERL_PATH", "/usr/bin"]
+      ]
+    }
+  }
+}

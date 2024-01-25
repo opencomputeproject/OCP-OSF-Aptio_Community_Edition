@@ -1,0 +1,45 @@
+##
+#  Copyright (C) 2020-2023 Advanced Micro Devices, Inc. All rights reserved.
+#
+##
+
+#For EDKII use Only
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmmAccess2Dxe
+  FILE_GUID                      = 95B94F69-3914-40B0-A995-35DEB38A7A13
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SmmAccess2DriverEntryPoint
+
+[Sources.common]
+  SmmAccess2Dxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  AmdCommonPkg/AmdCommonPkg.dec
+  AmdBoardPkg/AmdBoardPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  BaseMemoryLib
+  BaseLib
+  HobLib
+  PcdLib
+
+[Guids]
+  gEfiSmmPeiSmramMemoryReserveGuid
+
+[Protocols]
+  gEfiMpServiceProtocolGuid     #CONSUMED
+  gEfiSmmAccess2ProtocolGuid    #PRODUCED
+
+[Pcd]
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdSmmLock
+  gAmdBoardPkgTokenSpaceGuid.PcdAmdStartupAllAPsSingleThread
+
+[Depex]
+  gEfiMpServiceProtocolGuid
+
