@@ -1,192 +1,216 @@
-# Aptio OpenEdition Firmware  
+AMI Aptio OE Genoa openSIL Project
+===============
 
-The Minimum Platform is a software architecture that guides uniform delivery of Intel platforms enabling firmware solutions for basic boot functionality with extensibility built-in.  This project incorporates support for the OCP derived Tioga Pass platform and Junction City Platform.
+This is BIOS FW project based on AMI Aptio Open Edition framework. It implements the firmware for AMD Genoa platform. This implementation includes AMD openSIL library as a replacement of AGESA.
 
-Package maintainers are listed in Maintainers.txt.
-
-## Overview
-The key elements of the architecture are organized into a staged boot approach where each stage has requirements and
-functionality for specific use cases. The generic control flow through the boot process is implemented in the
-[`MinPlatformPkg`](https://github.com/tianocore/edk2-platforms/tree/devel-MinPlatform/Platform/Intel/MinPlatformPkg).
-The generic nature of the tasks performed in MinPlatformPkg lends to reuse across all Intel platforms with no
-source modification. Details for any particular board are made accessible to the MinPlatformPkg through a well-defined
-statically linked board API. A complete platform solution then consists of the MinPlatformPkg and a compatible board
-package.
-
-## Board Naming Convention
-The board packages supported by Intel follow the naming convention \<xxx\>OpenBoardPkg where xxx refers to the
-encompassing platform name for a particular platform generation. For example, the [`KabylakeOpenBoardPkg`](https://github.com/tianocore/edk2-platforms/tree/devel-MinPlatform/Platform/Intel/KabylakeOpenBoardPkg) contains the
-board code for Intel Kaby Lake reference systems. Intel uses the moniker "OpenBoardPkg" to indicate that this package
-is the open source board code. A closed source counterpart may exist which simply uses "BoardPkg". Both directly use
-the MinPlatformPkg from edk2-platforms.
-
-## Stage Selection
-Stage selection is controlled via the PCD `gMinPlatformPkgTokenSpaceGuid.PcdBootStage` in [`MinPlatformPkg.dec`](https://github.com/tianocore/edk2-platforms/blob/devel-MinPlatform/Platform/Intel/MinPlatformPkg/MinPlatformPkg.dec).
-The stage should be configured in the board package DSC file to the appropriate value. For example, a board may disable
-all advanced features by setting this value to 4 instead of 6. This may be used to improve boot time for a particular
-use case. Decrementing the stage can also be used for debug since only the actions required for that stage objective
-should be executed. As an example, ACPI initialization is not required for a Stage 3 boot.
-
-The stages are defined as follows:
-
-| Stage  | Functional Objective         | Example Capabilities                                                                               |
-| -------|------------------------------|----------------------------------------------------------------------------------------------------|
-| I      | Minimal Debug                | Serial port output, source debug enabled, hardware debugger enabled                                |
-| II     | Memory Functional            | Basic hardware initialization necessary to reach memory initialization, permanent memory available |
-| III    | Boot to UI                   | Simple console input and output to a UI, UEFI shell                                                |
-| IV     | Boot to OS                   | Boot an operating system with the minimally required features                                      |
-| V      | Security Enable              | UEFI Secure Boot, TCG measured boot, DMA protections                                               |
-| VI     | Advanced Feature Enable      | Firmware update, power management, non-essential I/O                                               |
-
-## Minimum Platform Firmware Solution Stack
-A UEFI firmware implementation using MinPlatformPkg is constructed using the following pieces.
-
-|                                    |
-|------------------------------------|
-| [EDK II](https://github.com/tianocore/edk2)                                                                              |
-| [Intel(r) FSP](https://github.com/IntelFsp/FSP)                                                                            |
-| [Minimum Platform (`MinPlatformPkg`)](https://github.com/tianocore/edk2-platforms/tree/devel-MinPlatform/Platform/Intel/MinPlatformPkg)                        |
-| [Board Support (\<xxx\>OpenBoardPkg)](https://github.com/tianocore/edk2-platforms/tree/devel-MinPlatform/Platform/Intel)  |
+The platform used for development and validation: **Onyx** - AMD Genoa reference board.
 
 
-## Board Support
-* The `PurleyOpenBoardPkg` contains board implementations for Purley systems.
-* The `WhitleyOpenBoardPkg` contains board implementations for Whitley systems.
 
-## Board Package Organization
-The board package follows the standard EDK II package structure with the following additional elements and guidelines:
-* Only code usable across more than one board at the root level.* Board-specific code in a directory. The directory name should match that of the board supported.
-* Features not essential to achieve stage 5 or earlier boots are maintained in a Features folder at the appropriate
-  level in the package hierarchy.
+Build Requirements
+------------------
 
-Shared resources in the package root directory can include interfaces described in header files, library instances,
-firmware modules, binaries, etc. The UEFI firmware implementation is built using the process described below from the
-board-specific directory.
+### Required Tools for Windows
 
-A board package must implement the board APIs defined in the MinPlatformPkg even if a "NULL" implementation is used to
-return back to the minimum platform caller.
+  * **Git**
 
-## **Windows Build Instructions**
+    Download URL: https://git-scm.com/
 
-### Pre-requisites
+    Make sure any proxy requirements are set in the git config settings.
 
-* [GIT client](https://git-scm.com/downloads): Available from https://git-scm.com/downloads
-* [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2019-and-other-products) <br>
-   Login with user credentials and refer the below to download the VS2019
-   
-   ![image](https://user-images.githubusercontent.com/80769446/170539401-dd2ba633-1e2f-4103-a137-49132a484c5f.png)
+  * **Microsoft Visual Studio 2019** (tested)
 
+    Make sure Visual Studio and the SDK are properly configured for your
+    environment.
 
-  - Visual Studio 2015 build tools from Visual Studio 2019.  See image below for recommended install configuration.
-    - **Please note that the VS2015 Build Tools are not enabled by default in the Visual Studio 2019 install.**
-  - Visual Studio 2015 can be used instead.
-  ![Visual Studio 2019 Installation](/Readme_VisualStudioInstall.png)
-* [ASL compiler](https://www.acpica.org/downloads/binary-tools): iasl.exe available from http://www.acpica.org
-  - Install into ```C:\ASL``` to match default tools_def.txt configuration.
-  - The validated version of iasl compiler that can build MinPurley is 20180629.
-* [NASM assembler](https://www.nasm.us/):  nasm.exe available from: http://www.nasm.us/
-  - NASM 2.15.05 is the recommended minimum version.
-  - Install into ```C:\NASM``` to match default tools_def.txt configuration.
-* [Python 3.8.10](https://www.python.org/downloads/release/python-3810/):  Available from: https://www.python.org/downloads/release/python-3810/
-  - Install into ```C:\Python38``` to match default tools_def.txt configuration.
-  - Add C:\Python38 to your path
-  - Other versions of 3.8 may also work fine.
+    The build will ultimately execute edksetup.bat from edk2 open source which
+    should be able to detect properly installed Visual Studio components and
+    SDKs.
 
-### **Supported Hardware**
+    For inspiration on Visual Studio and SDK Environment Variables, please
+    refer to:
 
-| Machine Name                          | Supported Chipsets                         | BoardPkg                     | Board Name         |
-----------------------------------------|--------------------------------------------|------------------------------|--------------------|
-| [Junction City](#junction-city--build-information)                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
-| [Aowanda](#Aowanda-build-information) | IceLake-SP (Xeon Scalable)         | WhitleyOpenBoardPkg           | Aowanda     |
-| [MtJade](#Aowanda-build-information) | Ampere Altra         | Jade         | MtJade     |
+    `edk2/Conf/tools_def.txt`
 
-  
-### Download the required components
+    `Platform/PlatformTools/BuildTools-env.cmd`
 
- To download the project, clone the repository along with all the submodules and checkout required TAG using the following command:
- git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with TAG name)
+    If you do not have a Visual Studio install which can be located by
+    edksetup.bat, you will need to configure all the proper PREFIX variables
+    required for the build.
 
-### Junction City Build Information
+    *  **Microsoft SDK**
 
-**Building with the python script**
+      Match chosen version of Microsoft Visual Studio.
 
-1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
-2. Type "cd edk2-platforms/Platform/Intel
-3. Type "python build_bios.py -p JunctionCity"
-4. On successful build, IFWI (Integrated Firmware Image) JUNCTIONCITY.bin and BIOS JUNCTIONCITY.fd rom files are created.
+  * **Python 3.x** (tested 3.7.4, 3.9 & 3.11.1)
 
-* build_bios.py arguments:
+    Download URL: https://www.python.org
 
-  | Argument              | Function                            |
-  | ----------------------|-------------------------------------|
-  | -h, --help            | show this help message and exit     |
-  | --platform, -p        | the platform to build               |
-  | --DEBUG, -d           | debug flag                          |
-  | --RELEASE, -r         | release flag                        |
-  | --cleanall            | cleans all                          |
+    Environment Variable: PYTHON_HOME
 
+    E.g., `PYTHON_HOME = C:\Python39`
 
-### Aowanda Build Information
+  * **Perl** (tested 5.32.1.1)
 
-**Building with the python script**
+    Download URL: https://strawberryperl.com (tested)
 
-1. Open command window, go to the workspace directory, e.g. c:\Edk2Workspace 
-2. Type "cd edk2-platforms/Platform/Intel
-3. Type "python build_bios.py -p Aowanda"
-4. On successful build, IFWI (Integrated Firmware Image) AOWANDA.bin and BIOS AOWANDA.fd rom files are created.
+    Strawberry Perl might require separately installing XML::LibXML
+    `cpan install XML::LibXML`
 
-* build_bios.py arguments:
+    Environment Variable: PERL_PATH
+    E.g., `PERL_PATH=C:\Strawberry\perl\bin`
 
-  | Argument              | Function                            |
-  | ----------------------|-------------------------------------|
-  | -h, --help            | show this help message and exit     |
-  | --platform, -p        | the platform to build               |
-  | --DEBUG, -d           | debug flag                          |
-  | --RELEASE, -r         | release flag                        |
-  | --cleanall            | cleans all                          |
+    Alternatively, ActiveState perl is available if there is trouble
+    installing Strawberry Perl.
 
+  * **NASM** (tested 2.15.05)
 
-### MtJade Build Information
+    Environment Variable: NASM_PREFIX
 
-Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI-MtJade-202206 branch
+  * **ASL compiler** (tested 20200110)
 
-### **Binary and Reference Code Details**
+    Environment Variable: ASL_PREFIX
 
-* [EDK2](https://github.com/tianocore/edk2) source based on edk2-stable202308
-* [EDK2-Platforms](https://github.com/tianocore/edk2-platforms) source based on commit hash bb6841e3fd1c60b3f8510b4fc0a380784e05d326
-* [EDK2-Non-OSI](https://github.com/tianocore/edk2-non-osi) source based on commit hash 8c09bd0955338db38813e0d8ae1faa634f545f73
-* [FSP](https://github.com/IntelFsp/FSP) source based on commit hash  46a88ff1e9ed45bb9bfcfa4654d292d60b30f442
+### Required Tools for Linux
 
-### **Validation Details**
+  * **Packages to install**
 
-* All firmware projects can only build on Windows with the validated configuration below.
+    build-essential
 
-**WhitleyOpenBoardPkg**
+    uuid-dev
 
-**This firmware project has only been tested on the Junction City hardware**.
-* This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
-* Booted to UEFI shell.
-* Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
-* Booted to UEFI Windows Server 2019 using SATA HDD.
-* Booted to UEFI RHEL 8.3 using SATA HDD and U2 SSD.
-* Booted to Ubuntu 18.04 on SATA slot and U2 SSD.
-* Verified PCIE LAN card detection during POST and OS.
-* Verified TPM offboard chip detection
+    python3
 
-**This firmware project has only been tested on the Aowanda AD1S01 hardware**.
-* This firmware project build has only been tested using the Microsoft Visual Studio 2015 build tools.
-* Booted to UEFI shell.
-* Booted to UEFI Windows Server 2019 on M.2 NVME Slot.
-* Booted to UEFI RHEL 8.3 using SATA on M.2 NVME Slot.
-* Verified onboard PCIE LAN card detection in POST and OS.
-* All the above testing is done using AMI MEGARAC SPX FW version 0.14.0 Remote KVM redirection
-  
-  
-### **New Features**
-* None
+    python3-pip
 
-### **Planned Activities**
-* Sync with latest EDKII and EDKII platforms
+    perl
 
-### **Additional Support and Customizations**
-*	To get dedicated support or additional features or customizations for Aptio OpenEdition, feel free to email sales@ami.com
+    libperl-dev
+
+    libxml-simple-perl
+
+    libxml-parser-perl
+
+    curl
+
+    ca-certificates
+
+    nasm
+
+    iasl
+
+### Required CRB support files
+
+  * **edk2**
+
+    version: edk2-stable202205
+
+  * **edk2-platforms**
+
+    version: b8ffb76b471dae5e24badcd9e04033e8c9439ce3
+
+  * All CRBs are using the AST 2600 BMC chip.  For UEFI video support on the
+    CRBs the GOP EFI driver must be obtained and placed in:
+    `CrbSupportPkg\BmcGopDxe\X64\uefi_2600.efi>` Latest drivers can be downloaded from https://www.aspeedtech.com/support_driver/
+
+Downloading and building the project
+-----------------
+
+### Download the project
+`git clone [project git URL] --recursive -b ocp_23-24`  
+`git submodule update --init --checkout --recursive`  
+
+*Note: **-b ocp_23-24** option is needed to directly switch to ocp_23-24 branch. If not specified, git switches to main; the submodule set is different between main and ocp_23-24 and following submodule update might be ugly.*
+
+### Building Platform BIOS (Windows CMD prompt)
+
+  * From the workspace directory, run the dbuild.cmd script.
+
+    ex: `dbuild.cmd genoa-onyx --edk2args="-t VS2019"`
+
+    By default (without options), the script will display a usage message and
+    list all available CRBs to build.
+
+  * To receive more verbose information for the first Level commands run:
+
+    `dbuild --help`
+
+  * Commands can have additional options.  Example:
+
+    `dbuild genoa-onyx --help`
+
+  * If you are not configuring the proper PREFIX variables for Visual Studio,
+    you will need to provide an edk2args override to supply the tagname.
+    The build process will use this to configure the build output directory
+    before the edk2 build commences
+
+    `--edk2args="-t VS2019"`
+
+  * The final BIOS will be placed in <workspace>\\*.FD
+
+### Building Platform BIOS (Linux bash)
+
+  * Make sure your build environment is configured as referenced in
+    [Required Tools for Linux](#required-tools-for-linux)
+
+  * From the workspace directory, run the dbuild.sh script.
+
+    ex: `./dbuild.sh genoa-onyx`
+
+    By default (without options), the script will display a usage message and
+    list all available CRBs to build.
+
+  * To receive more verbose information for the first Level commands run:
+
+    `./dbuild.sh --help`
+
+  * Commands can have additional options.  Example:
+    `./dbuild.sh genoa-onyx --help`
+
+  * The final BIOS will be placed in <workspace>\\*.FD
+
+## Enable CRB Serial Debug output
+
+  * The EDKII build defaults to a "RELEASE" type build, which does not include
+    serial debug output.
+
+    To build a "DEBUG" build, pass to dbuild `--edk2args="-b DEBUG"`.
+
+    Make sure to surround the arguments passed via edk2args with double quotes.
+
+    In the Project.dsc file,
+    `gEfiMdePkgTokenSpaceGuid.PcdFixedDebugPrintErrorLevel` can be modified
+    to change the EDK2 debug output.
+
+## Enable Secureboot
+
+  * Place the secureboot keys inside the respective subfolders within
+    Platform/SecurebootKeys folder.
+
+  * Modify Project.fdf and add/modify the path of secureboot keys in
+    [FV.FvSecurityLate] section.
+
+  * Uncomment the line
+    `gMinPlatformPkgTokenSpaceGuid.PcdUefiSecureBootEnable|TRUE` in Project.dsc
+
+  * On the first boot, the keys can be enrolled by selecting "Reset Secure Boot
+    Keys" option in the BIOS setup menu.
+
+## Current Level of Functionality
+
+  * Windows Datacenter 2019 and Linux Ubuntu 22.04LTS installation and boot support on Onyx CRB Hardware
+
+  * SOL Serial console: 115,200/8/1/N
+
+  * USB ports (Keyboard, Storage, etc.)
+
+  * On-board VGA (BMC) console
+
+  * Support for boot from USB and NVMe
+
+  * Shell command-line extension for "AcpiView" utility:
+    https://github.com/tianocore/edk2/tree/master/ShellPkg/Library/UefiShellAcpiViewCommandLib
+
+## Current known Issues and Limitations
+
+  * Platform-specific ACPI and SMBIOS tables minimally implemented.
