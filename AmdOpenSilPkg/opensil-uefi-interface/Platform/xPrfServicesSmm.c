@@ -3,7 +3,7 @@
  * @brief xPRF services protocol functions for SMM.
  */
 /**
- * Copyright 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+ * Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
  *
  */
 #include <Uefi.h>

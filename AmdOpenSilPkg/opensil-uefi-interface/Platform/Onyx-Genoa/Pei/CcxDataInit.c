@@ -1,4 +1,4 @@
-/* Copyright 2021-2023 Advanced Micro Devices, Inc. All rights reserved. */
+/* Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved. */
 /**
  * @file  CcxDataInit.c
  * @brief Initialize Ccx data prior to openSIL execution..

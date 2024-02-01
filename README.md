@@ -118,9 +118,8 @@ Downloading and building the project
 
 ### Download the project
 `git clone [project git URL] --recursive -b OE-AMI-Genoa_openSIL`  
-`git submodule update --init --checkout --recursive`  
 
-*Note: **-b OE-AMGenoa_openSIL** option is needed to directly switch to OE-AMI-Genoa_openSIL branch. If not specified, git switches to main; the submodule set is different between main and OE-AMI-Genoa_openSIL and following submodule update might be ugly.*
+*Note: **-b OE-AMGenoa_openSIL** option is needed to directly switch to OE-AMI-Genoa_openSIL branch. If not specified, git switches to main; the submodule set is different between main and OE-AMI-Genoa_openSIL.*
 
 ### Building Platform BIOS (Windows CMD prompt)
 

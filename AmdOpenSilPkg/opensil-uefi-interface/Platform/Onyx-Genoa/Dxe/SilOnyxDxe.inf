@@ -2,7 +2,7 @@
 # @file  SilOnyxDxe.inf
 # @brief DXE driver made for OpenSIL SI calls
 #
-# Copyright 2021 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 #
 
 [Defines]

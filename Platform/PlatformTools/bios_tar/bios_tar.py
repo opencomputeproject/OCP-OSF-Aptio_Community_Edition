@@ -1,6 +1,6 @@
 """
 *******************************************************************************
- Copyright (C) 2022 Advanced Micro Devices, Inc. All rights reserved.
+ Copyright (C) 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 
 *******************************************************************************
 """
@@ -148,7 +148,7 @@ def main():
 
     create_MANIFEST(version, fd file name, ExtendedVersion, KeyType, HashType, MachineName)
     """
-    print("bios_tar.py\t Copyright 2021 ADVANCED MICRO DEVICES, INC.  All Rights Reserved.")
+    print("bios_tar.py\t Copyright 2024 ADVANCED MICRO DEVICES, INC.  All Rights Reserved.")
     args = parse_args()
 
     if args.file.endswith(".FD"):

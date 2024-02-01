@@ -1,6 +1,5 @@
 /******************************************************************************
- * Copyright (C) 2020-2022 Advanced Micro Devices, Inc. All rights reserved.
- *
+ * Copyright (C) 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
  *
  ***************************************************************************/
 #ifndef _RESERVE_PCIE_EXTENDED_CONFIG_SPACE_

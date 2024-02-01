@@ -1,6 +1,6 @@
 """
 *******************************************************************************
- Copyright (C) 2021-2022 Advanced Micro Devices, Inc. All rights reserved.
+ Copyright (C) 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 *******************************************************************************
 """
 import os
@@ -49,14 +49,14 @@ def get_supported_builds():
     supported builds.
     Example:
         {
-          "rs1oi": {
+          "rs1oe": {
               "platform": "OnyxBoardPkg",   # BoardPkg dir with Project files
               "sku": "1O",
               "soc": "GENOA",
               "soc_family": "0x19",
-              "soc_sku": "RS",
+              "soc_sku": "GENOA",
               "board": "GENOAONYX",
-              "build": "INTERNAL",
+              "build": "EXTERNAL",
               "secure": "False",
               "simnow": "False",
               "emulation": "False",

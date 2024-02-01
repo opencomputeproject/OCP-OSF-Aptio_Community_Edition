@@ -2,7 +2,7 @@
 ; @file         MathU64.nasm
 ; @brief        Intrinsic functions for 64-bit data calculations in 32-bit CPU mode.
 ;
-; Copyright 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+; Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 ;
 
     global __allmul

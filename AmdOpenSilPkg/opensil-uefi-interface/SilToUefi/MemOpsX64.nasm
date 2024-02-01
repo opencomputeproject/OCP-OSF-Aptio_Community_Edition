@@ -2,7 +2,7 @@
 ; @file         MemOpsX64.nasm
 ; @brief        memcpy and memset implementation for 64-bit CPU mode.
 ;
-; Copyright 2021 Advanced Micro Devices, Inc. All rights reserved.
+; Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 ;
 
         global memset
