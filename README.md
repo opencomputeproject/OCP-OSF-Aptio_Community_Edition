@@ -96,15 +96,17 @@ return back to the minimum platform caller.
 
 | Machine Name                          | Supported Chipsets                         | BoardPkg                     | Board Name         |
 ----------------------------------------|--------------------------------------------|------------------------------|--------------------|
-| [Junction City](#junction-city--build-information)                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          | JunctionCity       |
-| [Aowanda](#Aowanda-build-information) | IceLake-SP (Xeon Scalable)         | WhitleyOpenBoardPkg           | Aowanda     |
-| [MtJade](#Aowanda-build-information) | Ampere Altra         | Jade         | MtJade     |
+| [Junction City](#junction-city-build-information)                         | IceLake-SP (Xeon Scalable)                 | WhitleyOpenBoardPkg          |JunctionCity|
+| [Aowanda](#aowanda-build-information) | IceLake-SP (Xeon Scalable)         | WhitleyOpenBoardPkg           | Aowanda     |
+| [MtJade](#mtjade-build-information) | Ampere Altra         | Jade         | MtJade     |
+| [Onyx](#onyx-build-information) | Genoa         | GenoaOpenBoardPkg         | Onyx     |
+
 
   
 ### Download the required components
 
  To download the project, clone the repository along with all the submodules and checkout required TAG using the following command:
- git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with TAG name)
+ git clone --recurse-submodules https://github.com/opencomputeproject/Aptio-OE.git -b (need to be replaced with the branch or TAG name)
 
 ### Junction City Build Information
 
@@ -149,6 +151,10 @@ return back to the minimum platform caller.
 ### MtJade Build Information
 
 Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI-MtJade-202206 branch
+
+### Onyx Build Information
+
+Refer to https://github.com/opencomputeproject/OSF-Aptio-OpenEdition/tree/OE-AMI-Genoa_openSIL branch
 
 ### **Binary and Reference Code Details**
 
